@@ -4,7 +4,7 @@ import { ChevronRight, ChevronLeft } from 'lucide-react';
 export function Hero() {
   return (
     <section className="max-w-[1440px] mx-auto md:px-4 lg:px-8 xl:px-12 md:py-4 lg:py-6 xl:py-8">
-      <div className="relative md:rounded-2xl overflow-hidden bg-[#F0EBE3] min-h-[340px] sm:min-h-[400px] md:min-h-[500px] xl:min-h-[600px] flex flex-col md:flex-row items-center group w-full">
+      <div className="relative md:rounded-2xl overflow-hidden bg-[#F0EBE3] min-h-[340px] sm:min-h-[400px] lg:h-[450px] lg:min-h-[450px] flex flex-col md:flex-row items-center group w-full">
         {/* Background Image Setup */}
         <div className="absolute inset-0 w-full h-full">
            <img 
