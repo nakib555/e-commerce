@@ -133,9 +133,13 @@ export default function App() {
             <CategoryList />
             <FlashSale onProductClick={handleProductClick} onAddToCart={handleAddToCart} />
             <BestSellers onProductClick={handleProductClick} onAddToCart={handleAddToCart} />
+            <Features />
+            <ComboOffers onProductClick={handleProductClick} onAddToCart={handleAddToCart} />
             <NewArrivals onProductClick={handleProductClick} onAddToCart={handleAddToCart} />
+            <PromoBanners />
             <Brands />
             <CustomerReviews />
+            <TrustAndFaq />
           </div>
         ) : (
           <div className="max-w-[1440px] mx-auto w-full px-4 lg:px-8 xl:px-12 py-6 sm:py-10">
