@@ -89,7 +89,7 @@ export function Header() {
       </div>
 
       {/* Mobile Search - Visible only on smallest screens */}
-      <div className={`px-4 md:hidden flex flex-col transition-all duration-300 ${isScrolled ? 'py-3 gap-0 bg-white shadow-sm' : 'pb-3 gap-3'}`}>
+      <div className={`px-4 md:hidden flex flex-col transition-all duration-300 bg-white ${isScrolled ? 'shadow-sm pb-3 pt-1' : 'pb-2 pt-1'}`}>
         <div className="flex items-center relative">
           <input 
             type="text" 
@@ -103,7 +103,7 @@ export function Header() {
         
         <div 
           onClick={() => setIsLocationModalOpen(true)}
-          className={`flex items-center gap-1.5 text-sm text-gray-600 border-gray-100 transition-all duration-300 overflow-hidden cursor-pointer ${isScrolled ? 'max-h-0 opacity-0 pb-0 border-transparent m-0' : 'max-h-[40px] opacity-100 pb-2 border-b mt-2'}`}>
+          className={`flex items-center gap-1.5 text-sm text-gray-600 border-gray-100 transition-all duration-300 overflow-hidden cursor-pointer ${isScrolled ? 'max-h-0 opacity-0 pb-0 border-transparent mt-0 mb-0' : 'max-h-[40px] opacity-100 pb-2 border-b mt-3 mb-1'}`}>
           <MapPin size={16} className="text-brand-emerald shrink-0" />
           <span className="text-xs truncate font-medium">ডেলিভারি করুন: {selectedLocation}</span>
           <ChevronDown size={14} className="text-gray-400 shrink-0" />

@@ -18,7 +18,7 @@ export function CategoryList() {
         <div className="grid grid-cols-4 gap-y-5 gap-x-2 md:hidden">
           {categories.map((category) => (
             <a key={category.id} href="#" className="flex flex-col items-center gap-2 group">
-              <div className="w-16 h-16 rounded-full overflow-hidden border border-gray-100 bg-gray-50 flex items-center justify-center">
+              <div className="w-16 h-16 rounded-full overflow-hidden border border-gray-100 bg-gray-50 flex items-center justify-center shadow-md">
                 <img 
                   src={category.image} 
                   alt={category.name} 
@@ -31,7 +31,7 @@ export function CategoryList() {
             </a>
           ))}
           <a href="#" className="flex flex-col items-center gap-2 group">
-            <div className="w-16 h-16 rounded-full bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-500">
+            <div className="w-16 h-16 rounded-full bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-500 shadow-md">
               <Grid size={24} strokeWidth={1.5} />
             </div>
             <span className="text-[11px] text-center font-medium text-gray-700 leading-tight">
