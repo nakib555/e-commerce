@@ -11,6 +11,9 @@ import { Hero } from './components/Hero';
 import { CategoryList } from './components/CategoryList';
 import { FlashSale } from './components/FlashSale';
 import { BestSellers } from './components/BestSellers';
+import { NewArrivals } from './components/NewArrivals';
+import { Brands } from './components/Brands';
+import { CustomerReviews } from './components/CustomerReviews';
 import { Features } from './components/Features';
 import { ComboOffers } from './components/ComboOffers';
 import { PromoBanners } from './components/PromoBanners';
@@ -130,10 +133,9 @@ export default function App() {
             <CategoryList />
             <FlashSale onProductClick={handleProductClick} onAddToCart={handleAddToCart} />
             <BestSellers onProductClick={handleProductClick} onAddToCart={handleAddToCart} />
-            <Features />
-            <ComboOffers onProductClick={handleProductClick} onAddToCart={handleAddToCart} />
-            <PromoBanners />
-            <TrustAndFaq />
+            <NewArrivals onProductClick={handleProductClick} onAddToCart={handleAddToCart} />
+            <Brands />
+            <CustomerReviews />
           </div>
         ) : (
           <div className="max-w-[1440px] mx-auto w-full px-4 lg:px-8 xl:px-12 py-6 sm:py-10">

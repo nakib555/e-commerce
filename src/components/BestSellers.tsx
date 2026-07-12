@@ -38,7 +38,7 @@ const ProductListCard: React.FC<{
         </h3>
         
         <div className="flex items-center gap-1.5 mb-0.5 flex-wrap">
-          <span className="text-[12px] font-bold text-[#125838]">৳{product.price.toLocaleString('en-IN')}</span>
+          <span className="text-[12px] font-bold text-brand-emerald">৳{product.price.toLocaleString('en-IN')}</span>
           {product.oldPrice && (
             <span className="text-[9px] text-gray-400 line-through">৳{product.oldPrice.toLocaleString('en-IN')}</span>
           )}
@@ -81,9 +81,12 @@ export function BestSellers({ onProductClick, onAddToCart }: BestSellersProps) {
   return (
     <section className="max-w-[1440px] mx-auto px-4 lg:px-8 xl:px-12 py-4 sm:py-8 xl:py-12">
       <div className="flex items-center justify-between mb-2 sm:mb-6">
-        <h2 className="text-[14px] sm:text-2xl font-bold text-gray-800 flex items-center gap-3">
-          বেস্ট সেলার
-        </h2>
+        <div className="flex items-center gap-2">
+          <div className="w-1.5 h-6 bg-brand-emerald rounded-full"></div>
+          <h2 className="text-[14px] sm:text-2xl font-bold text-gray-800 flex items-center gap-3">
+            ফিচার্ড প্রোডাক্টস
+          </h2>
+        </div>
         
         <a href="#" className="text-brand-emerald font-medium flex items-center gap-0.5 hover:text-brand-dark transition-colors text-[12px] sm:hidden mt-0.5">
           সব দেখুন <ArrowRight size={12} />

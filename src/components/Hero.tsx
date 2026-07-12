@@ -33,7 +33,7 @@ export function Hero() {
           <span 
             className={isMobile 
               ? "inline-block px-2 py-0.5 sm:px-3 sm:py-1 bg-[#E8F5E9] dark:bg-[#0A2E1F] text-brand-emerald rounded-md text-[9px] sm:text-xs md:text-sm font-semibold mb-3 sm:mb-3 md:mb-4 xl:mb-6 shadow-sm w-max animate-fade-in"
-              : "inline-block px-3 py-1 bg-[#E8F5E9] dark:bg-[#0A2E1F] text-[#125838] dark:text-emerald-300 rounded-full text-xs sm:text-sm font-semibold mb-4 shadow-sm w-max animate-fade-in"
+              : "inline-block px-3 py-1 bg-[#E8F5E9] dark:bg-[#0A2E1F] text-brand-emerald dark:text-emerald-300 rounded-full text-xs sm:text-sm font-semibold mb-4 shadow-sm w-max animate-fade-in"
             }
             style={isMobile ? { fontSize: '11px', fontFamily: 'Verdana', height: '24.5px', width: '130.188px', marginBottom: '12px', paddingBottom: '0px' } : undefined}
           >
@@ -47,7 +47,7 @@ export function Hero() {
             style={isMobile ? { fontSize: '23px', fontFamily: 'Times New Roman' } : undefined}
           >
             ঈদ হোক<br/>
-            <span className={isMobile ? "text-[#888888] dark:text-gray-300" : "text-[#125838] dark:text-emerald-400 font-black"}>আনন্দময়</span><br/>
+            <span className={isMobile ? "text-[#888888] dark:text-gray-300" : "text-brand-emerald dark:text-emerald-400 font-black"}>আনন্দময়</span><br/>
             <span className={isMobile ? "text-[#888888] dark:text-gray-300" : "text-[#9E7A3E] dark:text-amber-400 font-black"}>ও স্টাইলিশ</span>
           </h1>
           <p 
@@ -63,15 +63,15 @@ export function Hero() {
           <div className="flex flex-wrap items-center gap-3 sm:gap-4">
             <button 
               className={isMobile
-                ? "bg-[#125838] dark:bg-brand-emerald text-white px-4 sm:px-6 md:px-8 py-1.5 sm:py-2.5 md:py-3.5 rounded text-[10px] sm:text-sm md:text-base font-medium hover:bg-brand-dark dark:hover:bg-[#125838] transition-colors"
-                : "group bg-[#125838] dark:bg-brand-emerald text-white px-10 py-4.5 rounded-xl text-lg font-bold hover:bg-[#0D3F28] dark:hover:bg-[#1A8050] transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
+                ? "bg-brand-emerald dark:bg-brand-emerald text-white px-4 sm:px-6 md:px-8 py-1.5 sm:py-2.5 md:py-3.5 rounded text-[10px] sm:text-sm md:text-base font-medium hover:bg-brand-dark dark:hover:bg-[#125838] transition-colors"
+                : "group bg-brand-emerald dark:bg-brand-emerald text-white px-10 py-4.5 rounded-xl text-lg font-bold hover:bg-[#0D3F28] dark:hover:bg-[#1A8050] transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
               }
               style={isMobile ? { fontSize: '15px', lineHeight: '15px', height: '33px', width: '119.9375px', borderRadius: '8px' } : undefined}
             >
               এখনই কিনুন
               {!isMobile && <ChevronRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />}
             </button>
-            <button className="bg-white/95 backdrop-blur-sm dark:bg-[#1E1E1E] text-[#125838] dark:text-emerald-400 px-10 py-4.5 rounded-xl text-lg font-bold hover:bg-gray-50 dark:hover:bg-[#2A2A2A] transition-all duration-300 border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-lg hidden sm:flex items-center justify-center gap-2">
+            <button className="bg-white/95 backdrop-blur-sm dark:bg-[#1E1E1E] text-brand-emerald dark:text-emerald-400 px-10 py-4.5 rounded-xl text-lg font-bold hover:bg-gray-50 dark:hover:bg-[#2A2A2A] transition-all duration-300 border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-lg hidden sm:flex items-center justify-center gap-2">
               সব কালেকশন দেখুন
             </button>
           </div>
@@ -87,10 +87,10 @@ export function Hero() {
 
         {/* Indicators */}
         <div className="absolute bottom-4 left-6 md:left-1/2 md:-translate-x-1/2 flex items-center gap-2">
-          <div className="w-2 h-2 rounded-full bg-[#125838]"></div>
-          <div className="w-2 h-2 rounded-full bg-[#125838]/20 md:bg-white/60"></div>
-          <div className="w-2 h-2 rounded-full bg-[#125838]/20 md:bg-white/60"></div>
-          <div className="w-2 h-2 rounded-full bg-[#125838]/20 md:bg-white/60"></div>
+          <div className="w-2 h-2 rounded-full bg-brand-emerald"></div>
+          <div className="w-2 h-2 rounded-full bg-brand-emerald/20 md:bg-white/60"></div>
+          <div className="w-2 h-2 rounded-full bg-brand-emerald/20 md:bg-white/60"></div>
+          <div className="w-2 h-2 rounded-full bg-brand-emerald/20 md:bg-white/60"></div>
         </div>
       </div>
     </section>

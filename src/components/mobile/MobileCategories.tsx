@@ -63,11 +63,11 @@ export function MobileCategories({ onProductClick, onAddToCart }: MobileCategori
               transition={{ duration: 0.3, delay: index * 0.04 }}
               className="group flex flex-col items-center bg-white dark:bg-[#1E1E1E] p-4 sm:p-6 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-800"
             >
-              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden mb-3 sm:mb-4 bg-gray-50 dark:bg-[#121212] border border-gray-100 dark:border-gray-800 p-1 flex items-center justify-center shadow-inner">
+              <div className="w-[96px] h-[96px] sm:w-[112px] sm:h-[112px] rounded-[18px] overflow-hidden mb-3 sm:mb-4 bg-gray-50 dark:bg-[#121212] border border-gray-100 dark:border-gray-800 p-1 flex items-center justify-center shadow-[0_4px_10px_rgba(0,0,0,0.06)]">
                 <img 
                   src={category.image} 
                   alt={category.name} 
-                  className="w-full h-full object-cover rounded-full group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-cover rounded-[14px] group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
               <span className="text-sm font-semibold text-gray-700 dark:text-gray-200 text-center mb-2 group-hover:text-brand-emerald transition-colors line-clamp-1">

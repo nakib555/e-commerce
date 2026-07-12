@@ -140,22 +140,13 @@ export function Header({
         </div>
       </div>
 
-      {/* Mobile Search - Visible only on smallest screens */}
+      {/* Mobile Location Selector - Visible only on smallest screens */}
       <div 
-        className={`px-4 md:hidden flex flex-col transition-all duration-300 bg-white dark:bg-[#121212] ${isScrolled ? 'shadow-sm pb-4 pt-1' : 'pb-3 pt-2'}`}
+        className={`px-4 md:hidden flex flex-col transition-all duration-300 bg-white dark:bg-[#121212] ${isScrolled ? '' : 'pb-2 pt-1'}`}
       >
-        <div className="flex items-center relative w-full group shadow-sm rounded-2xl">
-          <Search size={22} className="absolute left-4 text-gray-400 pointer-events-none transition-colors group-focus-within:text-brand-emerald" strokeWidth={1.5} />
-          <input 
-            type="text" 
-            placeholder="আপনি কী খুঁজছেন?" 
-            className="w-full border border-gray-200 dark:border-gray-800 bg-gray-50/50 dark:bg-[#1A1A1A] dark:text-white rounded-2xl pl-12 pr-4 h-[54px] focus:outline-none focus:border-brand-emerald focus:ring-1 focus:ring-brand-emerald/20 transition-all text-[15px]"
-          />
-        </div>
-        
         <div 
           onClick={() => setIsLocationModalOpen(true)}
-          className={`flex items-center gap-1.5 text-sm text-gray-600 dark:text-gray-400 border-gray-100 dark:border-gray-800 transition-all duration-300 overflow-hidden cursor-pointer ${isScrolled ? 'max-h-0 opacity-0 pb-0 border-transparent mt-0 mb-0' : 'max-h-[40px] opacity-100 pb-2 border-b mt-4 mb-1'}`}>
+          className={`flex items-center gap-1.5 text-sm text-gray-600 dark:text-gray-400 border-gray-100 dark:border-gray-800 transition-all duration-300 overflow-hidden cursor-pointer ${isScrolled ? 'max-h-0 opacity-0 pb-0 border-transparent mt-0 mb-0' : 'max-h-[40px] opacity-100 pb-2 border-b mt-2 mb-1'}`}>
           <MapPin size={16} className="text-brand-emerald shrink-0" />
           <span className="text-xs truncate font-medium">ডেলিভারি করুন: {selectedLocation}</span>
           <ChevronDown size={14} className="text-gray-400 shrink-0" />

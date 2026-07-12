@@ -87,17 +87,17 @@ export function FlashSale({ onProductClick, onAddToCart }: FlashSaleProps) {
 
         {/* Products Carousel Area */}
         <div className="lg:w-3/4 flex flex-col">
-          {/* Flash Sale Carousel (Mobile Only) */}
-          <div className="md:hidden flex overflow-x-auto hide-scrollbar snap-x snap-mandatory gap-2.5 pb-3 -mx-4 px-4">
+          {/* Flash Sale Carousel */}
+          <div className="flex md:grid overflow-x-auto md:overflow-visible hide-scrollbar snap-x snap-mandatory md:snap-none md:grid-cols-3 gap-2.5 md:gap-4 xl:gap-6 pb-3 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0">
             {isLoading ? (
               Array(3).fill(0).map((_, i) => (
-                <div key={i} className="min-w-[38vw] sm:min-w-[260px] snap-center shrink-0 w-[38vw]">
+                <div key={i} className="min-w-[38vw] sm:min-w-[260px] md:min-w-0 snap-center shrink-0 w-[38vw] md:w-auto">
                   <ProductSkeleton />
                 </div>
               ))
             ) : (
               flashSaleProducts.slice(0, 3).map(product => (
-                <div key={product.id} className="min-w-[38vw] sm:min-w-[260px] snap-center shrink-0 w-[38vw] flex flex-col">
+                <div key={product.id} className="min-w-[38vw] sm:min-w-[260px] md:min-w-0 snap-center shrink-0 w-[38vw] md:w-auto flex flex-col">
                   <ProductCard 
                     product={product} 
                     onProductClick={onProductClick}
@@ -106,36 +106,6 @@ export function FlashSale({ onProductClick, onAddToCart }: FlashSaleProps) {
                 </div>
               ))
             )}
-          </div>
-
-          {/* New Arrivals Section */}
-          <div className="mt-4 md:mt-0">
-            <div className="flex items-center justify-between mb-2 md:mb-4">
-              <h3 className="text-[14px] md:text-xl font-bold md:font-heading md:font-bold text-gray-800">নতুন এসেছে</h3>
-              <a href="#" className="text-brand-emerald font-medium flex items-center gap-0.5 md:gap-1 hover:text-brand-dark transition-colors text-[12px] md:text-sm">
-                সব দেখুন <ArrowRight size={12} className="md:w-4 md:h-4" />
-              </a>
-            </div>
-            
-            <div className="flex md:grid overflow-x-auto md:overflow-visible hide-scrollbar snap-x snap-mandatory md:snap-none md:grid-cols-2 lg:grid-cols-4 gap-2.5 md:gap-4 xl:gap-6 pb-3 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0">
-              {isLoading ? (
-                Array(3).fill(0).map((_, i) => (
-                  <div key={i} className="min-w-[38vw] sm:min-w-[260px] md:min-w-0 snap-center shrink-0 w-[38vw] md:w-auto">
-                    <ProductSkeleton />
-                  </div>
-                ))
-              ) : (
-                flashSaleProducts.slice(3, 6).map(product => (
-                  <div key={product.id} className="min-w-[38vw] sm:min-w-[260px] md:min-w-0 snap-center shrink-0 w-[38vw] md:w-auto flex flex-col">
-                    <ProductCard 
-                      product={product} 
-                      onProductClick={onProductClick}
-                      onAddToCart={onAddToCart}
-                    />
-                  </div>
-                ))
-              )}
-            </div>
           </div>
         </div>
       </div>

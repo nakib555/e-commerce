@@ -19,12 +19,12 @@ export function ProductCard({ product, featured = false, onProductClick, onAddTo
       {/* Badges */}
       <div className="absolute top-2 left-2 sm:top-3 sm:left-3 z-10 flex flex-col gap-1 sm:gap-2">
         {product.discount && (
-          <span className="bg-red-500 text-white text-[9px] sm:text-[10px] font-bold px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-sm">
+          <span className="bg-brand-orange text-white text-[9px] sm:text-[10px] font-bold px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-sm">
             -{product.discount}%
           </span>
         )}
         {product.isNew && (
-          <span className="bg-[#125838] text-white text-[9px] sm:text-[10px] font-bold px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-sm">
+          <span className="bg-brand-emerald text-white text-[9px] sm:text-[10px] font-bold px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-sm">
             নতুন
           </span>
         )}
@@ -73,7 +73,7 @@ export function ProductCard({ product, featured = false, onProductClick, onAddTo
         <div className="mt-auto pt-1 flex items-end justify-between">
           <div className="flex flex-col">
             <div className="flex items-center gap-1.5 mb-1 flex-wrap">
-              <span className="text-[11px] sm:text-lg font-bold text-[#125838]">৳{product.price.toLocaleString('en-IN')}</span>
+              <span className="text-[11px] sm:text-lg font-bold text-brand-emerald">৳{product.price.toLocaleString('en-IN')}</span>
               {product.oldPrice && (
                 <span className="text-[8px] sm:text-xs text-gray-400 line-through">৳{product.oldPrice.toLocaleString('en-IN')}</span>
               )}

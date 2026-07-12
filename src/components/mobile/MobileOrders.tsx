@@ -203,7 +203,7 @@ export function MobileOrders({ isLoggedIn = false, onLoginClick }: MobileOrdersP
           <div className="text-lg sm:text-2xl font-bold text-yellow-700 dark:text-yellow-400 mt-1">১ টি</div>
         </div>
         <div className="bg-[#E8F5E9]/50 dark:bg-emerald-950/20 border border-emerald-100/50 dark:border-emerald-900/50 p-3 sm:p-4 rounded-2xl shadow-sm text-center">
-          <div className="text-[#125838] dark:text-emerald-400 text-[10px] sm:text-xs font-semibold">ডেলিভারি সম্পন্ন</div>
+          <div className="text-brand-emerald dark:text-emerald-400 text-[10px] sm:text-xs font-semibold">ডেলিভারি সম্পন্ন</div>
           <div className="text-lg sm:text-2xl font-bold text-brand-emerald mt-1">১ টি</div>
         </div>
       </div>
@@ -251,7 +251,7 @@ export function MobileOrders({ isLoggedIn = false, onLoginClick }: MobileOrdersP
                   <div className="flex items-center gap-4 ml-auto sm:ml-0">
                     <div className="text-right">
                       <span className="text-xs text-gray-400 block">{order.itemsCount} টি পণ্য</span>
-                      <span className="text-sm sm:text-lg font-extrabold text-[#125838] dark:text-brand-emerald mt-0.5 block">{order.total}</span>
+                      <span className="text-sm sm:text-lg font-extrabold text-brand-emerald mt-0.5 block">{order.total}</span>
                     </div>
                     <div className="text-gray-400">
                       <ChevronDown size={20} className={`transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} />
@@ -319,7 +319,7 @@ export function MobileOrders({ isLoggedIn = false, onLoginClick }: MobileOrdersP
                           </div>
                           <div className="border-t border-gray-100 dark:border-gray-800 pt-2 flex justify-between font-bold text-gray-800 dark:text-white">
                             <span>সর্বমোট</span>
-                            <span className="text-[#125838] dark:text-brand-emerald">{order.grandTotal}</span>
+                            <span className="text-brand-emerald">{order.grandTotal}</span>
                           </div>
                         </div>
 

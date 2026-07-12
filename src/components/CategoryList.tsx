@@ -26,19 +26,19 @@ export function CategoryList() {
           {isLoading ? (
             Array(8).fill(0).map((_, i) => (
               <div key={i} className="flex flex-col items-center gap-2">
-                <div className="w-16 h-16 rounded-full bg-gray-200 dark:bg-gray-800 animate-pulse shadow-md dark:shadow-none"></div>
+                <div className="w-[72px] h-[72px] rounded-[18px] bg-gray-200 dark:bg-gray-800 animate-pulse shadow-md dark:shadow-none"></div>
                 <div className="h-3 w-12 bg-gray-200 dark:bg-gray-800 rounded animate-pulse"></div>
               </div>
             ))
           ) : (
             <>
-              {categories.map((category) => (
+              {categories.slice(0, 7).map((category) => (
                 <a key={category.id} href="#" className="flex flex-col items-center gap-2 group">
-                  <div className="w-16 h-16 rounded-full overflow-hidden border border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-[#121212] flex items-center justify-center shadow-md dark:shadow-none">
+                  <div className="w-[72px] h-[72px] rounded-[18px] overflow-hidden border border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-[#121212] flex items-center justify-center shadow-[0_4px_10px_rgba(0,0,0,0.06)] dark:shadow-none">
                     <img 
                       src={category.image} 
                       alt={category.name} 
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                      className="w-full h-full object-cover rounded-[18px] group-hover:scale-110 transition-transform duration-300"
                     />
                   </div>
                   <span className="text-[10px] text-center font-medium text-gray-700 dark:text-gray-300 leading-tight">
@@ -47,7 +47,7 @@ export function CategoryList() {
                 </a>
               ))}
               <a href="#" className="flex flex-col items-center gap-2 group">
-                <div className="w-16 h-16 rounded-full bg-gray-50 dark:bg-[#121212] border border-gray-100 dark:border-gray-800 flex items-center justify-center text-gray-500 dark:text-gray-400 shadow-md dark:shadow-none">
+                <div className="w-[72px] h-[72px] rounded-[18px] bg-gray-50 dark:bg-[#121212] border border-gray-100 dark:border-gray-800 flex items-center justify-center text-gray-500 dark:text-gray-400 shadow-[0_4px_10px_rgba(0,0,0,0.06)] dark:shadow-none">
                   <Grid size={24} strokeWidth={1.5} />
                 </div>
                 <span className="text-[11px] text-center font-medium text-gray-700 dark:text-gray-300 leading-tight">

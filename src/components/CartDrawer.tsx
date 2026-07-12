@@ -367,7 +367,7 @@ export function CartDrawer({
                     </div>
                     <div className="border-t border-gray-100 dark:border-gray-800 pt-2 flex justify-between text-sm font-extrabold">
                       <span className="text-gray-800 dark:text-gray-200">মোট পরিশোধিত:</span>
-                      <span className="text-[#125838] dark:text-brand-emerald">৳{total}</span>
+                      <span className="text-brand-emerald">৳{total}</span>
                     </div>
                   </div>
                   
@@ -401,7 +401,7 @@ export function CartDrawer({
                   </div>
                   <div className="border-t border-gray-200 dark:border-gray-700 pt-2 flex justify-between font-extrabold text-base text-gray-800 dark:text-white">
                     <span>সর্বমোট মূল্য</span>
-                    <span className="text-[#125838] dark:text-brand-emerald">৳{total}</span>
+                    <span className="text-brand-emerald">৳{total}</span>
                   </div>
                 </div>
 
@@ -430,7 +430,7 @@ export function CartDrawer({
                     </button>
                     <button
                       onClick={handleCheckoutSubmit}
-                      className="flex-1 bg-[#125838] dark:bg-brand-emerald text-white py-3 rounded-xl font-bold text-xs sm:text-sm hover:bg-[#0a4228] transition-colors flex items-center justify-center gap-1.5"
+                      className="flex-1 bg-brand-emerald text-white py-3 rounded-xl font-bold text-xs sm:text-sm hover:bg-brand-dark transition-colors flex items-center justify-center gap-1.5"
                     >
                       <ShieldCheck size={16} />
                       <span>অর্ডার নিশ্চিত করুন</span>

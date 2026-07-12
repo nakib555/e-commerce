@@ -309,7 +309,7 @@ export function ProductDetailModal({ product, isOpen, onClose, onAddToCart }: Pr
                         স্টকে আছে (স্ট্যান্ডার্ড ডেলিভারি)
                       </span>
                       {product.isNew && (
-                        <span className="bg-[#125838] text-white text-[10px] sm:text-xs font-bold px-2.5 py-1 rounded-full">
+                        <span className="bg-brand-emerald text-white text-[10px] sm:text-xs font-bold px-2.5 py-1 rounded-full">
                           নতুন পণ্য
                         </span>
                       )}
@@ -341,7 +341,7 @@ export function ProductDetailModal({ product, isOpen, onClose, onAddToCart }: Pr
                       <div>
                         <span className="text-xs text-gray-400 block mb-1 font-medium">বিক্রয় মূল্য:</span>
                         <div className="flex items-baseline gap-2.5">
-                          <span className="text-xl sm:text-3xl font-extrabold text-[#125838] dark:text-brand-emerald">
+                          <span className="text-xl sm:text-3xl font-extrabold text-brand-emerald">
                             ৳{(product.price * quantity).toLocaleString('en-IN')}
                           </span>
                           {product.oldPrice && (
