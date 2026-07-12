@@ -7,10 +7,10 @@ function FooterAccordion({ title, children }: { title: string, children: React.R
     <div className="border-b border-white/10 py-3 md:border-none md:py-0">
       <button 
         onClick={() => setIsOpen(!isOpen)} 
-        className="flex items-center justify-between w-full md:hidden font-heading font-medium text-[15px]"
+        className="flex items-center justify-between w-full md:hidden font-heading font-medium text-[14px]"
       >
         {title}
-        <ChevronDown size={16} className={`transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
+        <ChevronDown size={14} className={`transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
       </button>
       <h4 className="font-heading font-bold text-lg mb-6 hidden md:block">{title}</h4>
       <div className={`${isOpen ? 'block' : 'hidden'} md:block mt-3 md:mt-0`}>
@@ -28,25 +28,25 @@ export function Footer() {
           
           {/* Brand Info */}
           <div className="lg:col-span-2 mb-8 md:mb-0">
-            <a href="/" className="flex items-center gap-2 text-2xl md:text-3xl font-heading font-bold text-white mb-4 md:mb-6">
-              <ShoppingBag className="text-brand-emerald" size={28} />
+            <a href="/" className="flex items-center gap-2 text-xl md:text-3xl font-heading font-bold text-white mb-3 md:mb-6">
+              <ShoppingBag className="text-brand-emerald" size={24} />
               <span>Deshi<span className="text-brand-emerald">Mart</span></span>
             </a>
-            <p className="text-gray-300 text-xs md:text-sm leading-relaxed mb-6 max-w-sm">
+            <p className="text-gray-300 text-[11px] md:text-sm leading-relaxed mb-4 max-w-sm">
               দেশি মার্ট বাংলাদেশের অন্যতম বিশ্বস্ত অনলাইন শপিং প্ল্যাটফর্ম। সেরা পণ্য, সেরা দাম, আপনার জন্য।
             </p>
-            <div className="flex items-center gap-3 md:gap-4">
-              <a href="#" className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-emerald transition-colors">
-                <Facebook size={18} />
+            <div className="flex items-center gap-2.5 md:gap-4">
+              <a href="#" className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-emerald transition-colors">
+                <Facebook size={14} className="md:w-[18px] md:h-[18px]" />
               </a>
-              <a href="#" className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-emerald transition-colors">
-                <Youtube size={18} />
+              <a href="#" className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-emerald transition-colors">
+                <Youtube size={14} className="md:w-[18px] md:h-[18px]" />
               </a>
-              <a href="#" className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-emerald transition-colors">
-                <Instagram size={18} />
+              <a href="#" className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-emerald transition-colors">
+                <Instagram size={14} className="md:w-[18px] md:h-[18px]" />
               </a>
-              <a href="#" className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-emerald transition-colors">
-                <Linkedin size={18} />
+              <a href="#" className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-emerald transition-colors">
+                <Linkedin size={14} className="md:w-[18px] md:h-[18px]" />
               </a>
             </div>
           </div>

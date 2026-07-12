@@ -48,27 +48,27 @@ export function ProductCard({ product, featured = false }: ProductCardProps) {
       </div>
 
       {/* Content */}
-      <div className="p-2 sm:p-4 flex flex-col flex-1">
-        <h3 className="text-[11px] sm:text-sm font-medium text-gray-800 line-clamp-2 mb-1 hover:text-brand-emerald transition-colors cursor-pointer">
+      <div className="p-1.5 sm:p-4 flex flex-col flex-1">
+        <h3 className="text-[10px] sm:text-sm font-medium text-gray-800 line-clamp-2 mb-1 hover:text-brand-emerald transition-colors cursor-pointer leading-snug">
           {product.name}
         </h3>
         
         <div className="mt-auto pt-1 flex items-end justify-between">
           <div className="flex flex-col">
             <div className="flex items-center gap-1.5 mb-1 flex-wrap">
-              <span className="text-xs sm:text-lg font-bold text-[#125838]">৳{product.price.toLocaleString('en-IN')}</span>
+              <span className="text-[11px] sm:text-lg font-bold text-[#125838]">৳{product.price.toLocaleString('en-IN')}</span>
               {product.oldPrice && (
-                <span className="text-[9px] sm:text-xs text-gray-400 line-through">৳{product.oldPrice.toLocaleString('en-IN')}</span>
+                <span className="text-[8px] sm:text-xs text-gray-400 line-through">৳{product.oldPrice.toLocaleString('en-IN')}</span>
               )}
             </div>
             <div className="flex items-center gap-1">
-              <Star size={10} className="fill-brand-gold text-brand-gold" />
-              <span className="text-[10px] sm:text-xs font-medium text-gray-600">{product.rating} <span className="text-gray-400 font-normal">({product.reviews})</span></span>
+              <Star size={8} className="fill-brand-gold text-brand-gold sm:w-3 sm:h-3" />
+              <span className="text-[8px] sm:text-[11px] font-medium text-gray-600">{product.rating} <span className="text-gray-400 font-normal">({product.reviews})</span></span>
             </div>
           </div>
           
-          <button className="w-6 h-6 rounded-full bg-white border border-gray-200 flex items-center justify-center text-brand-emerald hover:bg-brand-emerald hover:text-white hover:border-brand-emerald transition-colors shadow-sm shrink-0">
-            <ShoppingCart size={12} />
+          <button className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-white border border-gray-200 flex items-center justify-center text-brand-emerald hover:bg-brand-emerald hover:text-white hover:border-brand-emerald transition-colors shadow-sm shrink-0">
+            <ShoppingCart size={10} className="sm:w-3 sm:h-3" />
           </button>
         </div>
       </div>

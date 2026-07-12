@@ -5,12 +5,12 @@ import { Grid, ArrowRight } from 'lucide-react';
 export function CategoryList() {
   return (
     <section className="max-w-[1440px] mx-auto px-4 lg:px-8 xl:px-12 py-4 sm:py-6">
-      <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-sm border border-gray-100">
+      <div className="md:bg-white md:rounded-2xl md:p-6 md:shadow-sm md:border md:border-gray-100">
         
-        <div className="flex items-center justify-between mb-4 md:hidden">
-          <h3 className="text-[15px] font-bold text-gray-800">ক্যাটাগরি সমূহ</h3>
-          <a href="#" className="text-brand-emerald font-medium flex items-center gap-0.5 text-[13px]">
-            সব দেখুন <ArrowRight size={14} />
+        <div className="flex items-center justify-between mb-3 md:hidden">
+          <h3 className="text-[14px] font-bold text-gray-800">ক্যাটাগরি সমূহ</h3>
+          <a href="#" className="text-brand-emerald font-medium flex items-center gap-0.5 text-[12px]">
+            সব দেখুন <ArrowRight size={12} />
           </a>
         </div>
 

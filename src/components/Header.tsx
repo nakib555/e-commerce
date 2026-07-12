@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { ShoppingBag, Search, User, Heart, ShoppingCart, Menu, ChevronDown, Phone, MapPin } from 'lucide-react';
+import { ShoppingBag, Search, User, Heart, ShoppingCart, Menu, ChevronDown, Phone, MapPin, X } from 'lucide-react';
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isLocationModalOpen, setIsLocationModalOpen] = useState(false);
+  const [selectedLocation, setSelectedLocation] = useState('ঢাকা, বাংলাদেশ');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -99,9 +101,11 @@ export function Header() {
           </button>
         </div>
         
-        <div className={`flex items-center gap-1.5 text-sm text-gray-600 border-gray-100 transition-all duration-300 overflow-hidden ${isScrolled ? 'max-h-0 opacity-0 pb-0 border-transparent m-0' : 'max-h-[40px] opacity-100 pb-2 border-b mt-2'}`}>
-          <MapPin size={16} className="text-gray-400 shrink-0" />
-          <span className="text-xs truncate">ডেলিভারি করুন: ঢাকা, বাংলাদেশ</span>
+        <div 
+          onClick={() => setIsLocationModalOpen(true)}
+          className={`flex items-center gap-1.5 text-sm text-gray-600 border-gray-100 transition-all duration-300 overflow-hidden cursor-pointer ${isScrolled ? 'max-h-0 opacity-0 pb-0 border-transparent m-0' : 'max-h-[40px] opacity-100 pb-2 border-b mt-2'}`}>
+          <MapPin size={16} className="text-brand-emerald shrink-0" />
+          <span className="text-xs truncate font-medium">ডেলিভারি করুন: {selectedLocation}</span>
           <ChevronDown size={14} className="text-gray-400 shrink-0" />
         </div>
       </div>
@@ -128,6 +132,35 @@ export function Header() {
           </button>
         </div>
       </div>
+
+      {/* Location Modal */}
+      {isLocationModalOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 p-4 transition-opacity">
+          <div className="bg-white rounded-xl w-full max-w-md overflow-hidden flex flex-col shadow-2xl animate-in fade-in zoom-in-95 duration-200">
+            <div className="flex items-center justify-between p-4 border-b border-gray-100">
+              <h3 className="font-bold text-gray-800 text-lg">লোকেশন নির্বাচন করুন</h3>
+              <button onClick={() => setIsLocationModalOpen(false)} className="text-gray-500 hover:text-red-500 transition-colors p-1 rounded-full hover:bg-gray-100">
+                <X size={20} />
+              </button>
+            </div>
+            <div className="p-4 flex flex-col gap-2 max-h-[60vh] overflow-y-auto hide-scrollbar">
+              {['ঢাকা, বাংলাদেশ', 'চট্টগ্রাম, বাংলাদেশ', 'সিলেট, বাংলাদেশ', 'রাজশাহী, বাংলাদেশ', 'খুলনা, বাংলাদেশ'].map((loc) => (
+                <button 
+                  key={loc}
+                  onClick={() => {
+                    setSelectedLocation(loc);
+                    setIsLocationModalOpen(false);
+                  }}
+                  className={`flex items-center gap-3 p-3 rounded-lg border text-left transition-colors ${selectedLocation === loc ? 'border-brand-emerald bg-[#E8F5E9] text-brand-emerald shadow-sm' : 'border-gray-200 hover:border-brand-emerald hover:bg-gray-50'}`}
+                >
+                  <MapPin size={18} className={selectedLocation === loc ? 'text-brand-emerald' : 'text-gray-400'} />
+                  <span className={`font-medium text-sm ${selectedLocation === loc ? 'text-brand-emerald' : 'text-gray-700'}`}>{loc}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   );
 }

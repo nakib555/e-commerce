@@ -7,16 +7,16 @@ import { Product } from '../types';
 
 const ProductListCard: React.FC<{ product: Product }> = ({ product }) => {
   return (
-    <div className="bg-white rounded-xl overflow-hidden border border-gray-100 shadow-sm flex items-center p-2 gap-3 relative">
+    <div className="bg-white rounded-lg overflow-hidden border border-gray-100 shadow-sm flex items-center p-1.5 gap-2.5 relative">
       {/* Badges */}
       {product.discount && (
-        <span className="absolute top-2 left-2 z-10 bg-red-500 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-sm">
+        <span className="absolute top-1.5 left-1.5 z-10 bg-red-500 text-white text-[8px] font-bold px-1 py-0.5 rounded-sm">
           -{product.discount}%
         </span>
       )}
       
       {/* Image */}
-      <div className="w-20 h-20 sm:w-24 sm:h-24 shrink-0 rounded-lg overflow-hidden bg-gray-50 flex items-center justify-center p-1">
+      <div className="w-16 h-16 sm:w-24 sm:h-24 shrink-0 rounded-md overflow-hidden bg-gray-50 flex items-center justify-center p-1">
         <img 
           src={product.image} 
           alt={product.name} 
@@ -25,26 +25,26 @@ const ProductListCard: React.FC<{ product: Product }> = ({ product }) => {
       </div>
 
       {/* Content */}
-      <div className="flex-1 flex flex-col justify-center py-1 pr-2">
-        <h3 className="text-xs sm:text-sm font-medium text-gray-800 line-clamp-2 mb-1">
+      <div className="flex-1 flex flex-col justify-center py-0.5 pr-2">
+        <h3 className="text-[11px] sm:text-sm font-medium text-gray-800 line-clamp-2 mb-0.5 leading-snug">
           {product.name}
         </h3>
         
-        <div className="flex items-center gap-1.5 mb-1 flex-wrap">
-          <span className="text-[13px] font-bold text-[#125838]">৳{product.price.toLocaleString('en-IN')}</span>
+        <div className="flex items-center gap-1.5 mb-0.5 flex-wrap">
+          <span className="text-[12px] font-bold text-[#125838]">৳{product.price.toLocaleString('en-IN')}</span>
           {product.oldPrice && (
-            <span className="text-[10px] text-gray-400 line-through">৳{product.oldPrice.toLocaleString('en-IN')}</span>
+            <span className="text-[9px] text-gray-400 line-through">৳{product.oldPrice.toLocaleString('en-IN')}</span>
           )}
         </div>
         
-        <div className="flex items-center justify-between mt-1">
+        <div className="flex items-center justify-between">
           <div className="flex items-center gap-1">
-            <Star size={10} className="fill-brand-gold text-brand-gold" />
-            <span className="text-[10px] font-medium text-gray-600">{product.rating} <span className="text-gray-400 font-normal">({product.reviews})</span></span>
+            <Star size={8} className="fill-brand-gold text-brand-gold" />
+            <span className="text-[9px] font-medium text-gray-600">{product.rating} <span className="text-gray-400 font-normal">({product.reviews})</span></span>
           </div>
           
-          <button className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-brand-emerald hover:text-white hover:border-brand-emerald transition-colors shadow-sm">
-            <ShoppingCart size={14} />
+          <button className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-brand-emerald hover:text-white hover:border-brand-emerald transition-colors shadow-sm">
+            <ShoppingCart size={10} />
           </button>
         </div>
       </div>
@@ -62,13 +62,13 @@ export function BestSellers() {
 
   return (
     <section className="max-w-[1440px] mx-auto px-4 lg:px-8 xl:px-12 py-4 sm:py-8 xl:py-12">
-      <div className="flex items-center justify-between mb-3 sm:mb-6">
-        <h2 className="text-[15px] sm:text-2xl font-bold text-gray-800 flex items-center gap-3">
+      <div className="flex items-center justify-between mb-2 sm:mb-6">
+        <h2 className="text-[14px] sm:text-2xl font-bold text-gray-800 flex items-center gap-3">
           বেস্ট সেলার
         </h2>
         
-        <a href="#" className="text-brand-emerald font-medium flex items-center gap-0.5 hover:text-brand-dark transition-colors text-[13px] sm:hidden mt-0.5">
-          সব দেখুন <ArrowRight size={14} />
+        <a href="#" className="text-brand-emerald font-medium flex items-center gap-0.5 hover:text-brand-dark transition-colors text-[12px] sm:hidden mt-0.5">
+          সব দেখুন <ArrowRight size={12} />
         </a>
 
         <div className="hidden sm:flex items-center gap-4">

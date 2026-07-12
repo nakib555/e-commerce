@@ -12,13 +12,13 @@ export function Features() {
           {features.map((feature) => {
             const Icon = Icons[feature.icon as keyof typeof Icons] as React.ElementType;
             return (
-              <div key={feature.id} className="flex flex-col items-center text-center gap-2">
+              <div key={feature.id} className="flex flex-col items-center text-center gap-1.5">
                 <div className="text-brand-emerald">
-                  {Icon && <Icon size={24} strokeWidth={1.5} />}
+                  {Icon && <Icon size={20} strokeWidth={1.5} />}
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800 text-[10px] leading-tight">{feature.title}</h4>
-                  <p className="text-gray-500 text-[9px] leading-tight mt-0.5 hidden sm:block">{feature.subtitle}</p>
+                  <h4 className="font-semibold text-gray-800 text-[9px] leading-tight">{feature.title}</h4>
+                  <p className="text-gray-500 text-[8px] leading-tight mt-0.5 hidden sm:block">{feature.subtitle}</p>
                 </div>
               </div>
             );

@@ -29,6 +29,12 @@
   html::-webkit-scrollbar, body::-webkit-scrollbar {
     display: none; /* Chrome, Safari and Opera */
   }
+
+  @media (min-width: 1024px) {
+    html {
+      font-size: 80%;
+    }
+  }
 }
 
 /* Custom Utilities for glassmorphism and hide-scrollbar */

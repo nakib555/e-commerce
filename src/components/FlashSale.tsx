@@ -15,29 +15,29 @@ export function FlashSale() {
   return (
     <section className="max-w-[1440px] mx-auto px-4 lg:px-8 xl:px-12 py-4 md:py-8 xl:py-12">
       {/* Mobile Header */}
-      <div className="md:hidden flex flex-col gap-3 mb-3">
+      <div className="md:hidden flex flex-col gap-2 mb-3">
         <div className="flex items-center justify-between">
-          <h2 className="text-[15px] font-bold flex items-center gap-1.5 text-gray-800">
-            ফ্ল্যাশ সেল <Zap className="text-brand-gold fill-brand-gold" size={16} />
+          <h2 className="text-[14px] font-bold flex items-center gap-1.5 text-gray-800">
+            ফ্ল্যাশ সেল <Zap className="text-brand-gold fill-brand-gold" size={14} />
           </h2>
-          <a href="#" className="text-brand-emerald font-medium flex items-center gap-0.5 text-[13px]">
-            সব দেখুন <ArrowRight size={14} />
+          <a href="#" className="text-brand-emerald font-medium flex items-center gap-0.5 text-[12px]">
+            সব দেখুন <ArrowRight size={12} />
           </a>
         </div>
-        <div className="flex items-center gap-2 mt-1">
-          <div className="bg-white border border-gray-200 text-brand-dark rounded px-2 py-1.5 min-w-[36px] text-center shadow-sm">
-            <div className="text-sm font-bold leading-none">০২</div>
-            <div className="text-[8px] font-medium text-gray-500 mt-1">ঘণ্টা</div>
+        <div className="flex items-center gap-1.5 mt-0.5">
+          <div className="bg-white border border-gray-200 text-brand-dark rounded px-1.5 py-1 min-w-[30px] text-center shadow-sm">
+            <div className="text-xs font-bold leading-none">০২</div>
+            <div className="text-[7px] font-medium text-gray-500 mt-1">ঘণ্টা</div>
           </div>
-          <span className="text-gray-400 font-bold -mt-3">:</span>
-          <div className="bg-white border border-gray-200 text-brand-dark rounded px-2 py-1.5 min-w-[36px] text-center shadow-sm">
-            <div className="text-sm font-bold leading-none">১৮</div>
-            <div className="text-[8px] font-medium text-gray-500 mt-1">মিনিট</div>
+          <span className="text-gray-400 font-bold -mt-2.5">:</span>
+          <div className="bg-white border border-gray-200 text-brand-dark rounded px-1.5 py-1 min-w-[30px] text-center shadow-sm">
+            <div className="text-xs font-bold leading-none">১৮</div>
+            <div className="text-[7px] font-medium text-gray-500 mt-1">মিনিট</div>
           </div>
-          <span className="text-gray-400 font-bold -mt-3">:</span>
-          <div className="bg-white border border-gray-200 text-brand-dark rounded px-2 py-1.5 min-w-[36px] text-center shadow-sm">
-            <div className="text-sm font-bold leading-none">৪৫</div>
-            <div className="text-[8px] font-medium text-gray-500 mt-1">সেকেন্ড</div>
+          <span className="text-gray-400 font-bold -mt-2.5">:</span>
+          <div className="bg-white border border-gray-200 text-brand-dark rounded px-1.5 py-1 min-w-[30px] text-center shadow-sm">
+            <div className="text-xs font-bold leading-none">৪৫</div>
+            <div className="text-[7px] font-medium text-gray-500 mt-1">সেকেন্ড</div>
           </div>
         </div>
       </div>
@@ -82,16 +82,16 @@ export function FlashSale() {
         {/* Products Carousel Area */}
         <div className="lg:w-3/4 flex flex-col">
           {/* Flash Sale Carousel (Mobile Only) */}
-          <div className="md:hidden flex overflow-x-auto hide-scrollbar snap-x snap-mandatory gap-3 pb-4 -mx-4 px-4">
+          <div className="md:hidden flex overflow-x-auto hide-scrollbar snap-x snap-mandatory gap-2.5 pb-3 -mx-4 px-4">
             {isLoading ? (
               Array(3).fill(0).map((_, i) => (
-                <div key={i} className="min-w-[42vw] sm:min-w-[260px] snap-center shrink-0 w-[42vw]">
+                <div key={i} className="min-w-[38vw] sm:min-w-[260px] snap-center shrink-0 w-[38vw]">
                   <ProductSkeleton />
                 </div>
               ))
             ) : (
               flashSaleProducts.slice(0, 3).map(product => (
-                <div key={product.id} className="min-w-[42vw] sm:min-w-[260px] snap-center shrink-0 w-[42vw] flex flex-col">
+                <div key={product.id} className="min-w-[38vw] sm:min-w-[260px] snap-center shrink-0 w-[38vw] flex flex-col">
                   <ProductCard product={product} />
                 </div>
               ))
@@ -100,23 +100,23 @@ export function FlashSale() {
 
           {/* New Arrivals Section */}
           <div className="mt-4 md:mt-0">
-            <div className="flex items-center justify-between mb-3 md:mb-4">
-              <h3 className="text-[15px] md:text-xl font-bold md:font-heading md:font-bold text-gray-800">নতুন এসেছে</h3>
-              <a href="#" className="text-brand-emerald font-medium flex items-center gap-0.5 md:gap-1 hover:text-brand-dark transition-colors text-[13px] md:text-sm">
-                সব দেখুন <ArrowRight size={14} className="md:w-4 md:h-4" />
+            <div className="flex items-center justify-between mb-2 md:mb-4">
+              <h3 className="text-[14px] md:text-xl font-bold md:font-heading md:font-bold text-gray-800">নতুন এসেছে</h3>
+              <a href="#" className="text-brand-emerald font-medium flex items-center gap-0.5 md:gap-1 hover:text-brand-dark transition-colors text-[12px] md:text-sm">
+                সব দেখুন <ArrowRight size={12} className="md:w-4 md:h-4" />
               </a>
             </div>
             
-            <div className="flex md:grid overflow-x-auto md:overflow-visible hide-scrollbar snap-x snap-mandatory md:snap-none md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 xl:gap-6 pb-4 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0">
+            <div className="flex md:grid overflow-x-auto md:overflow-visible hide-scrollbar snap-x snap-mandatory md:snap-none md:grid-cols-2 lg:grid-cols-4 gap-2.5 md:gap-4 xl:gap-6 pb-3 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0">
               {isLoading ? (
                 Array(3).fill(0).map((_, i) => (
-                  <div key={i} className="min-w-[42vw] sm:min-w-[260px] md:min-w-0 snap-center shrink-0 w-[42vw] md:w-auto">
+                  <div key={i} className="min-w-[38vw] sm:min-w-[260px] md:min-w-0 snap-center shrink-0 w-[38vw] md:w-auto">
                     <ProductSkeleton />
                   </div>
                 ))
               ) : (
                 flashSaleProducts.slice(3, 6).map(product => (
-                  <div key={product.id} className="min-w-[42vw] sm:min-w-[260px] md:min-w-0 snap-center shrink-0 w-[42vw] md:w-auto flex flex-col">
+                  <div key={product.id} className="min-w-[38vw] sm:min-w-[260px] md:min-w-0 snap-center shrink-0 w-[38vw] md:w-auto flex flex-col">
                     <ProductCard product={product} />
                   </div>
                 ))
