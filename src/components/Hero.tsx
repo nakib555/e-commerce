@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronRight, ChevronLeft } from 'lucide-react';
+import bannerImg from '../assets/images/eid_lifestyle_banner_1783858438483.jpg';
 
 export function Hero() {
   const [isMobile, setIsMobile] = useState(false);
@@ -15,48 +16,46 @@ export function Hero() {
 
   return (
     <section className="max-w-[1440px] mx-auto md:px-4 lg:px-8 xl:px-12 md:py-4 lg:py-6 xl:py-8">
-      <div className="relative md:rounded-2xl overflow-hidden bg-[#F0EBE3] min-h-[340px] sm:min-h-[400px] lg:h-[450px] lg:min-h-[450px] flex flex-col md:flex-row items-center group w-full">
+      <div className="relative md:rounded-2xl overflow-hidden bg-[#F0EBE3] min-h-[340px] sm:min-h-[400px] lg:h-[450px] lg:min-h-[450px] flex flex-col md:flex-row items-center group w-full shadow-sm">
         {/* Background Image Setup */}
         <div className="absolute inset-0 w-full h-full">
            <img 
-            src="https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?auto=format&fit=crop&q=80&w=1600&h=600" 
+            src={bannerImg} 
             alt="Eid Collection Banner" 
-            className="w-full h-full object-cover object-center md:object-right opacity-90"
+            referrerPolicy="no-referrer"
+            className="w-full h-full object-cover object-center md:object-right"
           />
-          {/* Gradient overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-white/95 via-white/80 to-transparent md:bg-gradient-to-r md:from-white/95 md:via-white/70 md:to-transparent dark:from-[#121212]/95 dark:via-[#121212]/80 dark:md:from-[#121212]/95 dark:md:via-[#121212]/70"></div>
+          {/* Subtle gradient overlay for text readability (20-30% opacity) */}
+          <div className="absolute inset-0 bg-gradient-to-t from-white/30 via-white/10 to-transparent md:bg-gradient-to-r md:from-white/35 md:via-white/15 md:to-transparent dark:from-[#121212]/35 dark:via-[#121212]/15 dark:to-transparent dark:md:from-[#121212]/40 dark:md:via-[#121212]/20"></div>
         </div>
 
         <div className="relative z-10 p-4 pt-6 pb-6 sm:p-6 sm:pt-24 sm:pb-8 md:p-16 xl:p-24 max-w-2xl xl:max-w-3xl mt-auto md:mt-0 w-full md:w-auto flex-1 flex flex-col justify-center">
           <span 
-            className="inline-block px-2 py-0.5 sm:px-3 sm:py-1 bg-[#E8F5E9] dark:bg-[#0A2E1F] text-brand-emerald rounded-md text-[9px] sm:text-xs md:text-sm font-semibold mb-3 sm:mb-3 md:mb-4 xl:mb-6 shadow-sm w-max animate-fade-in"
-            style={isMobile ? { fontSize: '11px', fontFamily: 'Verdana', height: '24.5px', width: '130.188px', marginBottom: '12px', paddingBottom: '0px' } : undefined}
+            className="inline-block px-3 py-1 bg-[#E8F5E9] dark:bg-[#0A2E1F] text-[#125838] dark:text-emerald-300 rounded-full text-xs sm:text-sm font-semibold mb-4 shadow-sm w-max animate-fade-in"
           >
-            ঈদ কালেকশন ২০২৩
+            নতুন ঈদ কালেকশন
           </span>
           <h1 
-            className="text-2xl sm:text-3xl md:text-6xl xl:text-7xl font-heading font-bold text-brand-dark dark:text-emerald-400 leading-[1.1] mb-2 sm:mb-3 md:mb-4 xl:mb-6 tracking-tight"
-            style={isMobile ? { fontSize: '23px', fontFamily: 'Times New Roman' } : undefined}
+            className="text-3xl sm:text-4xl md:text-6xl xl:text-7xl font-heading font-extrabold text-[#111111] dark:text-white leading-[1.15] mb-3 sm:mb-4 md:mb-6 tracking-tight drop-shadow-sm"
           >
             ঈদ হোক<br/>
-            <span className="text-[#888888] dark:text-gray-300">আনন্দময়</span><br/>
-            <span className="text-[#888888] dark:text-gray-300">ও স্টাইলিশ</span>
+            <span className="text-[#125838] dark:text-emerald-400 font-black">আনন্দময়</span><br/>
+            <span className="text-[#9E7A3E] dark:text-amber-400 font-black">ও স্টাইলিশ</span>
           </h1>
           <p 
-            className="text-gray-600 dark:text-gray-400 text-[10px] sm:text-sm md:text-lg xl:text-xl mb-4 sm:mb-6 md:mb-8 xl:mb-10 max-w-[180px] sm:max-w-xs md:max-w-md xl:max-w-lg font-medium leading-snug"
-            style={isMobile ? { fontSize: '12px' } : undefined}
+            className="text-gray-700 dark:text-gray-300 text-xs sm:text-base md:text-lg xl:text-xl mb-6 sm:mb-8 md:mb-10 max-w-[200px] sm:max-w-sm md:max-w-md xl:max-w-lg font-medium leading-relaxed"
           >
             প্রিমিয়াম কোয়ালিটির পাঞ্জাবি,<br/> শাড়ি ও আরও অনেক কিছু
           </p>
           
-          <div className="flex flex-wrap items-center gap-2 sm:gap-3 md:gap-4">
+          <div className="flex flex-wrap items-center gap-3 sm:gap-4">
             <button 
-              className="bg-[#125838] dark:bg-brand-emerald text-white px-4 sm:px-6 md:px-8 py-1.5 sm:py-2.5 md:py-3.5 rounded text-[10px] sm:text-sm md:text-base font-medium hover:bg-brand-dark dark:hover:bg-[#125838] transition-colors"
-              style={isMobile ? { fontSize: '15px', lineHeight: '15px', height: '33px', width: '119.9375px', borderRadius: '8px' } : undefined}
+              className="group bg-[#125838] dark:bg-brand-emerald text-white px-6 sm:px-10 py-3 sm:py-4 rounded-xl text-xs sm:text-lg font-bold hover:bg-[#0D3F28] dark:hover:bg-[#1A8050] transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl flex items-center justify-center gap-2 animate-fade-in"
             >
               এখনই কিনুন
+              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1" />
             </button>
-            <button className="bg-white dark:bg-[#1E1E1E] text-brand-dark dark:text-emerald-400 px-3 sm:px-6 md:px-8 py-1.5 sm:py-2.5 md:py-3.5 rounded text-[10px] sm:text-sm md:text-base font-medium hover:bg-gray-50 dark:hover:bg-[#2A2A2A] transition-colors shadow-md border border-gray-200 dark:border-gray-700 hidden sm:block">
+            <button className="bg-white/95 backdrop-blur-sm dark:bg-[#1E1E1E] text-[#125838] dark:text-emerald-400 px-6 sm:px-10 py-3 sm:py-4 rounded-xl text-xs sm:text-lg font-bold hover:bg-gray-50 dark:hover:bg-[#2A2A2A] transition-all duration-300 border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-lg hidden sm:flex items-center justify-center gap-2">
               সব কালেকশন দেখুন
             </button>
           </div>
