@@ -24,50 +24,28 @@ import { MobileMore } from './components/mobile/MobileMore';
 export default function App() {
   const [activeTab, setActiveTab] = useState('home');
 
-  const renderContent = () => {
-    switch (activeTab) {
-      case 'categories':
-        return <MobileCategories />;
-      case 'orders':
-        return <MobileOrders />;
-      case 'profile':
-        return <MobileProfile />;
-      case 'more':
-        return <MobileMore />;
-      case 'home':
-      default:
-        return (
-          <>
+  return (
+    <div className="min-h-screen bg-brand-light font-sans flex flex-col dark:bg-[#121212] dark:text-gray-100">
+      <Header activeTab={activeTab} onTabChange={setActiveTab} />
+      
+      <main className="flex-1 pb-[70px] md:pb-0">
+        {activeTab === 'home' ? (
+          <div>
             <Hero />
             <CategoryList />
             <FlashSale />
             <BestSellers />
             <Features />
             <PromoBanners />
-          </>
-        );
-    }
-  };
-
-  return (
-    <div className="min-h-screen bg-brand-light font-sans flex flex-col dark:bg-[#121212] dark:text-gray-100">
-      <Header />
-      
-      <main className="flex-1 pb-16 md:pb-0">
-        <div className="hidden md:block">
-          {/* Desktop always shows full content */}
-          <Hero />
-          <CategoryList />
-          <FlashSale />
-          <BestSellers />
-          <Features />
-          <PromoBanners />
-        </div>
-        
-        <div className="md:hidden">
-          {/* Mobile shows active tab content */}
-          {renderContent()}
-        </div>
+          </div>
+        ) : (
+          <div className="max-w-[1440px] mx-auto w-full px-4 lg:px-8 xl:px-12 py-6 sm:py-10">
+            {activeTab === 'categories' && <MobileCategories />}
+            {activeTab === 'orders' && <MobileOrders />}
+            {activeTab === 'profile' && <MobileProfile />}
+            {activeTab === 'more' && <MobileMore />}
+          </div>
+        )}
       </main>
 
       {/* Footer and newsletter are only shown on home tab or desktop */}

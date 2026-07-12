@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { ShoppingBag, Search, User, Heart, ShoppingCart, Menu, ChevronDown, Phone, MapPin, X, Moon, Sun } from 'lucide-react';
 
-export function Header() {
+interface HeaderProps {
+  activeTab?: string;
+  onTabChange?: (tab: string) => void;
+}
+
+export function Header({ activeTab = 'home', onTabChange }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLocationModalOpen, setIsLocationModalOpen] = useState(false);
   const [selectedLocation, setSelectedLocation] = useState('ঢাকা, বাংলাদেশ');
@@ -39,8 +44,8 @@ export function Header() {
             ঈদ অফার! ২০% পর্যন্ত ছাড় চলছে
           </div>
           <div className="flex items-center gap-6">
-            <a href="#" className="hover:text-brand-gold transition-colors flex items-center gap-1"><Phone size={14} /> হেল্প সেন্টার</a>
-            <a href="#" className="hover:text-brand-gold transition-colors">অর্ডার ট্র্যাক করুন</a>
+            <button onClick={() => onTabChange?.('more')} className="hover:text-brand-gold transition-colors flex items-center gap-1 text-xs"><Phone size={14} /> হেল্প সেন্টার</button>
+            <button onClick={() => onTabChange?.('orders')} className="hover:text-brand-gold transition-colors text-xs">অর্ডার ট্র্যাক করুন</button>
             <div className="flex items-center gap-1 cursor-pointer">
               <span>বাংলা</span>
               <ChevronDown size={14} />
@@ -53,10 +58,14 @@ export function Header() {
       <div className={`max-w-[1440px] mx-auto w-full px-4 lg:px-8 xl:px-12 flex items-center justify-between gap-4 md:gap-8 transition-all duration-300 py-3 sm:py-5`}>
         {/* Mobile Menu & Logo */}
         <div className="flex items-center gap-3">
-          <button className="md:hidden text-brand-black dark:text-gray-200 p-1 -ml-1">
+          <button onClick={() => onTabChange?.('more')} className="md:hidden text-brand-black dark:text-gray-200 p-1 -ml-1">
             <Menu size={24} />
           </button>
-          <a href="/" className="flex items-center gap-2 text-xl md:text-2xl font-heading font-bold text-brand-dark dark:text-brand-emerald">
+          <a 
+            href="#" 
+            onClick={(e) => { e.preventDefault(); onTabChange?.('home'); }}
+            className="flex items-center gap-2 text-xl md:text-2xl font-heading font-bold text-brand-dark dark:text-brand-emerald"
+          >
             <ShoppingBag className="text-brand-emerald" size={24} />
             <span>Deshi<span className="text-brand-emerald">Mart</span></span>
           </a>
@@ -83,18 +92,18 @@ export function Header() {
           >
             {isDarkMode ? <Sun size={22} /> : <Moon size={22} />}
           </button>
-          <button className="md:hidden text-gray-700 dark:text-gray-300 hover:text-brand-emerald dark:hover:text-brand-emerald transition-colors p-1">
+          <button onClick={() => onTabChange?.('categories')} className="md:hidden text-gray-700 dark:text-gray-300 hover:text-brand-emerald dark:hover:text-brand-emerald transition-colors p-1">
             <Search size={22} />
           </button>
-          <button className="flex items-center gap-2 hover:text-brand-emerald transition-colors hidden lg:flex dark:text-gray-300">
+          <button onClick={() => onTabChange?.('profile')} className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-brand-emerald transition-colors hidden lg:flex">
             <User size={22} />
-            <span className="text-sm font-medium">লগইন / রেজিস্টার</span>
+            <span className="text-sm font-medium">আমার প্রোফাইল</span>
           </button>
-          <button className="flex items-center gap-2 hover:text-brand-emerald transition-colors md:flex dark:text-gray-300">
+          <button onClick={() => onTabChange?.('profile')} className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-brand-emerald transition-colors md:flex">
             <Heart size={22} />
             <span className="text-sm font-medium hidden md:block">উইশলিস্ট</span>
           </button>
-          <button className="flex items-center gap-2 hover:text-brand-emerald transition-colors relative p-1 md:p-0 dark:text-gray-300">
+          <button onClick={() => onTabChange?.('profile')} className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-brand-emerald transition-colors relative p-1 md:p-0">
             <div className="relative">
               <ShoppingCart size={24} />
               <span className="absolute -top-1 -right-1 bg-brand-emerald text-white text-[10px] font-bold h-4 w-4 rounded-full flex items-center justify-center border border-white dark:border-[#121212]">
@@ -109,7 +118,6 @@ export function Header() {
       {/* Mobile Search - Visible only on smallest screens */}
       <div 
         className={`px-4 md:hidden flex flex-col transition-all duration-300 bg-white dark:bg-[#121212] ${isScrolled ? 'shadow-sm pb-3 pt-1' : 'pb-2 pt-1'}`}
-        style={{ fontSize: '125px' }}
       >
         <div className="flex items-center relative">
           <input 
@@ -135,20 +143,44 @@ export function Header() {
       <div className="border-t border-gray-100 dark:border-gray-800 hidden md:block dark:bg-[#121212]">
         <div className="max-w-[1440px] mx-auto w-full px-4 lg:px-8 xl:px-12 py-3 flex items-center justify-between">
           <div className="flex items-center gap-8 xl:gap-12">
-            <button className="flex items-center gap-2 text-brand-emerald font-semibold hover:text-brand-dark dark:hover:text-emerald-400 transition-colors">
+            <button onClick={() => onTabChange?.('categories')} className="flex items-center gap-2 text-brand-emerald font-semibold hover:text-brand-dark dark:hover:text-emerald-400 transition-colors">
               <Menu size={20} />
               <span>সকল ক্যাটাগরি</span>
             </button>
             <nav className="flex items-center gap-6 xl:gap-8">
-              <a href="#" className="font-medium text-brand-emerald border-b-2 border-brand-emerald pb-1">হোম</a>
-              <a href="#" className="font-medium text-gray-700 dark:text-gray-300 hover:text-brand-emerald dark:hover:text-brand-emerald transition-colors pb-1">নতুন এসেছে</a>
-              <a href="#" className="font-medium text-gray-700 dark:text-gray-300 hover:text-brand-emerald dark:hover:text-brand-emerald transition-colors pb-1">ঈদ কালেকশন</a>
-              <a href="#" className="font-medium text-gray-700 dark:text-gray-300 hover:text-brand-emerald dark:hover:text-brand-emerald transition-colors pb-1">সেরা বিক্রিত</a>
-              <a href="#" className="font-medium text-gray-700 dark:text-gray-300 hover:text-brand-emerald dark:hover:text-brand-emerald transition-colors pb-1">ব্লগ</a>
-              <a href="#" className="font-medium text-gray-700 dark:text-gray-300 hover:text-brand-emerald dark:hover:text-brand-emerald transition-colors pb-1">অফার</a>
+              <button 
+                onClick={() => onTabChange?.('home')}
+                className={`font-medium transition-colors pb-1 ${activeTab === 'home' ? 'text-brand-emerald border-b-2 border-brand-emerald' : 'text-gray-700 dark:text-gray-300 hover:text-brand-emerald'}`}
+              >
+                হোম
+              </button>
+              <button 
+                onClick={() => onTabChange?.('categories')}
+                className={`font-medium transition-colors pb-1 ${activeTab === 'categories' ? 'text-brand-emerald border-b-2 border-brand-emerald' : 'text-gray-700 dark:text-gray-300 hover:text-brand-emerald'}`}
+              >
+                ক্যাটাগরি সমূহ
+              </button>
+              <button 
+                onClick={() => onTabChange?.('orders')}
+                className={`font-medium transition-colors pb-1 ${activeTab === 'orders' ? 'text-brand-emerald border-b-2 border-brand-emerald' : 'text-gray-700 dark:text-gray-300 hover:text-brand-emerald'}`}
+              >
+                আমার অর্ডার
+              </button>
+              <button 
+                onClick={() => onTabChange?.('profile')}
+                className={`font-medium transition-colors pb-1 ${activeTab === 'profile' ? 'text-brand-emerald border-b-2 border-brand-emerald' : 'text-gray-700 dark:text-gray-300 hover:text-brand-emerald'}`}
+              >
+                আমার প্রোফাইল
+              </button>
+              <button 
+                onClick={() => onTabChange?.('more')}
+                className={`font-medium transition-colors pb-1 ${activeTab === 'more' ? 'text-brand-emerald border-b-2 border-brand-emerald' : 'text-gray-700 dark:text-gray-300 hover:text-brand-emerald'}`}
+              >
+                যোগাযোগ ও সাহায্য
+              </button>
             </nav>
           </div>
-          <button className="bg-gradient-to-r from-brand-emerald to-[#6DB33F] text-white px-4 py-1.5 rounded flex items-center gap-2 font-medium shadow-sm hover:shadow-md transition-shadow">
+          <button onClick={() => onTabChange?.('home')} className="bg-gradient-to-r from-brand-emerald to-[#6DB33F] text-white px-4 py-1.5 rounded flex items-center gap-2 font-medium shadow-sm hover:shadow-md transition-shadow">
             <span>🔥</span> ফ্ল্যাশ সেল
           </button>
         </div>
