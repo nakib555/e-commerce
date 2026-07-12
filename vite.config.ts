@@ -52,6 +52,54 @@ export default defineConfig(() => {
               form_factor: 'wide',
               label: 'Desktop Home'
             }
+          ],
+          categories: ['shopping', 'lifestyle', 'ecommerce'],
+          display_override: ['window-controls-overlay', 'standalone', 'minimal-ui'],
+          shortcuts: [
+            {
+              name: 'Today\'s Deals',
+              short_name: 'Deals',
+              description: 'View current flash sales and offers',
+              url: '/',
+              icons: [{ src: 'pwa-192x192.png', sizes: '192x192' }]
+            },
+            {
+              name: 'My Orders',
+              short_name: 'Orders',
+              description: 'Track your recent orders',
+              url: '/',
+              icons: [{ src: 'pwa-192x192.png', sizes: '192x192' }]
+            }
+          ]
+        },
+        workbox: {
+          globPatterns: ['**/*.{js,css,html,ico,png,svg,jpeg,webp}'],
+          runtimeCaching: [
+            {
+              urlPattern: /^https:\/\/images\.unsplash\.com\/.*/i,
+              handler: 'CacheFirst',
+              options: {
+                cacheName: 'unsplash-images',
+                expiration: {
+                  maxEntries: 50,
+                  maxAgeSeconds: 60 * 60 * 24 * 30
+                },
+                cacheableResponse: {
+                  statuses: [0, 200]
+                }
+              }
+            },
+            {
+              urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
+              handler: 'StaleWhileRevalidate',
+              options: {
+                cacheName: 'google-fonts',
+                expiration: {
+                  maxEntries: 10,
+                  maxAgeSeconds: 60 * 60 * 24 * 365
+                }
+              }
+            }
           ]
         }
       })
