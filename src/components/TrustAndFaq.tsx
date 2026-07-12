@@ -19,7 +19,7 @@ export function TrustAndFaq() {
     },
     {
       id: 2,
-      icon: <Truck className="text-brand-orange" size={24} />,
+      icon: <Truck className="text-[#6DB33F]" size={24} />,
       title: 'দ্রুত ডেলিভারি',
       description: 'সারাদেশে দ্রুততম সময়ে আপনার দোরগোড়ায় নিরাপদ হোম ডেলিভারি।'
     },
@@ -31,7 +31,7 @@ export function TrustAndFaq() {
     },
     {
       id: 4,
-      icon: <ShieldCheck className="text-brand-emerald" size={24} />,
+      icon: <ShieldCheck className="text-emerald-600" size={24} />,
       title: 'নিরাপদ পেমেন্ট',
       description: 'বিকাশ, রকেট, নগদ বা ক্যাশ অন ডেলিভারিতে সম্পূর্ণ নিরাপদ পেমেন্ট।'
     }

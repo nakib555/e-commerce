@@ -128,7 +128,7 @@ export default function App() {
       
       <main className="flex-1 pb-[70px] md:pb-0">
         {activeTab === 'home' ? (
-          <div className="space-y-14 md:space-y-0 flex flex-col md:block">
+          <div>
             <Hero />
             <CategoryList />
             <FlashSale onProductClick={handleProductClick} onAddToCart={handleAddToCart} />
@@ -174,7 +174,7 @@ export default function App() {
         animate={{ scale: 1, opacity: 1 }}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        className="md:hidden fixed bottom-20 right-4 z-40 bg-gradient-to-r from-brand-emerald to-brand-dark text-white p-3.5 rounded-full shadow-[0_4px_20px_rgba(15,138,95,0.4)] flex items-center justify-center border border-white/20"
+        className="md:hidden fixed bottom-20 right-4 z-40 bg-gradient-to-r from-brand-emerald to-[#6DB33F] text-white p-3.5 rounded-full shadow-[0_4px_20px_rgba(15,138,95,0.4)] flex items-center justify-center border border-white/20"
         aria-label="Open cart drawer"
       >
         <div className="relative">

@@ -193,7 +193,7 @@ export function Header({
               })}
             </nav>
           </div>
-          <button onClick={() => onTabChange?.('home')} className="bg-gradient-to-r from-brand-orange to-brand-gold text-white px-4 py-1.5 rounded flex items-center gap-2 font-medium shadow-sm hover:shadow-md transition-shadow">
+          <button onClick={() => onTabChange?.('home')} className="bg-gradient-to-r from-brand-emerald to-[#6DB33F] text-white px-4 py-1.5 rounded flex items-center gap-2 font-medium shadow-sm hover:shadow-md transition-shadow">
             <span>🔥</span> ফ্ল্যাশ সেল
           </button>
         </div>
