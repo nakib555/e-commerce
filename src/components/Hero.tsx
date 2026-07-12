@@ -31,31 +31,47 @@ export function Hero() {
 
         <div className="relative z-10 p-4 pt-6 pb-6 sm:p-6 sm:pt-24 sm:pb-8 md:p-16 xl:p-24 max-w-2xl xl:max-w-3xl mt-auto md:mt-0 w-full md:w-auto flex-1 flex flex-col justify-center">
           <span 
-            className="inline-block px-3 py-1 bg-[#E8F5E9] dark:bg-[#0A2E1F] text-[#125838] dark:text-emerald-300 rounded-full text-xs sm:text-sm font-semibold mb-4 shadow-sm w-max animate-fade-in"
+            className={isMobile 
+              ? "inline-block px-2 py-0.5 sm:px-3 sm:py-1 bg-[#E8F5E9] dark:bg-[#0A2E1F] text-brand-emerald rounded-md text-[9px] sm:text-xs md:text-sm font-semibold mb-3 sm:mb-3 md:mb-4 xl:mb-6 shadow-sm w-max animate-fade-in"
+              : "inline-block px-3 py-1 bg-[#E8F5E9] dark:bg-[#0A2E1F] text-[#125838] dark:text-emerald-300 rounded-full text-xs sm:text-sm font-semibold mb-4 shadow-sm w-max animate-fade-in"
+            }
+            style={isMobile ? { fontSize: '11px', fontFamily: 'Verdana', height: '24.5px', width: '130.188px', marginBottom: '12px', paddingBottom: '0px' } : undefined}
           >
-            নতুন ঈদ কালেকশন
+            ঈদ কালেকশন ২০২৩
           </span>
           <h1 
-            className="text-3xl sm:text-4xl md:text-6xl xl:text-7xl font-heading font-extrabold text-[#111111] dark:text-white leading-[1.15] mb-3 sm:mb-4 md:mb-6 tracking-tight drop-shadow-sm"
+            className={isMobile
+              ? "text-2xl sm:text-3xl md:text-6xl xl:text-7xl font-heading font-bold text-brand-dark dark:text-emerald-400 leading-[1.1] mb-2 sm:mb-3 md:mb-4 xl:mb-6 tracking-tight"
+              : "text-3xl sm:text-4xl md:text-6xl xl:text-7xl font-heading font-extrabold text-[#111111] dark:text-white leading-[1.15] mb-3 sm:mb-4 md:mb-6 tracking-tight drop-shadow-sm"
+            }
+            style={isMobile ? { fontSize: '23px', fontFamily: 'Times New Roman' } : undefined}
           >
             ঈদ হোক<br/>
-            <span className="text-[#125838] dark:text-emerald-400 font-black">আনন্দময়</span><br/>
-            <span className="text-[#9E7A3E] dark:text-amber-400 font-black">ও স্টাইলিশ</span>
+            <span className={isMobile ? "text-[#888888] dark:text-gray-300" : "text-[#125838] dark:text-emerald-400 font-black"}>আনন্দময়</span><br/>
+            <span className={isMobile ? "text-[#888888] dark:text-gray-300" : "text-[#9E7A3E] dark:text-amber-400 font-black"}>ও স্টাইলিশ</span>
           </h1>
           <p 
-            className="text-gray-700 dark:text-gray-300 text-xs sm:text-base md:text-lg xl:text-xl mb-6 sm:mb-8 md:mb-10 max-w-[200px] sm:max-w-sm md:max-w-md xl:max-w-lg font-medium leading-relaxed"
+            className={isMobile
+              ? "text-gray-600 dark:text-gray-400 text-[10px] sm:text-sm md:text-lg xl:text-xl mb-4 sm:mb-6 md:mb-8 xl:mb-10 max-w-[180px] sm:max-w-xs md:max-w-md xl:max-w-lg font-medium leading-snug"
+              : "text-gray-700 dark:text-gray-300 text-xs sm:text-base md:text-lg xl:text-xl mb-6 sm:mb-8 md:mb-10 max-w-[200px] sm:max-w-sm md:max-w-md xl:max-w-lg font-medium leading-relaxed"
+            }
+            style={isMobile ? { fontSize: '12px' } : undefined}
           >
             প্রিমিয়াম কোয়ালিটির পাঞ্জাবি,<br/> শাড়ি ও আরও অনেক কিছু
           </p>
           
           <div className="flex flex-wrap items-center gap-3 sm:gap-4">
             <button 
-              className="group bg-[#125838] dark:bg-brand-emerald text-white px-6 sm:px-10 py-3 sm:py-4 rounded-xl text-xs sm:text-lg font-bold hover:bg-[#0D3F28] dark:hover:bg-[#1A8050] transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl flex items-center justify-center gap-2 animate-fade-in"
+              className={isMobile
+                ? "bg-[#125838] dark:bg-brand-emerald text-white px-4 sm:px-6 md:px-8 py-1.5 sm:py-2.5 md:py-3.5 rounded text-[10px] sm:text-sm md:text-base font-medium hover:bg-brand-dark dark:hover:bg-[#125838] transition-colors"
+                : "group bg-[#125838] dark:bg-brand-emerald text-white px-10 py-4.5 rounded-xl text-lg font-bold hover:bg-[#0D3F28] dark:hover:bg-[#1A8050] transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
+              }
+              style={isMobile ? { fontSize: '15px', lineHeight: '15px', height: '33px', width: '119.9375px', borderRadius: '8px' } : undefined}
             >
               এখনই কিনুন
-              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1" />
+              {!isMobile && <ChevronRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />}
             </button>
-            <button className="bg-white/95 backdrop-blur-sm dark:bg-[#1E1E1E] text-[#125838] dark:text-emerald-400 px-6 sm:px-10 py-3 sm:py-4 rounded-xl text-xs sm:text-lg font-bold hover:bg-gray-50 dark:hover:bg-[#2A2A2A] transition-all duration-300 border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-lg hidden sm:flex items-center justify-center gap-2">
+            <button className="bg-white/95 backdrop-blur-sm dark:bg-[#1E1E1E] text-[#125838] dark:text-emerald-400 px-10 py-4.5 rounded-xl text-lg font-bold hover:bg-gray-50 dark:hover:bg-[#2A2A2A] transition-all duration-300 border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-lg hidden sm:flex items-center justify-center gap-2">
               সব কালেকশন দেখুন
             </button>
           </div>
