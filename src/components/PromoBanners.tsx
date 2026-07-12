@@ -1,47 +1,76 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 export function PromoBanners() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 1500);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section className="max-w-[1440px] mx-auto px-4 lg:px-8 xl:px-12 py-8 xl:py-12">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 xl:gap-8">
         
         {/* Banner 1 */}
-        <div className="relative rounded-2xl overflow-hidden h-40 sm:h-64 xl:h-80 group bg-[#E8F5E9]">
-          <div className="absolute inset-0 p-5 sm:p-8 xl:p-12 flex flex-col justify-center max-w-[60%] z-10">
-            <span className="text-brand-dark text-[10px] sm:text-sm font-semibold mb-1 sm:mb-2">নতুন ব্যবহারকারীদের জন্য</span>
-            <h3 className="text-xl sm:text-3xl font-heading font-bold text-brand-dark mb-1 sm:mb-2">১০% ছাড়!</h3>
-            <p className="text-gray-700 text-[10px] sm:text-sm mb-3 sm:mb-4 font-medium">প্রথম অর্ডারে বিশেষ ছাড়</p>
-            <button className="bg-brand-dark text-white px-3 sm:px-5 py-1.5 sm:py-2 rounded-lg text-[10px] sm:text-base font-medium hover:bg-brand-emerald transition-colors w-max shadow-md">
-              এখনই শপ করুন
-            </button>
+        {isLoading ? (
+          <div className="relative rounded-2xl overflow-hidden h-40 sm:h-64 xl:h-80 bg-gray-200 animate-pulse border border-gray-100">
+            <div className="absolute inset-0 p-5 sm:p-8 xl:p-12 flex flex-col justify-center max-w-[60%] z-10 gap-3">
+              <div className="h-3 sm:h-4 bg-gray-300 rounded w-1/2"></div>
+              <div className="h-6 sm:h-10 bg-gray-300 rounded w-3/4"></div>
+              <div className="h-3 sm:h-4 bg-gray-300 rounded w-2/3"></div>
+              <div className="h-8 sm:h-10 bg-gray-300 rounded w-24 sm:w-32 mt-2"></div>
+            </div>
           </div>
-          <div className="absolute right-0 top-0 bottom-0 w-1/2 flex items-center justify-end pr-3 sm:pr-8">
-            <img 
-              src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&q=80&w=400&h=400" 
-              alt="Gift" 
-              className="w-24 h-24 sm:w-48 sm:h-48 object-cover rounded-xl group-hover:scale-105 transition-transform duration-500 mix-blend-multiply"
-            />
+        ) : (
+          <div className="relative rounded-2xl overflow-hidden h-40 sm:h-64 xl:h-80 group bg-[#E8F5E9]">
+            <div className="absolute inset-0 p-5 sm:p-8 xl:p-12 flex flex-col justify-center max-w-[60%] z-10">
+              <span className="text-brand-dark text-[10px] sm:text-sm font-semibold mb-1 sm:mb-2">নতুন ব্যবহারকারীদের জন্য</span>
+              <h3 className="text-xl sm:text-3xl font-heading font-bold text-brand-dark mb-1 sm:mb-2">১০% ছাড়!</h3>
+              <p className="text-gray-700 text-[10px] sm:text-sm mb-3 sm:mb-4 font-medium">প্রথম অর্ডারে বিশেষ ছাড়</p>
+              <button className="bg-brand-dark text-white px-3 sm:px-5 py-1.5 sm:py-2 rounded-lg text-[10px] sm:text-base font-medium hover:bg-brand-emerald transition-colors w-max shadow-md">
+                এখনই শপ করুন
+              </button>
+            </div>
+            <div className="absolute right-0 top-0 bottom-0 w-1/2 flex items-center justify-end pr-3 sm:pr-8">
+              <img 
+                src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&q=80&w=400&h=400" 
+                alt="Gift" 
+                className="w-24 h-24 sm:w-48 sm:h-48 object-cover rounded-xl group-hover:scale-105 transition-transform duration-500 mix-blend-multiply"
+              />
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Banner 2 */}
-        <div className="relative rounded-2xl overflow-hidden h-40 sm:h-64 xl:h-80 group bg-[#FFF8E1]">
-          <div className="absolute inset-0 p-5 sm:p-8 xl:p-12 flex flex-col justify-center max-w-[60%] z-10">
-            <span className="text-brand-gold text-[10px] sm:text-sm font-semibold mb-1 sm:mb-2">ঈদের কেনাকাটায়</span>
-            <h3 className="text-lg sm:text-3xl font-heading font-bold text-brand-dark mb-1 sm:mb-2">এক্সক্লুসিভ অফার</h3>
-            <p className="text-gray-700 text-[10px] sm:text-sm mb-3 sm:mb-4 font-medium">নির্বাচিত পণ্যে বিশেষ ছাড়</p>
-            <button className="bg-brand-gold text-brand-dark px-3 sm:px-5 py-1.5 sm:py-2 rounded-lg text-[10px] sm:text-base font-medium hover:bg-yellow-500 transition-colors w-max shadow-md">
-              অফার দেখুন
-            </button>
+        {isLoading ? (
+          <div className="relative rounded-2xl overflow-hidden h-40 sm:h-64 xl:h-80 bg-gray-200 animate-pulse border border-gray-100">
+            <div className="absolute inset-0 p-5 sm:p-8 xl:p-12 flex flex-col justify-center max-w-[60%] z-10 gap-3">
+              <div className="h-3 sm:h-4 bg-gray-300 rounded w-1/2"></div>
+              <div className="h-6 sm:h-10 bg-gray-300 rounded w-3/4"></div>
+              <div className="h-3 sm:h-4 bg-gray-300 rounded w-2/3"></div>
+              <div className="h-8 sm:h-10 bg-gray-300 rounded w-24 sm:w-32 mt-2"></div>
+            </div>
           </div>
-          <div className="absolute right-0 top-0 bottom-0 w-1/2 flex items-center justify-end pr-3 sm:pr-8">
-            <img 
-              src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&q=80&w=400&h=400" 
-              alt="Lantern" 
-              className="w-24 h-24 sm:w-48 sm:h-48 object-cover rounded-xl group-hover:scale-105 transition-transform duration-500 mix-blend-multiply"
-            />
+        ) : (
+          <div className="relative rounded-2xl overflow-hidden h-40 sm:h-64 xl:h-80 group bg-[#FFF8E1]">
+            <div className="absolute inset-0 p-5 sm:p-8 xl:p-12 flex flex-col justify-center max-w-[60%] z-10">
+              <span className="text-brand-gold text-[10px] sm:text-sm font-semibold mb-1 sm:mb-2">ঈদের কেনাকাটায়</span>
+              <h3 className="text-lg sm:text-3xl font-heading font-bold text-brand-dark mb-1 sm:mb-2">এক্সক্লুসিভ অফার</h3>
+              <p className="text-gray-700 text-[10px] sm:text-sm mb-3 sm:mb-4 font-medium">নির্বাচিত পণ্যে বিশেষ ছাড়</p>
+              <button className="bg-brand-gold text-brand-dark px-3 sm:px-5 py-1.5 sm:py-2 rounded-lg text-[10px] sm:text-base font-medium hover:bg-yellow-500 transition-colors w-max shadow-md">
+                অফার দেখুন
+              </button>
+            </div>
+            <div className="absolute right-0 top-0 bottom-0 w-1/2 flex items-center justify-end pr-3 sm:pr-8">
+              <img 
+                src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&q=80&w=400&h=400" 
+                alt="Lantern" 
+                className="w-24 h-24 sm:w-48 sm:h-48 object-cover rounded-xl group-hover:scale-105 transition-transform duration-500 mix-blend-multiply"
+              />
+            </div>
           </div>
-        </div>
+        )}
 
       </div>
     </section>

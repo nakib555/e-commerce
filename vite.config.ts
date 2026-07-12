@@ -36,6 +36,22 @@ export default defineConfig(() => {
               type: 'image/png',
               purpose: 'any maskable'
             }
+          ],
+          screenshots: [
+            {
+              src: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=750&h=1334&q=80',
+              sizes: '750x1334',
+              type: 'image/jpeg',
+              form_factor: 'narrow',
+              label: 'Home Screen'
+            },
+            {
+              src: 'https://images.unsplash.com/photo-1607082349566-187342175e2f?auto=format&fit=crop&w=1280&h=720&q=80',
+              sizes: '1280x720',
+              type: 'image/jpeg',
+              form_factor: 'wide',
+              label: 'Desktop Home'
+            }
           ]
         }
       })

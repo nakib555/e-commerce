@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap');
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-brand-emerald: #0F8A5F;
   --color-brand-dark: #0A5D3E;
@@ -14,7 +16,7 @@
 
 @layer base {
   body {
-    @apply bg-brand-light text-brand-black font-sans antialiased;
+    @apply bg-brand-light text-brand-black font-sans antialiased dark:bg-[#121212] dark:text-gray-100;
   }
   
   h1, h2, h3, h4, h5, h6 {
