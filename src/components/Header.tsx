@@ -69,18 +69,18 @@ export function Header({
       </div>
 
       {/* Main Header */}
-      <div className={`max-w-[1440px] mx-auto w-full px-4 lg:px-8 xl:px-12 flex items-center justify-between gap-4 md:gap-8 transition-all duration-300 py-3 sm:py-5`}>
+      <div className={`max-w-[1440px] mx-auto w-full px-5 sm:px-6 md:px-8 lg:px-8 xl:px-12 flex items-center justify-between gap-4 md:gap-8 transition-all duration-300 py-4 sm:py-5`}>
         {/* Mobile Menu & Logo */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           <button onClick={() => onTabChange?.('more')} className="md:hidden text-brand-black dark:text-gray-200 p-1 -ml-1">
-            <Menu size={24} />
+            <Menu className="h-[22px] w-[22px]" strokeWidth={1.5} />
           </button>
           <a 
             href="#" 
             onClick={(e) => { e.preventDefault(); onTabChange?.('home'); }}
-            className="flex items-center gap-2 text-xl md:text-2xl font-heading font-bold text-brand-dark dark:text-brand-emerald"
+            className="flex items-center gap-1.5 text-lg md:text-2xl font-heading font-bold text-brand-dark dark:text-brand-emerald tracking-tight"
           >
-            <ShoppingBag className="text-brand-emerald" size={24} />
+            <ShoppingBag className="text-brand-emerald h-[20px] w-[20px] md:h-[24px] md:w-[24px]" strokeWidth={1.5} />
             <span>Deshi<span className="text-brand-emerald">Mart</span></span>
           </a>
         </div>
@@ -98,32 +98,40 @@ export function Header({
         </div>
 
         {/* Actions */}
-        <div className="flex items-center gap-3 sm:gap-4 lg:gap-6">
+        <div className="flex items-center gap-2 sm:gap-4 lg:gap-6">
           <button 
             onClick={toggleDarkMode}
-            className="text-gray-700 dark:text-gray-300 hover:text-brand-emerald dark:hover:text-brand-emerald transition-colors p-1"
+            className="text-gray-700 dark:text-gray-300 hover:text-brand-emerald dark:hover:text-brand-emerald transition-colors p-1 flex items-center justify-center"
             aria-label="Toggle dark mode"
           >
-            {isDarkMode ? <Sun size={22} /> : <Moon size={22} />}
+            {isDarkMode ? (
+              <Sun className="h-[20px] w-[20px] md:h-[22px] md:w-[22px]" strokeWidth={1.5} />
+            ) : (
+              <Moon className="h-[20px] w-[20px] md:h-[22px] md:w-[22px]" strokeWidth={1.5} />
+            )}
           </button>
-          <button onClick={() => onTabChange?.('categories')} className="md:hidden text-gray-700 dark:text-gray-300 hover:text-brand-emerald dark:hover:text-brand-emerald transition-colors p-1">
-            <Search size={22} />
+          
+          <button onClick={() => onTabChange?.('categories')} className="md:hidden text-gray-700 dark:text-gray-300 hover:text-brand-emerald dark:hover:text-brand-emerald transition-colors p-1 flex items-center justify-center">
+            <Search className="h-[20px] w-[20px]" strokeWidth={1.5} />
           </button>
+          
           <button 
             onClick={isLoggedIn ? () => onTabChange?.('profile') : onLoginClick} 
-            className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-brand-emerald transition-colors hidden lg:flex"
+            className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-brand-emerald transition-colors p-1"
           >
-            <User size={22} className={isLoggedIn ? "text-brand-emerald" : ""} />
-            <span className="text-sm font-medium">{isLoggedIn ? (user?.name || 'আমার প্রোফাইল') : 'লগইন করুন'}</span>
+            <User className={`h-[20px] w-[20px] md:h-[22px] md:w-[22px] ${isLoggedIn ? "text-brand-emerald" : ""}`} strokeWidth={1.5} />
+            <span className="text-sm font-medium hidden lg:block">{isLoggedIn ? (user?.name || 'আমার প্রোফাইল') : 'লগইন করুন'}</span>
           </button>
-          <button onClick={() => onTabChange?.('profile')} className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-brand-emerald transition-colors md:flex">
-            <Heart size={22} />
+          
+          <button onClick={() => onTabChange?.('profile')} className="text-gray-700 dark:text-gray-300 hover:text-brand-emerald transition-colors hidden md:flex items-center gap-2 p-1">
+            <Heart className="h-[20px] w-[20px] md:h-[22px] md:w-[22px]" strokeWidth={1.5} />
             <span className="text-sm font-medium hidden md:block">উইশলিস্ট</span>
           </button>
+          
           <button onClick={onCartClick || (() => onTabChange?.('profile'))} className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-brand-emerald transition-colors relative p-1 md:p-0">
             <div className="relative">
-              <ShoppingCart size={24} />
-              <span className="absolute -top-1 -right-1 bg-brand-emerald text-white text-[10px] font-bold h-4 w-4 rounded-full flex items-center justify-center border border-white dark:border-[#121212]">
+              <ShoppingCart className="h-[21px] w-[21px] md:h-[24px] md:w-[24px]" strokeWidth={1.5} />
+              <span className="absolute -top-1 -right-1 bg-brand-emerald text-white text-[9px] sm:text-[10px] font-bold h-3.5 w-3.5 sm:h-4 sm:w-4 rounded-full flex items-center justify-center border border-white dark:border-[#121212]">
                 {cartCount}
               </span>
             </div>
@@ -134,22 +142,20 @@ export function Header({
 
       {/* Mobile Search - Visible only on smallest screens */}
       <div 
-        className={`px-4 md:hidden flex flex-col transition-all duration-300 bg-white dark:bg-[#121212] ${isScrolled ? 'shadow-sm pb-3 pt-1' : 'pb-2 pt-1'}`}
+        className={`px-4 md:hidden flex flex-col transition-all duration-300 bg-white dark:bg-[#121212] ${isScrolled ? 'shadow-sm pb-4 pt-1' : 'pb-3 pt-2'}`}
       >
-        <div className="flex items-center relative">
+        <div className="flex items-center relative w-full group shadow-sm rounded-2xl">
+          <Search size={22} className="absolute left-4 text-gray-400 pointer-events-none transition-colors group-focus-within:text-brand-emerald" strokeWidth={1.5} />
           <input 
             type="text" 
             placeholder="আপনি কী খুঁজছেন?" 
-            className="w-full border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-[#1E1E1E] dark:text-white rounded-lg pl-3 pr-12 py-2 focus:outline-none focus:border-brand-emerald text-sm"
+            className="w-full border border-gray-200 dark:border-gray-800 bg-gray-50/50 dark:bg-[#1A1A1A] dark:text-white rounded-2xl pl-12 pr-4 h-[54px] focus:outline-none focus:border-brand-emerald focus:ring-1 focus:ring-brand-emerald/20 transition-all text-[15px]"
           />
-          <button className="absolute right-0 top-0 bottom-0 bg-[#08422C] text-white px-3.5 rounded-r-lg flex items-center justify-center">
-            <Search size={18} />
-          </button>
         </div>
         
         <div 
           onClick={() => setIsLocationModalOpen(true)}
-          className={`flex items-center gap-1.5 text-sm text-gray-600 dark:text-gray-400 border-gray-100 dark:border-gray-800 transition-all duration-300 overflow-hidden cursor-pointer ${isScrolled ? 'max-h-0 opacity-0 pb-0 border-transparent mt-0 mb-0' : 'max-h-[40px] opacity-100 pb-2 border-b mt-3 mb-1'}`}>
+          className={`flex items-center gap-1.5 text-sm text-gray-600 dark:text-gray-400 border-gray-100 dark:border-gray-800 transition-all duration-300 overflow-hidden cursor-pointer ${isScrolled ? 'max-h-0 opacity-0 pb-0 border-transparent mt-0 mb-0' : 'max-h-[40px] opacity-100 pb-2 border-b mt-4 mb-1'}`}>
           <MapPin size={16} className="text-brand-emerald shrink-0" />
           <span className="text-xs truncate font-medium">ডেলিভারি করুন: {selectedLocation}</span>
           <ChevronDown size={14} className="text-gray-400 shrink-0" />
