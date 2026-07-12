@@ -3,8 +3,14 @@ import { ArrowRight, Zap } from 'lucide-react';
 import { ProductCard } from './ProductCard';
 import { flashSaleProducts } from '../data';
 import { ProductSkeleton } from './ProductSkeleton';
+import { Product } from '../types';
 
-export function FlashSale() {
+interface FlashSaleProps {
+  onProductClick?: (product: Product) => void;
+  onAddToCart?: (product: Product, quantity: number) => void;
+}
+
+export function FlashSale({ onProductClick, onAddToCart }: FlashSaleProps) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -92,7 +98,11 @@ export function FlashSale() {
             ) : (
               flashSaleProducts.slice(0, 3).map(product => (
                 <div key={product.id} className="min-w-[38vw] sm:min-w-[260px] snap-center shrink-0 w-[38vw] flex flex-col">
-                  <ProductCard product={product} />
+                  <ProductCard 
+                    product={product} 
+                    onProductClick={onProductClick}
+                    onAddToCart={onAddToCart}
+                  />
                 </div>
               ))
             )}
@@ -117,7 +127,11 @@ export function FlashSale() {
               ) : (
                 flashSaleProducts.slice(3, 6).map(product => (
                   <div key={product.id} className="min-w-[38vw] sm:min-w-[260px] md:min-w-0 snap-center shrink-0 w-[38vw] md:w-auto flex flex-col">
-                    <ProductCard product={product} />
+                    <ProductCard 
+                      product={product} 
+                      onProductClick={onProductClick}
+                      onAddToCart={onAddToCart}
+                    />
                   </div>
                 ))
               )}

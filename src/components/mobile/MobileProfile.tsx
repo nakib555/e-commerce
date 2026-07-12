@@ -1,16 +1,35 @@
-import React, { useState } from 'react';
-import { User, Heart, MapPin, CreditCard, Bell, Settings, LogOut, ChevronRight, Edit2, Check, ShieldCheck, Mail, Phone, Calendar } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { User, Heart, MapPin, CreditCard, Bell, Settings, LogOut, ChevronRight, Edit2, Check, ShieldCheck, Mail, Phone, Calendar, ShieldAlert, ShoppingBag } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
-export function MobileProfile() {
+interface MobileProfileProps {
+  isLoggedIn?: boolean;
+  user?: { name: string; email: string; phone: string; address: string } | null;
+  onLoginClick?: () => void;
+  onLogout?: () => void;
+}
+
+export function MobileProfile({ isLoggedIn = false, user = null, onLoginClick, onLogout }: MobileProfileProps) {
   const [activeSubTab, setActiveSubTab] = useState('profile');
   const [isEditing, setIsEditing] = useState(false);
+  
   const [userInfo, setUserInfo] = useState({
     name: 'রকিব হাসান',
     email: 'rakib@example.com',
     phone: '+880 1712 345678',
     address: 'বাসা ১২, রোড ৪, ধানমন্ডি, ঢাকা',
   });
+
+  useEffect(() => {
+    if (user) {
+      setUserInfo({
+        name: user.name,
+        email: user.email,
+        phone: user.phone,
+        address: user.address,
+      });
+    }
+  }, [user]);
 
   const [addresses, setAddresses] = useState([
     { id: 1, type: 'বাসা', address: 'বাসা ১২, রোড ৪, ধানমন্ডি, ঢাকা', isDefault: true },
@@ -24,15 +43,54 @@ export function MobileProfile() {
 
   const menuItems = [
     { id: 'profile', icon: <User size={20} />, label: 'প্রোফাইল তথ্য' },
-    { id: 'wishlist', icon: <Heart size={20} />, label: 'উইশলিস্ট', count: 12 },
+    { id: 'wishlist', icon: <Heart size={20} />, label: 'উইশলিস্ট', count: 2 },
     { id: 'addresses', icon: <MapPin size={20} />, label: 'ঠিকানা সমূহ' },
     { id: 'cards', icon: <CreditCard size={20} />, label: 'পেমেন্ট মেথড' },
-    { id: 'notifications', icon: <Bell size={20} />, label: 'নোটিফিকেশন', count: 3 },
+    { id: 'notifications', icon: <Bell size={20} />, label: 'নোটিফিকেশন', count: 1 },
   ];
 
   const handleSaveProfile = () => {
     setIsEditing(false);
   };
+
+  if (!isLoggedIn) {
+    return (
+      <div className="w-full min-h-[60vh] flex items-center justify-center py-12 px-4">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+          className="bg-white dark:bg-[#1E1E1E] rounded-3xl p-6 sm:p-10 border border-gray-100 dark:border-gray-800 shadow-[0_8px_30px_rgba(0,0,0,0.03)] text-center max-w-md w-full flex flex-col items-center"
+        >
+          {/* Locked profile visual icon */}
+          <div className="relative mb-6">
+            <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-brand-emerald/10 text-brand-emerald flex items-center justify-center border-2 border-brand-emerald/20">
+              <User size={40} className="stroke-[1.5]" />
+            </div>
+            <div className="absolute -bottom-1 -right-1 bg-brand-gold text-brand-dark p-2 rounded-full shadow-lg border-2 border-white dark:border-[#1E1E1E]">
+              <ShieldAlert size={16} strokeWidth={2.5} />
+            </div>
+          </div>
+
+          <h2 className="text-xl sm:text-2xl font-heading font-extrabold text-gray-800 dark:text-gray-100 mb-3 tracking-tight">
+            স্বাগতম দেশি মার্টে!
+          </h2>
+          
+          <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 leading-relaxed mb-8 max-w-sm">
+            আপনার প্রোফাইল তথ্য দেখতে, অর্ডার ট্র্যাকিং করতে, প্রিয় পণ্য উইশলিস্টে রাখতে এবং নিরাপদ কেনাকাটা সম্পন্ন করতে অনুগ্রহ করে লগইন করুন।
+          </p>
+
+          <button
+            onClick={onLoginClick}
+            className="w-full bg-brand-emerald hover:bg-brand-dark text-white py-3.5 rounded-2xl text-xs sm:text-sm font-bold shadow-md hover:shadow-[0_4px_20px_rgba(15,138,95,0.3)] transition-all flex items-center justify-center gap-2 cursor-pointer"
+          >
+            <span>লগইন / নতুন অ্যাকাউন্ট তৈরি</span>
+            <ChevronRight size={16} />
+          </button>
+        </motion.div>
+      </div>
+    );
+  }
 
   return (
     <div className="w-full min-h-screen pb-12">
@@ -85,7 +143,10 @@ export function MobileProfile() {
             })}
           </div>
 
-          <button className="w-full mt-6 bg-red-50 dark:bg-red-950/20 hover:bg-red-100 text-red-600 dark:text-red-400 font-semibold p-3.5 rounded-xl flex items-center justify-center gap-2 transition-colors">
+          <button 
+            onClick={onLogout}
+            className="w-full mt-6 bg-red-50 dark:bg-red-950/20 hover:bg-red-100 text-red-600 dark:text-red-400 font-semibold p-3.5 rounded-xl flex items-center justify-center gap-2 transition-colors cursor-pointer"
+          >
             <LogOut size={18} />
             <span className="text-sm">লগ আউট</span>
           </button>

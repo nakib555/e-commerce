@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { ChevronRight, ChevronLeft } from 'lucide-react';
 
 export function Hero() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   return (
     <section className="max-w-[1440px] mx-auto md:px-4 lg:px-8 xl:px-12 md:py-4 lg:py-6 xl:py-8">
       <div className="relative md:rounded-2xl overflow-hidden bg-[#F0EBE3] min-h-[340px] sm:min-h-[400px] lg:h-[450px] lg:min-h-[450px] flex flex-col md:flex-row items-center group w-full">
@@ -18,14 +29,14 @@ export function Hero() {
 
         <div className="relative z-10 p-4 pt-6 pb-6 sm:p-6 sm:pt-24 sm:pb-8 md:p-16 xl:p-24 max-w-2xl xl:max-w-3xl mt-auto md:mt-0 w-full md:w-auto flex-1 flex flex-col justify-center">
           <span 
-            className="inline-block px-2 py-0.5 sm:px-3 sm:py-1 bg-[#E8F5E9] dark:bg-[#0A2E1F] text-brand-emerald rounded-md text-[9px] sm:text-xs md:text-sm font-semibold mb-3 sm:mb-3 md:mb-4 xl:mb-6 shadow-sm w-max"
-            style={{ fontSize: '11px', fontFamily: 'Verdana', height: '24.5px', width: '130.188px', marginBottom: '12px', paddingBottom: '0px' }}
+            className="inline-block px-2 py-0.5 sm:px-3 sm:py-1 bg-[#E8F5E9] dark:bg-[#0A2E1F] text-brand-emerald rounded-md text-[9px] sm:text-xs md:text-sm font-semibold mb-3 sm:mb-3 md:mb-4 xl:mb-6 shadow-sm w-max animate-fade-in"
+            style={isMobile ? { fontSize: '11px', fontFamily: 'Verdana', height: '24.5px', width: '130.188px', marginBottom: '12px', paddingBottom: '0px' } : undefined}
           >
             ঈদ কালেকশন ২০২৩
           </span>
           <h1 
             className="text-2xl sm:text-3xl md:text-6xl xl:text-7xl font-heading font-bold text-brand-dark dark:text-emerald-400 leading-[1.1] mb-2 sm:mb-3 md:mb-4 xl:mb-6 tracking-tight"
-            style={{ fontSize: '23px', fontFamily: 'Times New Roman' }}
+            style={isMobile ? { fontSize: '23px', fontFamily: 'Times New Roman' } : undefined}
           >
             ঈদ হোক<br/>
             <span className="text-[#888888] dark:text-gray-300">আনন্দময়</span><br/>
@@ -33,7 +44,7 @@ export function Hero() {
           </h1>
           <p 
             className="text-gray-600 dark:text-gray-400 text-[10px] sm:text-sm md:text-lg xl:text-xl mb-4 sm:mb-6 md:mb-8 xl:mb-10 max-w-[180px] sm:max-w-xs md:max-w-md xl:max-w-lg font-medium leading-snug"
-            style={{ fontSize: '12px' }}
+            style={isMobile ? { fontSize: '12px' } : undefined}
           >
             প্রিমিয়াম কোয়ালিটির পাঞ্জাবি,<br/> শাড়ি ও আরও অনেক কিছু
           </p>
@@ -41,7 +52,7 @@ export function Hero() {
           <div className="flex flex-wrap items-center gap-2 sm:gap-3 md:gap-4">
             <button 
               className="bg-[#125838] dark:bg-brand-emerald text-white px-4 sm:px-6 md:px-8 py-1.5 sm:py-2.5 md:py-3.5 rounded text-[10px] sm:text-sm md:text-base font-medium hover:bg-brand-dark dark:hover:bg-[#125838] transition-colors"
-              style={{ fontSize: '15px', lineHeight: '15px', height: '33px', width: '119.9375px', borderRadius: '8px' }}
+              style={isMobile ? { fontSize: '15px', lineHeight: '15px', height: '33px', width: '119.9375px', borderRadius: '8px' } : undefined}
             >
               এখনই কিনুন
             </button>

@@ -5,9 +5,16 @@ import { ProductSkeleton } from './ProductSkeleton';
 import { ArrowRight, ChevronLeft, ChevronRight, ShoppingCart, Star } from 'lucide-react';
 import { Product } from '../types';
 
-const ProductListCard: React.FC<{ product: Product }> = ({ product }) => {
+const ProductListCard: React.FC<{ 
+  product: Product; 
+  onProductClick?: (product: Product) => void;
+  onAddToCart?: (product: Product, quantity: number) => void;
+}> = ({ product, onProductClick, onAddToCart }) => {
   return (
-    <div className="bg-white rounded-lg overflow-hidden border border-gray-100 shadow-sm flex items-center p-1.5 gap-2.5 relative">
+    <div 
+      onClick={() => onProductClick?.(product)}
+      className="bg-white rounded-lg overflow-hidden border border-gray-100 shadow-sm flex items-center p-1.5 gap-2.5 relative cursor-pointer hover:shadow-md transition-shadow"
+    >
       {/* Badges */}
       {product.discount && (
         <span className="absolute top-1.5 left-1.5 z-10 bg-red-500 text-white text-[8px] font-bold px-1 py-0.5 rounded-sm">
@@ -43,7 +50,13 @@ const ProductListCard: React.FC<{ product: Product }> = ({ product }) => {
             <span className="text-[9px] font-medium text-gray-600">{product.rating} <span className="text-gray-400 font-normal">({product.reviews})</span></span>
           </div>
           
-          <button className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-brand-emerald hover:text-white hover:border-brand-emerald transition-colors shadow-sm">
+          <button 
+            onClick={(e) => {
+              e.stopPropagation();
+              if (onAddToCart) onAddToCart(product, 1);
+            }}
+            className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-brand-emerald hover:text-white hover:border-brand-emerald transition-colors shadow-sm"
+          >
             <ShoppingCart size={10} />
           </button>
         </div>
@@ -52,7 +65,12 @@ const ProductListCard: React.FC<{ product: Product }> = ({ product }) => {
   );
 }
 
-export function BestSellers() {
+interface BestSellersProps {
+  onProductClick?: (product: Product) => void;
+  onAddToCart?: (product: Product, quantity: number) => void;
+}
+
+export function BestSellers({ onProductClick, onAddToCart }: BestSellersProps) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -100,7 +118,12 @@ export function BestSellers() {
           ))
         ) : (
           bestSellerProducts.slice(0, 4).map(product => (
-            <ProductListCard key={product.id} product={product} />
+            <ProductListCard 
+              key={product.id} 
+              product={product} 
+              onProductClick={onProductClick}
+              onAddToCart={onAddToCart}
+            />
           ))
         )}
       </div>
@@ -115,7 +138,12 @@ export function BestSellers() {
           ))
         ) : (
           bestSellerProducts.slice(0, 6).map(product => (
-            <ProductCard key={product.id} product={product} />
+            <ProductCard 
+              key={product.id} 
+              product={product} 
+              onProductClick={onProductClick}
+              onAddToCart={onAddToCart}
+            />
           ))
         )}
       </div>

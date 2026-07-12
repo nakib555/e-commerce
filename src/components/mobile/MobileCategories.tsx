@@ -2,8 +2,14 @@ import React, { useState } from 'react';
 import { categories } from '../../data';
 import { ChevronRight, Search, Grid } from 'lucide-react';
 import { motion } from 'motion/react';
+import { Product } from '../../types';
 
-export function MobileCategories() {
+interface MobileCategoriesProps {
+  onProductClick?: (product: Product) => void;
+  onAddToCart?: (product: Product, quantity: number) => void;
+}
+
+export function MobileCategories({ onProductClick, onAddToCart }: MobileCategoriesProps = {}) {
   const [searchQuery, setSearchQuery] = useState('');
 
   const filteredCategories = categories.filter(category =>

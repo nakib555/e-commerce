@@ -1,12 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { ShoppingBag, Search, User, Heart, ShoppingCart, Menu, ChevronDown, Phone, MapPin, X, Moon, Sun } from 'lucide-react';
+import { motion } from 'motion/react';
 
 interface HeaderProps {
   activeTab?: string;
   onTabChange?: (tab: string) => void;
+  cartCount?: number;
+  onCartClick?: () => void;
+  isLoggedIn?: boolean;
+  user?: { name: string; email: string; phone: string; address: string } | null;
+  onLoginClick?: () => void;
 }
 
-export function Header({ activeTab = 'home', onTabChange }: HeaderProps) {
+export function Header({ 
+  activeTab = 'home', 
+  onTabChange, 
+  cartCount = 2, 
+  onCartClick,
+  isLoggedIn = false,
+  user = null,
+  onLoginClick
+}: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLocationModalOpen, setIsLocationModalOpen] = useState(false);
   const [selectedLocation, setSelectedLocation] = useState('ঢাকা, বাংলাদেশ');
@@ -95,19 +109,22 @@ export function Header({ activeTab = 'home', onTabChange }: HeaderProps) {
           <button onClick={() => onTabChange?.('categories')} className="md:hidden text-gray-700 dark:text-gray-300 hover:text-brand-emerald dark:hover:text-brand-emerald transition-colors p-1">
             <Search size={22} />
           </button>
-          <button onClick={() => onTabChange?.('profile')} className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-brand-emerald transition-colors hidden lg:flex">
-            <User size={22} />
-            <span className="text-sm font-medium">আমার প্রোফাইল</span>
+          <button 
+            onClick={isLoggedIn ? () => onTabChange?.('profile') : onLoginClick} 
+            className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-brand-emerald transition-colors hidden lg:flex"
+          >
+            <User size={22} className={isLoggedIn ? "text-brand-emerald" : ""} />
+            <span className="text-sm font-medium">{isLoggedIn ? (user?.name || 'আমার প্রোফাইল') : 'লগইন করুন'}</span>
           </button>
           <button onClick={() => onTabChange?.('profile')} className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-brand-emerald transition-colors md:flex">
             <Heart size={22} />
             <span className="text-sm font-medium hidden md:block">উইশলিস্ট</span>
           </button>
-          <button onClick={() => onTabChange?.('profile')} className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-brand-emerald transition-colors relative p-1 md:p-0">
+          <button onClick={onCartClick || (() => onTabChange?.('profile'))} className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-brand-emerald transition-colors relative p-1 md:p-0">
             <div className="relative">
               <ShoppingCart size={24} />
               <span className="absolute -top-1 -right-1 bg-brand-emerald text-white text-[10px] font-bold h-4 w-4 rounded-full flex items-center justify-center border border-white dark:border-[#121212]">
-                2
+                {cartCount}
               </span>
             </div>
             <span className="text-sm font-medium hidden sm:block">কার্ট</span>
@@ -148,36 +165,35 @@ export function Header({ activeTab = 'home', onTabChange }: HeaderProps) {
               <span>সকল ক্যাটাগরি</span>
             </button>
             <nav className="flex items-center gap-6 xl:gap-8">
-              <button 
-                onClick={() => onTabChange?.('home')}
-                className={`font-medium transition-colors pb-1 ${activeTab === 'home' ? 'text-brand-emerald border-b-2 border-brand-emerald' : 'text-gray-700 dark:text-gray-300 hover:text-brand-emerald'}`}
-              >
-                হোম
-              </button>
-              <button 
-                onClick={() => onTabChange?.('categories')}
-                className={`font-medium transition-colors pb-1 ${activeTab === 'categories' ? 'text-brand-emerald border-b-2 border-brand-emerald' : 'text-gray-700 dark:text-gray-300 hover:text-brand-emerald'}`}
-              >
-                ক্যাটাগরি সমূহ
-              </button>
-              <button 
-                onClick={() => onTabChange?.('orders')}
-                className={`font-medium transition-colors pb-1 ${activeTab === 'orders' ? 'text-brand-emerald border-b-2 border-brand-emerald' : 'text-gray-700 dark:text-gray-300 hover:text-brand-emerald'}`}
-              >
-                আমার অর্ডার
-              </button>
-              <button 
-                onClick={() => onTabChange?.('profile')}
-                className={`font-medium transition-colors pb-1 ${activeTab === 'profile' ? 'text-brand-emerald border-b-2 border-brand-emerald' : 'text-gray-700 dark:text-gray-300 hover:text-brand-emerald'}`}
-              >
-                আমার প্রোফাইল
-              </button>
-              <button 
-                onClick={() => onTabChange?.('more')}
-                className={`font-medium transition-colors pb-1 ${activeTab === 'more' ? 'text-brand-emerald border-b-2 border-brand-emerald' : 'text-gray-700 dark:text-gray-300 hover:text-brand-emerald'}`}
-              >
-                যোগাযোগ ও সাহায্য
-              </button>
+              {[
+                { id: 'home', label: 'হোম' },
+                { id: 'categories', label: 'ক্যাটাগরি সমূহ' },
+                { id: 'orders', label: 'আমার অর্ডার' },
+                { id: 'profile', label: 'আমার প্রোফাইল' },
+                { id: 'more', label: 'যোগাযোগ ও সাহায্য' }
+              ].map((tab) => {
+                const isActive = activeTab === tab.id;
+                return (
+                  <button 
+                    key={tab.id}
+                    onClick={() => onTabChange?.(tab.id)}
+                    className={`relative font-medium transition-all pb-1.5 pt-1 text-sm lg:text-[15px] ${
+                      isActive 
+                        ? 'text-brand-emerald font-semibold' 
+                        : 'text-gray-700 dark:text-gray-300 hover:text-brand-emerald'
+                    }`}
+                  >
+                    <span className="relative z-10">{tab.label}</span>
+                    {isActive && (
+                      <motion.span 
+                        layoutId="desktopActiveIndicator"
+                        className="absolute bottom-0 left-0 right-0 h-[3px] bg-brand-emerald rounded-full shadow-[0_1px_6px_rgba(15,138,95,0.4)]"
+                        transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                      />
+                    )}
+                  </button>
+                );
+              })}
             </nav>
           </div>
           <button onClick={() => onTabChange?.('home')} className="bg-gradient-to-r from-brand-emerald to-[#6DB33F] text-white px-4 py-1.5 rounded flex items-center gap-2 font-medium shadow-sm hover:shadow-md transition-shadow">

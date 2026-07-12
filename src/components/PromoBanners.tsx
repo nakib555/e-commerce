@@ -14,8 +14,8 @@ export function PromoBanners() {
         
         {/* Banner 1 */}
         {isLoading ? (
-          <div className="relative rounded-2xl overflow-hidden h-40 sm:h-64 xl:h-80 bg-gray-200 animate-pulse border border-gray-100">
-            <div className="absolute inset-0 p-5 sm:p-8 xl:p-12 flex flex-col justify-center max-w-[60%] z-10 gap-3">
+          <div className="relative rounded-2xl overflow-hidden h-44 sm:h-64 xl:h-80 bg-gray-200 animate-pulse border border-gray-100">
+            <div className="absolute inset-0 p-4 sm:p-8 xl:p-12 flex flex-col justify-center max-w-[60%] z-10 gap-3">
               <div className="h-3 sm:h-4 bg-gray-300 rounded w-1/2"></div>
               <div className="h-6 sm:h-10 bg-gray-300 rounded w-3/4"></div>
               <div className="h-3 sm:h-4 bg-gray-300 rounded w-2/3"></div>
@@ -23,12 +23,12 @@ export function PromoBanners() {
             </div>
           </div>
         ) : (
-          <div className="relative rounded-2xl overflow-hidden h-40 sm:h-64 xl:h-80 group bg-[#E8F5E9]">
-            <div className="absolute inset-0 p-5 sm:p-8 xl:p-12 flex flex-col justify-center max-w-[60%] z-10">
-              <span className="text-brand-dark text-[10px] sm:text-sm font-semibold mb-1 sm:mb-2">নতুন ব্যবহারকারীদের জন্য</span>
-              <h3 className="text-xl sm:text-3xl font-heading font-bold text-brand-dark mb-1 sm:mb-2">১০% ছাড়!</h3>
-              <p className="text-gray-700 text-[10px] sm:text-sm mb-3 sm:mb-4 font-medium">প্রথম অর্ডারে বিশেষ ছাড়</p>
-              <button className="bg-brand-dark text-white px-3 sm:px-5 py-1.5 sm:py-2 rounded-lg text-[10px] sm:text-base font-medium hover:bg-brand-emerald transition-colors w-max shadow-md">
+          <div className="relative rounded-2xl overflow-hidden h-44 sm:h-64 xl:h-80 group bg-[#E8F5E9] dark:bg-emerald-950/25 border border-emerald-100/20">
+            <div className="absolute inset-0 p-4 sm:p-8 xl:p-12 flex flex-col justify-center max-w-[60%] z-10">
+              <span className="text-brand-emerald text-[10px] sm:text-sm font-bold mb-1 sm:mb-2 uppercase tracking-wider">নতুন ব্যবহারকারীদের জন্য</span>
+              <h3 className="text-xl sm:text-3xl font-heading font-extrabold text-brand-dark dark:text-white mb-1 sm:mb-2">১০% ছাড়!</h3>
+              <p className="text-gray-700 dark:text-gray-300 text-[10px] sm:text-sm mb-3 sm:mb-4 font-semibold">প্রথম অর্ডারে বিশেষ প্রোমো ছাড়</p>
+              <button className="bg-brand-dark dark:bg-brand-emerald text-white px-3 sm:px-5 py-1.5 sm:py-2 rounded-lg text-[10px] sm:text-sm font-bold hover:bg-brand-emerald transition-colors w-max shadow-md">
                 এখনই শপ করুন
               </button>
             </div>
@@ -36,7 +36,7 @@ export function PromoBanners() {
               <img 
                 src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&q=80&w=400&h=400" 
                 alt="Gift" 
-                className="w-24 h-24 sm:w-48 sm:h-48 object-cover rounded-xl group-hover:scale-105 transition-transform duration-500 mix-blend-multiply"
+                className="w-24 h-24 sm:w-48 sm:h-48 object-cover rounded-xl group-hover:scale-105 transition-transform duration-500 mix-blend-multiply dark:mix-blend-normal"
               />
             </div>
           </div>
@@ -44,8 +44,8 @@ export function PromoBanners() {
 
         {/* Banner 2 */}
         {isLoading ? (
-          <div className="relative rounded-2xl overflow-hidden h-40 sm:h-64 xl:h-80 bg-gray-200 animate-pulse border border-gray-100">
-            <div className="absolute inset-0 p-5 sm:p-8 xl:p-12 flex flex-col justify-center max-w-[60%] z-10 gap-3">
+          <div className="relative rounded-2xl overflow-hidden h-44 sm:h-64 xl:h-80 bg-gray-200 animate-pulse border border-gray-100">
+            <div className="absolute inset-0 p-4 sm:p-8 xl:p-12 flex flex-col justify-center max-w-[60%] z-10 gap-3">
               <div className="h-3 sm:h-4 bg-gray-300 rounded w-1/2"></div>
               <div className="h-6 sm:h-10 bg-gray-300 rounded w-3/4"></div>
               <div className="h-3 sm:h-4 bg-gray-300 rounded w-2/3"></div>
@@ -53,20 +53,20 @@ export function PromoBanners() {
             </div>
           </div>
         ) : (
-          <div className="relative rounded-2xl overflow-hidden h-40 sm:h-64 xl:h-80 group bg-[#FFF8E1]">
-            <div className="absolute inset-0 p-5 sm:p-8 xl:p-12 flex flex-col justify-center max-w-[60%] z-10">
-              <span className="text-brand-gold text-[10px] sm:text-sm font-semibold mb-1 sm:mb-2">ঈদের কেনাকাটায়</span>
-              <h3 className="text-lg sm:text-3xl font-heading font-bold text-brand-dark mb-1 sm:mb-2">এক্সক্লুসিভ অফার</h3>
-              <p className="text-gray-700 text-[10px] sm:text-sm mb-3 sm:mb-4 font-medium">নির্বাচিত পণ্যে বিশেষ ছাড়</p>
-              <button className="bg-brand-gold text-brand-dark px-3 sm:px-5 py-1.5 sm:py-2 rounded-lg text-[10px] sm:text-base font-medium hover:bg-yellow-500 transition-colors w-max shadow-md">
+          <div className="relative rounded-2xl overflow-hidden h-44 sm:h-64 xl:h-80 group bg-[#FFF8E1] dark:bg-amber-950/15 border border-amber-100/20">
+            <div className="absolute inset-0 p-4 sm:p-8 xl:p-12 flex flex-col justify-center max-w-[60%] z-10">
+              <span className="text-amber-800 dark:text-amber-400 text-[10px] sm:text-sm font-bold mb-1 sm:mb-2 uppercase tracking-wider">ঈদের কেনাকাটায়</span>
+              <h3 className="text-xl sm:text-3xl font-heading font-extrabold text-brand-dark dark:text-amber-100 mb-1 sm:mb-2">এক্সক্লুসিভ অফার</h3>
+              <p className="text-gray-700 dark:text-gray-300 text-[10px] sm:text-sm mb-3 sm:mb-4 font-semibold">নির্বাচিত পণ্যে বিশেষ ডিল ছাড়</p>
+              <button className="bg-amber-800 dark:bg-amber-600 text-white px-3 sm:px-5 py-1.5 sm:py-2 rounded-lg text-[10px] sm:text-sm font-bold hover:bg-amber-700 transition-colors w-max shadow-md">
                 অফার দেখুন
               </button>
             </div>
             <div className="absolute right-0 top-0 bottom-0 w-1/2 flex items-center justify-end pr-3 sm:pr-8">
               <img 
-                src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&q=80&w=400&h=400" 
+                src="https://images.unsplash.com/photo-1540959733332-eab4deceeaf7?auto=format&fit=crop&q=80&w=400&h=400" 
                 alt="Lantern" 
-                className="w-24 h-24 sm:w-48 sm:h-48 object-cover rounded-xl group-hover:scale-105 transition-transform duration-500 mix-blend-multiply"
+                className="w-24 h-24 sm:w-48 sm:h-48 object-cover rounded-xl group-hover:scale-105 transition-transform duration-500 mix-blend-multiply dark:mix-blend-normal"
               />
             </div>
           </div>
