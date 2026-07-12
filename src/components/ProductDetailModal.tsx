@@ -498,7 +498,7 @@ export function ProductDetailModal({ product, isOpen, onClose, onAddToCart }: Pr
                       {/* Add to Cart */}
                       <button 
                         onClick={handleAddToCartClick}
-                        className={`flex-1 font-bold rounded-xl py-3 sm:py-4 px-4 flex items-center justify-center gap-2 shadow-sm transition-all ${isAdded ? 'bg-emerald-600 text-white shadow-inner' : 'bg-brand-emerald hover:bg-brand-dark text-white hover:shadow-lg'}`}
+                        className={`flex-1 font-bold rounded-xl py-3 sm:py-4 px-4 flex items-center justify-center gap-2 shadow-sm transition-all ${isAdded ? 'bg-brand-dark text-white shadow-inner' : 'bg-brand-emerald hover:bg-brand-dark text-white hover:shadow-lg'}`}
                         id="add-to-cart-btn"
                       >
                         {isAdded ? (
@@ -522,7 +522,7 @@ export function ProductDetailModal({ product, isOpen, onClose, onAddToCart }: Pr
                           // Simulating quick checkout trigger by invoking the orders or more tab
                           // We can just add to cart and close for instant buying experience
                         }}
-                        className="flex-1 bg-gradient-to-r from-brand-emerald to-[#6DB33F] hover:from-brand-dark hover:to-brand-emerald text-white font-extrabold rounded-xl py-3 sm:py-4 px-4 shadow hover:shadow-lg transition-all text-center flex items-center justify-center"
+                        className="flex-1 bg-gradient-to-r from-brand-orange to-brand-gold hover:from-brand-gold hover:to-brand-orange text-white font-extrabold rounded-xl py-3 sm:py-4 px-4 shadow hover:shadow-lg transition-all text-center flex items-center justify-center"
                         id="buy-now-btn"
                       >
                         সরাসরি কিনুন

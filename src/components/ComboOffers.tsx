@@ -114,7 +114,7 @@ export function ComboOffers({ onProductClick, onAddToCart }: ComboOffersProps) {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   {product.discount && (
-                    <div className="absolute top-4 left-4 bg-[#D32F2F] text-white text-[11px] font-extrabold px-2.5 py-1 rounded-full shadow-sm">
+                    <div className="absolute top-4 left-4 bg-brand-orange text-white text-[11px] font-extrabold px-2.5 py-1 rounded-full shadow-sm">
                       {product.discount}% ছাড়
                     </div>
                   )}
@@ -149,7 +149,7 @@ export function ComboOffers({ onProductClick, onAddToCart }: ComboOffersProps) {
                       <div className="text-[10px] text-gray-400 font-semibold line-through">
                         ৳{product.oldPrice}
                       </div>
-                      <div className="text-base sm:text-lg font-extrabold text-brand-emerald">
+                      <div className="text-base sm:text-lg font-extrabold text-brand-orange">
                         ৳{product.price}
                       </div>
                     </div>

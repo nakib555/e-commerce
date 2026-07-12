@@ -73,7 +73,7 @@ export function ProductCard({ product, featured = false, onProductClick, onAddTo
         <div className="mt-auto pt-1 flex items-end justify-between">
           <div className="flex flex-col">
             <div className="flex items-center gap-1.5 mb-1 flex-wrap">
-              <span className="text-[11px] sm:text-lg font-bold text-brand-emerald">৳{product.price.toLocaleString('en-IN')}</span>
+              <span className={`text-[11px] sm:text-lg font-bold ${product.oldPrice ? 'text-brand-orange' : 'text-brand-emerald'}`}>৳{product.price.toLocaleString('en-IN')}</span>
               {product.oldPrice && (
                 <span className="text-[8px] sm:text-xs text-gray-400 line-through">৳{product.oldPrice.toLocaleString('en-IN')}</span>
               )}
