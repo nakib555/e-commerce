@@ -35,16 +35,16 @@ export function Hero() {
               ? "inline-block px-2 py-0.5 sm:px-3 sm:py-1 bg-[#E8F5E9] dark:bg-[#0A2E1F] text-brand-emerald rounded-md text-[9px] sm:text-xs md:text-sm font-semibold mb-3 sm:mb-3 md:mb-4 xl:mb-6 shadow-sm w-max animate-fade-in"
               : "inline-block px-3 py-1 bg-[#E8F5E9] dark:bg-[#0A2E1F] text-brand-emerald dark:text-emerald-300 rounded-full text-xs sm:text-sm font-semibold mb-4 shadow-sm w-max animate-fade-in"
             }
-            style={isMobile ? { fontSize: '11px', fontFamily: 'Verdana', height: '24.5px', width: '130.188px', marginBottom: '12px', paddingBottom: '0px' } : undefined}
+            style={isMobile ? { fontSize: '11px', height: '24.5px', width: '130.188px', marginBottom: '12px', paddingBottom: '0px' } : undefined}
           >
             ঈদ কালেকশন ২০২৩
           </span>
           <h1 
             className={isMobile
-              ? "text-2xl sm:text-3xl md:text-6xl xl:text-7xl font-heading font-bold text-brand-dark dark:text-emerald-400 leading-[1.1] mb-2 sm:mb-3 md:mb-4 xl:mb-6 tracking-tight"
+              ? "text-2xl sm:text-3xl md:text-6xl xl:text-7xl font-heading font-bold text-brand-dark dark:text-emerald-400 leading-[1.1] mb-5 sm:mb-3 md:mb-4 xl:mb-6 tracking-tight"
               : "text-3xl sm:text-4xl md:text-6xl xl:text-7xl font-heading font-extrabold text-[#111111] dark:text-white leading-[1.15] mb-3 sm:mb-4 md:mb-6 tracking-tight drop-shadow-sm"
             }
-            style={isMobile ? { fontSize: '23px', fontFamily: 'Times New Roman' } : undefined}
+            style={isMobile ? { fontSize: '23px' } : undefined}
           >
             ঈদ হোক<br/>
             <span className={isMobile ? "text-[#888888] dark:text-gray-300" : "text-brand-emerald dark:text-emerald-400 font-black"}>আনন্দময়</span><br/>
