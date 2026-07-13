@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ShoppingBag, Search, User, Heart, ShoppingCart, Menu, ChevronDown, Phone, MapPin, X, Moon, Sun } from 'lucide-react';
+import { ShoppingBag, Search, User, Heart, ShoppingCart, Menu, ChevronDown, Phone, MapPin, X, Moon, Sun, Sparkles } from 'lucide-react';
 import { motion } from 'motion/react';
 import { SEASONAL_THEMES } from '../theme';
 
@@ -65,6 +65,12 @@ export function Header({
           <div className="flex items-center gap-6">
             <button onClick={() => onTabChange?.('more')} className="hover:text-brand-gold transition-colors flex items-center gap-1 text-xs"><Phone size={14} /> হেল্প সেন্টার</button>
             <button onClick={() => onTabChange?.('orders')} className="hover:text-brand-gold transition-colors text-xs">অর্ডার ট্র্যাক করুন</button>
+            <button 
+              onClick={() => window.dispatchEvent(new CustomEvent('show-pwa-install'))}
+              className="hover:text-brand-gold transition-all duration-300 flex items-center gap-1 text-xs bg-white/10 hover:bg-white/20 px-2.5 py-0.5 rounded-full font-bold border border-white/25 hover:border-white/40 animate-pulse hover:animate-none"
+            >
+              <Sparkles size={11} className="text-brand-gold" /> অ্যাপ ডাউনলোড (PWA)
+            </button>
             <div className="flex items-center gap-1 cursor-pointer">
               <span>বাংলা</span>
               <ChevronDown size={14} />

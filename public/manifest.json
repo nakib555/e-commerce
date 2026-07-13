@@ -1,0 +1,73 @@
+{
+  "name": "DeshiMart - Direct from Source",
+  "short_name": "DeshiMart",
+  "description": "Premium local groceries and daily essentials delivered directly from organic farms to your doorstep.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0F8A5F",
+  "theme_color": "#0F8A5F",
+  "orientation": "portrait-primary",
+  "categories": ["shopping", "food", "lifestyle"],
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "48x48 72x72 96x96 128x128 192x192 256x256 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "ফ্ল্যাশ সেল (Flash Sale)",
+      "short_name": "Flash Sale",
+      "description": "Check current limited-time deals",
+      "url": "/?shortcut=flash-sale",
+      "icons": [
+        {
+          "src": "/favicon.svg",
+          "sizes": "192x192",
+          "type": "image/svg+xml"
+        }
+      ]
+    },
+    {
+      "name": "আমার ব্যাগ (Shopping Cart)",
+      "short_name": "Cart",
+      "description": "View items in your shopping bag",
+      "url": "/?shortcut=cart",
+      "icons": [
+        {
+          "src": "/favicon.svg",
+          "sizes": "192x192",
+          "type": "image/svg+xml"
+        }
+      ]
+    },
+    {
+      "name": "সব ক্যাটাগরি (All Categories)",
+      "short_name": "Categories",
+      "description": "Explore all item departments",
+      "url": "/?shortcut=categories",
+      "icons": [
+        {
+          "src": "/favicon.svg",
+          "sizes": "192x192",
+          "type": "image/svg+xml"
+        }
+      ]
+    },
+    {
+      "name": "আমার প্রোফাইল (My Profile)",
+      "short_name": "Profile",
+      "description": "View account status and orders",
+      "url": "/?shortcut=profile",
+      "icons": [
+        {
+          "src": "/favicon.svg",
+          "sizes": "192x192",
+          "type": "image/svg+xml"
+        }
+      ]
+    }
+  ]
+}

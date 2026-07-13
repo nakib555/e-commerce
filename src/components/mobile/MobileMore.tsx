@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { HelpCircle, Info, FileText, Shield, MessageSquare, ChevronRight, ChevronDown, Mail, Phone, MapPin, Send, CheckCircle2 } from 'lucide-react';
+import { HelpCircle, Info, FileText, Shield, MessageSquare, ChevronRight, ChevronDown, Mail, Phone, MapPin, Send, CheckCircle2, Smartphone, Sparkles } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 export function MobileMore() {
@@ -91,6 +91,28 @@ export function MobileMore() {
                   </div>
                 </div>
                 <ChevronRight size={18} className="text-gray-400" />
+              </button>
+
+              {/* Install PWA Prompt Card */}
+              <button 
+                onClick={() => window.dispatchEvent(new CustomEvent('show-pwa-install'))}
+                className="flex items-center justify-between p-5 bg-gradient-to-r from-brand-emerald to-emerald-600 text-white rounded-2xl shadow-sm hover:shadow-md transition-all text-left md:col-span-2 relative overflow-hidden group"
+              >
+                <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:scale-110 transition-transform duration-300">
+                  <Smartphone size={120} />
+                </div>
+                <div className="flex items-center gap-4 relative z-10">
+                  <div className="w-12 h-12 rounded-xl bg-white/20 text-white flex items-center justify-center shrink-0">
+                    <Smartphone size={22} />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-sm sm:text-base flex items-center gap-1.5">
+                      মোবাইল অ্যাপ ইনস্টল করুন <span className="bg-brand-gold text-brand-dark font-black text-[9px] px-1.5 py-0.5 rounded-full uppercase animate-bounce">NEW</span>
+                    </h3>
+                    <p className="text-xs text-white/85 mt-0.5">হোম স্ক্রিন শর্টকাট সহ সেরা পারফরম্যান্স পান</p>
+                  </div>
+                </div>
+                <ChevronRight size={18} className="text-white/80" />
               </button>
             </div>
 

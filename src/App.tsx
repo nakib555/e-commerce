@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { ShoppingCart } from 'lucide-react';
 import { Header } from './components/Header';
@@ -35,11 +35,42 @@ import { AuthModal } from './components/AuthModal';
 import { flashSaleProducts } from './data';
 import { MobileLayout } from './components/MobileLayout';
 import { SEASONAL_THEMES } from './theme';
+import { PWAInstallPrompt } from './components/PWAInstallPrompt';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('home');
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Handle PWA App Shortcuts routing
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const shortcut = params.get('shortcut');
+    if (shortcut) {
+      if (shortcut === 'categories') {
+        setActiveTab('categories');
+      } else if (shortcut === 'cart') {
+        setIsCartOpen(true);
+      } else if (shortcut === 'profile') {
+        setActiveTab('profile');
+      } else if (shortcut === 'orders') {
+        setActiveTab('orders');
+      } else if (shortcut === 'flash-sale') {
+        setActiveTab('home');
+        // Let's scroll to the flash sale section after a small timeout
+        setTimeout(() => {
+          const el = document.getElementById('flash-sale');
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 600);
+      }
+      
+      // Clean query parameter so that refreshes don't keep firing it
+      const cleanUrl = window.location.pathname + window.location.hash;
+      window.history.replaceState({}, document.title, cleanUrl);
+    }
+  }, []);
   
   // Seasonal state matching design system specification
   const [currentSeason, setCurrentSeason] = useState<string>(() => {
@@ -214,6 +245,9 @@ export default function App() {
         onLoginSuccess={handleLoginSuccess}
         redirectReason={authRedirectReason}
       />
+
+      {/* Globally Active PWA Installation and Shortcut Prompter */}
+      <PWAInstallPrompt />
     </div>
   );
 }

@@ -20,7 +20,7 @@ export function FlashSale({ onProductClick, onAddToCart }: FlashSaleProps) {
   }, []);
 
   return (
-    <section className="max-w-[1440px] mx-auto px-4 lg:px-8 xl:px-12 py-4 md:py-8 xl:py-12">
+    <section id="flash-sale" className="max-w-[1440px] mx-auto px-4 lg:px-8 xl:px-12 py-4 md:py-8 xl:py-12">
       {/* Mobile Header */}
       <div className="md:hidden flex flex-col gap-2 mb-3">
         <div className="flex items-center justify-between">
