@@ -85,14 +85,14 @@ export function ComboOffers({ onProductClick, onAddToCart }: ComboOffersProps) {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 xl:gap-8">
         {isLoading ? (
           Array(3).fill(0).map((_, idx) => (
-            <div key={idx} className="bg-white dark:bg-[#1E1E1E] rounded-3xl p-4 border border-gray-100 dark:border-gray-800 shadow-sm animate-pulse flex flex-col gap-4">
-              <div className="w-full aspect-[4/3] rounded-2xl bg-gray-200 dark:bg-gray-800" />
-              <div className="h-5 bg-gray-200 dark:bg-gray-800 rounded w-3/4" />
+            <div key={idx} className="bg-white dark:bg-[#1E1E1E] rounded-3xl p-4 border border-gray-100 dark:border-gray-800 shadow-sm flex flex-col gap-4">
+              <div className="w-full aspect-[4/3] rounded-2xl shimmer" />
+              <div className="h-5 shimmer rounded w-3/4" />
               <div className="space-y-2">
-                <div className="h-3 bg-gray-200 dark:bg-gray-800 rounded w-1/2" />
-                <div className="h-3 bg-gray-200 dark:bg-gray-800 rounded w-2/3" />
+                <div className="h-3 shimmer rounded w-1/2" />
+                <div className="h-3 shimmer rounded w-2/3" />
               </div>
-              <div className="h-10 bg-gray-200 dark:bg-gray-800 rounded w-full mt-auto" />
+              <div className="h-10 shimmer rounded w-full mt-auto" />
             </div>
           ))
         ) : (

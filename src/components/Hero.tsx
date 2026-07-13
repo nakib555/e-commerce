@@ -10,6 +10,12 @@ interface HeroProps {
 export function Hero({ currentSeason = 'default' }: HeroProps) {
   const [isMobile, setIsMobile] = useState(false);
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 1200);
+    return () => clearTimeout(timer);
+  }, []);
 
   const SLIDES = [
     {
@@ -180,27 +186,69 @@ export function Hero({ currentSeason = 'default' }: HeroProps) {
     setCurrentSlideIndex(prev => (prev + 1) % SLIDES.length);
   };
 
+  if (isLoading) {
+    return (
+      <section className="max-w-[1440px] mx-auto md:px-4 lg:px-8 xl:px-12 md:py-4 lg:py-6 xl:py-8">
+        <div className="relative md:rounded-2xl overflow-hidden bg-white dark:bg-[#1A1A1A] h-[340px] md:h-[450px] w-full shadow-sm border border-gray-100 dark:border-gray-800/40 p-5 sm:p-8 md:p-16 xl:p-24 flex flex-col justify-center">
+          {/* Ambient background accent */}
+          <div className="absolute inset-0 w-full h-full bg-slate-50/50 dark:bg-[#1E1E1E]/30 pointer-events-none" />
+          
+          <div className="relative z-10 max-w-2xl xl:max-w-3xl flex flex-col">
+            {/* Badge Shimmer */}
+            <div className="h-6 sm:h-7 w-28 sm:w-36 rounded-full shimmer mb-4 sm:mb-6" />
+            
+            {/* Title Shimmer */}
+            <div className="h-8 sm:h-12 w-3/4 sm:w-2/3 rounded-xl shimmer mb-2.5 sm:mb-4" />
+            <div className="h-8 sm:h-12 w-1/2 sm:w-1/2 rounded-xl shimmer mb-4 sm:mb-6" />
+            
+            {/* Tagline Shimmer */}
+            <div className="h-4 sm:h-5 w-2/3 sm:w-5/12 rounded-lg shimmer mb-6 sm:mb-10" />
+            
+            {/* Buttons Shimmer */}
+            <div className="flex items-center gap-3.5">
+              <div className="h-10 sm:h-12 w-28 sm:w-40 rounded-xl shimmer" />
+              <div className="h-10 sm:h-12 w-28 sm:w-40 rounded-xl shimmer" />
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="max-w-[1440px] mx-auto md:px-4 lg:px-8 xl:px-12 md:py-4 lg:py-6 xl:py-8">
       <div className="relative md:rounded-2xl overflow-hidden bg-slate-50 dark:bg-[#1A1A1A] h-[340px] md:h-[450px] w-full shadow-sm border border-gray-100 dark:border-gray-800/40 group">
         
-        {/* Horizontal Slide Track */}
+        {/* Horizontal Slide Track - Only Backgrounds Slide */}
         <div 
           className="flex w-full h-full transition-transform duration-700 ease-in-out"
           style={{ transform: `translate3d(-${currentSlideIndex * 100}%, 0, 0)` }}
         >
-          {SLIDES.map((slide, idx) => (
+          {SLIDES.map((slide) => (
             <div 
               key={slide.key} 
-              className="w-full h-full shrink-0 relative flex flex-col md:flex-row items-center overflow-hidden"
+              className="w-full h-full shrink-0 relative overflow-hidden"
             >
-              {/* Background Layer inside each slide */}
-              <div className="absolute inset-0 w-full h-full overflow-hidden">
+              <div className="absolute inset-0 w-full h-full">
                 {slide.background}
               </div>
+            </div>
+          ))}
+        </div>
 
-              {/* Content Container inside each slide */}
-              <div className="relative z-10 p-5 pt-8 pb-8 sm:p-8 sm:pt-16 md:p-16 xl:p-24 max-w-2xl xl:max-w-3xl mt-auto md:mt-0 w-full md:w-auto flex-1 flex flex-col justify-center">
+        {/* Static Content Container Overlay (Text & Buttons do not move horizontally) */}
+        <div className="absolute inset-y-0 left-0 w-full md:w-[60%] lg:w-[55%] xl:w-[50%] z-10 p-5 sm:p-8 md:p-16 xl:p-24 flex flex-col justify-center pointer-events-none">
+          {SLIDES.map((slide, idx) => {
+            const isActive = idx === currentSlideIndex;
+            return (
+              <div
+                key={slide.key}
+                className={`absolute left-5 right-5 sm:left-8 sm:right-8 md:left-16 md:right-16 xl:left-24 xl:right-24 transition-all duration-500 ease-out flex flex-col justify-center pointer-events-auto ${
+                  isActive 
+                    ? 'opacity-100 translate-y-0 scale-100' 
+                    : 'opacity-0 translate-y-3 scale-[0.98] pointer-events-none'
+                }`}
+              >
                 <span 
                   className={`inline-block px-3 py-1 rounded-full text-xs sm:text-sm font-semibold mb-3 sm:mb-4 shadow-sm w-max ${slide.badgeClass}`}
                 >
@@ -229,8 +277,8 @@ export function Hero({ currentSeason = 'default' }: HeroProps) {
                   </button>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Slider Controls */}

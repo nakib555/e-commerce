@@ -11,40 +11,40 @@ import { Features } from './Features';
 import { groceryCategories, groceryProducts, groceryBrands } from '../data';
 
 const ProductSkeleton = () => (
-  <div className="border border-slate-100 rounded-xl overflow-hidden relative p-2.5 animate-pulse bg-white">
-    <div className="w-full h-24 bg-slate-200 rounded-lg mb-3"></div>
-    <div className="h-3 bg-slate-200 rounded w-3/4 mb-2"></div>
-    <div className="h-4 bg-slate-200 rounded w-1/2 mb-3"></div>
+  <div className="border border-slate-100 dark:border-gray-800/60 rounded-xl overflow-hidden relative p-2.5 bg-white dark:bg-[#1A1A1A] shadow-sm">
+    <div className="w-full h-24 shimmer rounded-lg mb-3"></div>
+    <div className="h-3 shimmer rounded w-3/4 mb-2"></div>
+    <div className="h-4 shimmer rounded w-1/2 mb-3"></div>
     <div className="flex justify-between items-center mt-auto">
-      <div className="h-3 bg-slate-200 rounded w-1/3"></div>
-      <div className="w-7 h-7 bg-slate-200 rounded-full"></div>
+      <div className="h-3 shimmer rounded w-1/3"></div>
+      <div className="w-7 h-7 shimmer rounded-full"></div>
     </div>
   </div>
 );
 
 const GrocerySkeleton = () => (
-  <div className="min-w-[140px] border border-slate-100 rounded-2xl bg-white p-2.5 relative flex flex-col shadow-sm animate-pulse">
-    <div className="h-28 w-full bg-slate-200 rounded-xl mb-3"></div>
-    <div className="h-3 bg-slate-200 rounded w-3/4 mb-1.5"></div>
-    <div className="h-2 bg-slate-200 rounded w-1/3 mb-3"></div>
+  <div className="min-w-[140px] border border-slate-100 dark:border-gray-800/60 rounded-2xl bg-white dark:bg-[#1A1A1A] p-2.5 relative flex flex-col shadow-sm">
+    <div className="h-28 w-full shimmer rounded-xl mb-3"></div>
+    <div className="h-3 shimmer rounded w-3/4 mb-1.5"></div>
+    <div className="h-2 shimmer rounded w-1/3 mb-3"></div>
     <div className="mt-auto flex items-end justify-between">
-      <div className="h-4 bg-slate-200 rounded w-1/2"></div>
-      <div className="w-7 h-7 bg-slate-200 rounded-lg"></div>
+      <div className="h-4 shimmer rounded w-1/2"></div>
+      <div className="w-7 h-7 shimmer rounded-lg"></div>
     </div>
   </div>
 );
 
 const ListItemSkeleton = () => (
-  <div className="flex items-center justify-between p-2 -mx-2 rounded-xl animate-pulse">
+  <div className="flex items-center justify-between p-2 -mx-2 rounded-xl bg-white dark:bg-[#1A1A1A] mb-2 border border-slate-50 dark:border-gray-800/40 shadow-sm">
     <div className="flex items-center gap-4 w-full">
-      <div className="w-[85px] h-[85px] bg-slate-200 rounded-lg flex-shrink-0"></div>
+      <div className="w-[85px] h-[85px] shimmer rounded-lg flex-shrink-0"></div>
       <div className="flex flex-col w-full">
-        <div className="h-3.5 bg-slate-200 rounded w-2/3 mb-2"></div>
-        <div className="h-4 bg-slate-200 rounded w-1/3 mb-2"></div>
-        <div className="h-3 bg-slate-200 rounded w-1/4"></div>
+        <div className="h-3.5 shimmer rounded w-2/3 mb-2"></div>
+        <div className="h-4 shimmer rounded w-1/3 mb-2"></div>
+        <div className="h-3 shimmer rounded w-1/4"></div>
       </div>
     </div>
-    <div className="w-11 h-11 rounded-full bg-slate-200 flex-shrink-0"></div>
+    <div className="w-11 h-11 rounded-full shimmer flex-shrink-0 ml-2"></div>
   </div>
 );
 

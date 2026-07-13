@@ -27,8 +27,8 @@ export function CategoryList() {
           {isLoading ? (
             Array(8).fill(0).map((_, i) => (
               <div key={i} className="flex flex-col items-center gap-2">
-                <div className="w-[72px] h-[72px] rounded-[18px] bg-gray-200 dark:bg-gray-800 animate-pulse shadow-md dark:shadow-none"></div>
-                <div className="h-3 w-12 bg-gray-200 dark:bg-gray-800 rounded animate-pulse"></div>
+                <div className="w-[72px] h-[72px] rounded-[18px] shimmer shadow-sm"></div>
+                <div className="h-3 w-12 shimmer rounded"></div>
               </div>
             ))
           ) : (
@@ -67,8 +67,8 @@ export function CategoryList() {
           {isLoading ? (
             Array(8).fill(0).map((_, i) => (
               <div key={i} className="flex flex-col items-center gap-3 min-w-[80px] sm:min-w-[100px] xl:min-w-[120px]">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 xl:w-28 xl:h-28 rounded-full bg-gray-200 dark:bg-gray-800 animate-pulse"></div>
-                <div className="h-4 w-16 bg-gray-200 dark:bg-gray-800 rounded animate-pulse"></div>
+                <div className="w-16 h-16 sm:w-20 sm:h-20 xl:w-28 xl:h-28 rounded-full shimmer"></div>
+                <div className="h-4 w-16 shimmer rounded"></div>
               </div>
             ))
           ) : (

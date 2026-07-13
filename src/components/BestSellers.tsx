@@ -112,11 +112,11 @@ export function BestSellers({ onProductClick, onAddToCart }: BestSellersProps) {
       <div className="flex flex-col gap-3 md:hidden">
         {isLoading ? (
           Array(4).fill(0).map((_, i) => (
-            <div key={i} className="h-24 bg-white rounded-xl border border-gray-100 animate-pulse flex items-center p-2 gap-3">
-              <div className="w-20 h-20 bg-gray-200 rounded-lg"></div>
+            <div key={i} className="h-24 bg-white dark:bg-[#1A1A1A] rounded-xl border border-gray-100 dark:border-gray-800/40 flex items-center p-2 gap-3 shadow-sm">
+              <div className="w-20 h-20 shimmer rounded-lg shrink-0"></div>
               <div className="flex-1 space-y-2">
-                <div className="h-4 bg-gray-200 rounded w-3/4"></div>
-                <div className="h-4 bg-gray-200 rounded w-1/2"></div>
+                <div className="h-4 shimmer rounded w-3/4"></div>
+                <div className="h-3.5 shimmer rounded w-1/2"></div>
               </div>
             </div>
           ))

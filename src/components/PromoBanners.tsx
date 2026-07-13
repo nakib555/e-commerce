@@ -14,12 +14,12 @@ export function PromoBanners() {
         
         {/* Banner 1 */}
         {isLoading ? (
-          <div className="relative rounded-2xl overflow-hidden h-44 sm:h-64 xl:h-80 bg-gray-200 animate-pulse border border-gray-100">
+          <div className="relative rounded-2xl overflow-hidden h-44 sm:h-64 xl:h-80 bg-white dark:bg-[#1E1E1E] border border-gray-100 dark:border-gray-800 shadow-sm">
             <div className="absolute inset-0 p-4 sm:p-8 xl:p-12 flex flex-col justify-center max-w-[60%] z-10 gap-3">
-              <div className="h-3 sm:h-4 bg-gray-300 rounded w-1/2"></div>
-              <div className="h-6 sm:h-10 bg-gray-300 rounded w-3/4"></div>
-              <div className="h-3 sm:h-4 bg-gray-300 rounded w-2/3"></div>
-              <div className="h-8 sm:h-10 bg-gray-300 rounded w-24 sm:w-32 mt-2"></div>
+              <div className="h-3 sm:h-4 shimmer rounded w-1/2"></div>
+              <div className="h-6 sm:h-10 shimmer rounded w-3/4"></div>
+              <div className="h-3 sm:h-4 shimmer rounded w-2/3"></div>
+              <div className="h-8 sm:h-10 shimmer rounded w-24 sm:w-32 mt-2"></div>
             </div>
           </div>
         ) : (
@@ -44,12 +44,12 @@ export function PromoBanners() {
 
         {/* Banner 2 */}
         {isLoading ? (
-          <div className="relative rounded-2xl overflow-hidden h-44 sm:h-64 xl:h-80 bg-gray-200 animate-pulse border border-gray-100">
+          <div className="relative rounded-2xl overflow-hidden h-44 sm:h-64 xl:h-80 bg-white dark:bg-[#1E1E1E] border border-gray-100 dark:border-gray-800 shadow-sm">
             <div className="absolute inset-0 p-4 sm:p-8 xl:p-12 flex flex-col justify-center max-w-[60%] z-10 gap-3">
-              <div className="h-3 sm:h-4 bg-gray-300 rounded w-1/2"></div>
-              <div className="h-6 sm:h-10 bg-gray-300 rounded w-3/4"></div>
-              <div className="h-3 sm:h-4 bg-gray-300 rounded w-2/3"></div>
-              <div className="h-8 sm:h-10 bg-gray-300 rounded w-24 sm:w-32 mt-2"></div>
+              <div className="h-3 sm:h-4 shimmer rounded w-1/2"></div>
+              <div className="h-6 sm:h-10 shimmer rounded w-3/4"></div>
+              <div className="h-3 sm:h-4 shimmer rounded w-2/3"></div>
+              <div className="h-8 sm:h-10 shimmer rounded w-24 sm:w-32 mt-2"></div>
             </div>
           </div>
         ) : (
