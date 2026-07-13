@@ -31,6 +31,8 @@ export function Header({
   const [selectedLocation, setSelectedLocation] = useState('ঢাকা, বাংলাদেশ');
   const [isDarkMode, setIsDarkMode] = useState(false);
 
+  const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
+
   useEffect(() => {
     // Check initial dark mode preference
     if (document.documentElement.classList.contains('dark')) {
@@ -139,7 +141,7 @@ export function Header({
             )}
           </button>
           
-          <button onClick={() => onTabChange?.('categories')} className="md:hidden text-gray-700 dark:text-gray-300 hover:text-brand-emerald dark:hover:text-brand-emerald transition-colors p-1 flex items-center justify-center">
+          <button onClick={() => setIsMobileSearchOpen(!isMobileSearchOpen)} className="md:hidden text-gray-700 dark:text-gray-300 hover:text-brand-emerald dark:hover:text-brand-emerald transition-colors p-1 flex items-center justify-center relative">
             <Search className="h-[20px] w-[20px]" strokeWidth={1.5} />
           </button>
           
@@ -168,13 +170,31 @@ export function Header({
         </div>
       </div>
 
+      {/* Mobile Search Bar - Animated */}
+      <div 
+        className={`md:hidden px-4 transition-all duration-300 ease-in-out overflow-hidden bg-white dark:bg-[#121212] ${
+          isMobileSearchOpen ? 'max-h-[80px] opacity-100 pb-3 border-b border-gray-100 dark:border-gray-800' : 'max-h-0 opacity-0 pb-0 border-transparent'
+        }`}
+      >
+        <div className="flex items-center relative">
+          <input 
+            type="text" 
+            placeholder="আপনি কী খুঁজছেন?" 
+            className="w-full border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#1A1A1A] dark:text-white rounded-full pl-5 pr-12 py-2.5 text-sm focus:outline-none focus:border-brand-emerald focus:ring-1 focus:ring-brand-emerald shadow-inner transition-shadow"
+          />
+          <button className="absolute right-2 top-1/2 -translate-y-1/2 text-white bg-brand-emerald p-1.5 rounded-full hover:bg-[#08422C] transition-colors">
+            <Search size={16} strokeWidth={2} />
+          </button>
+        </div>
+      </div>
+
       {/* Mobile Location Selector - Visible only on smallest screens */}
       <div 
-        className={`px-4 md:hidden flex flex-col transition-all duration-300 bg-white dark:bg-[#121212] ${isScrolled ? '' : 'pb-2 pt-1'}`}
+        className={`px-4 md:hidden flex flex-col transition-all duration-300 bg-white dark:bg-[#121212] ${isScrolled || isMobileSearchOpen ? '' : 'pb-2 pt-1'}`}
       >
         <div 
           onClick={() => setIsLocationModalOpen(true)}
-          className={`flex items-center gap-1.5 text-sm text-gray-600 dark:text-gray-400 border-gray-100 dark:border-gray-800 transition-all duration-300 overflow-hidden cursor-pointer ${isScrolled ? 'max-h-0 opacity-0 pb-0 border-transparent mt-0 mb-0' : 'max-h-[40px] opacity-100 pb-2 border-b mt-2 mb-1'}`}>
+          className={`flex items-center gap-1.5 text-sm text-gray-600 dark:text-gray-400 border-gray-100 dark:border-gray-800 transition-all duration-300 overflow-hidden cursor-pointer ${isScrolled || isMobileSearchOpen ? 'max-h-0 opacity-0 pb-0 border-transparent mt-0 mb-0' : 'max-h-[40px] opacity-100 pb-2 border-b mt-2 mb-1'}`}>
           <MapPin size={16} className="text-brand-emerald shrink-0" />
           <span className="text-xs truncate font-medium">ডেলিভারি করুন: {selectedLocation}</span>
           <ChevronDown size={14} className="text-gray-400 shrink-0" />
@@ -221,8 +241,8 @@ export function Header({
               })}
             </nav>
           </div>
-          <button onClick={() => onTabChange?.('home')} className="bg-gradient-to-r from-brand-emerald to-[#6DB33F] text-white px-4 py-1.5 rounded flex items-center gap-2 font-medium shadow-sm hover:shadow-md transition-shadow">
-            <span>🔥</span> ফ্ল্যাশ সেল
+          <button onClick={() => onTabChange?.('home')} className="bg-brand-emerald text-white px-6 py-2 rounded-full flex items-center gap-2 font-bold shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all tracking-wide">
+            <span className="animate-pulse">🔥</span> ফ্ল্যাশ সেল
           </button>
         </div>
       </div>

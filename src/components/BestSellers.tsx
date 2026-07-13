@@ -14,21 +14,21 @@ const ProductListCard: React.FC<{
   return (
     <div 
       onClick={() => onProductClick?.(product)}
-      className="bg-white rounded-lg overflow-hidden border border-gray-100 shadow-sm flex items-center p-1.5 gap-2.5 relative cursor-pointer hover:shadow-md transition-shadow"
+      className="bg-white dark:bg-[#121212] rounded-[1.25rem] overflow-hidden border border-gray-100/50 dark:border-gray-800/40 shadow-[0_4px_16px_rgba(0,0,0,0.02)] flex items-center p-2.5 gap-3 relative cursor-pointer hover:shadow-lg transition-all duration-300"
     >
       {/* Badges */}
       {product.discount && (
-        <span className="absolute top-1.5 left-1.5 z-10 bg-red-500 text-white text-[8px] font-bold px-1 py-0.5 rounded-sm">
+        <span className="absolute top-2 left-2 z-10 bg-red-500/90 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-sm">
           -{product.discount}%
         </span>
       )}
       
       {/* Image */}
-      <div className="w-16 h-16 sm:w-24 sm:h-24 shrink-0 rounded-md overflow-hidden bg-gray-50 flex items-center justify-center p-1">
+      <div className="w-16 h-16 sm:w-24 sm:h-24 shrink-0 rounded-xl overflow-hidden bg-gray-50/50 dark:bg-[#1A1A1A] flex items-center justify-center p-1 border border-gray-100 dark:border-gray-800">
         <img 
           src={product.image} 
           alt={product.name} 
-          className="max-w-full max-h-full object-contain mix-blend-multiply"
+          className="max-w-full max-h-full object-contain mix-blend-multiply dark:mix-blend-normal"
         />
       </div>
 

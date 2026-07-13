@@ -64,7 +64,7 @@ export function MobileCategories({ onProductClick, onAddToCart }: MobileCategori
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: index * 0.04 }}
-                className={`group flex flex-col items-center bg-white dark:bg-[#1E1E1E] p-4 sm:p-6 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-800 hover:${theme.borderLight} dark:hover:${theme.borderDark}`}
+                className={`group flex flex-col items-center bg-white dark:bg-[#1E1E1E] p-4 sm:p-6 rounded-[1.5rem] shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-800 hover:${theme.borderLight} dark:hover:${theme.borderDark}`}
               >
                 <div className={`w-[96px] h-[96px] sm:w-[112px] sm:h-[112px] rounded-[18px] overflow-hidden mb-3 sm:mb-4 bg-gray-50 dark:bg-[#121212] border border-gray-100 dark:border-gray-800 p-1 flex items-center justify-center shadow-[0_4px_10px_rgba(0,0,0,0.06)] group-hover:${theme.borderLight} dark:group-hover:${theme.borderDark} transition-all duration-300`}>
                   <img 

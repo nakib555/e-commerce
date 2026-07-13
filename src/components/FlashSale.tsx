@@ -51,37 +51,37 @@ export function FlashSale({ onProductClick, onAddToCart }: FlashSaleProps) {
 
       <div className="flex flex-col lg:flex-row gap-4 md:gap-6 xl:gap-8">
         {/* Desktop Flash Sale Banner / Timer */}
-        <div className="hidden lg:flex lg:w-1/4 bg-brand-dark text-white rounded-2xl p-6 xl:p-10 flex-col justify-center relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-32 h-32 bg-brand-emerald/20 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 w-24 h-24 bg-brand-gold/10 rounded-full blur-2xl"></div>
+        <div className="hidden lg:flex lg:w-1/4 bg-brand-emerald text-white rounded-[1.5rem] p-6 xl:p-10 flex-col justify-center relative overflow-hidden shadow-[0_8px_30px_rgba(13,92,62,0.15)]">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-24 h-24 bg-brand-gold/20 rounded-full blur-2xl"></div>
           
           <div className="relative z-10">
             <div className="flex items-center gap-2 mb-4">
-              <h2 className={`${TYPOGRAPHY_TOKENS.sectionTitle} text-white text-2xl`}>ফ্ল্যাশ সেল</h2>
-              <Zap className="text-brand-gold fill-brand-gold" size={24} />
+              <h2 className={`${TYPOGRAPHY_TOKENS.sectionTitle} text-white text-3xl font-heading font-medium tracking-tight`}>ফ্ল্যাশ সেল</h2>
+              <Zap className="text-brand-gold fill-brand-gold drop-shadow-md" size={28} />
             </div>
-            <p className="text-gray-300 text-sm mb-6">সীমিত সময়ের জন্য বিশেষ অফার</p>
+            <p className="text-white/80 text-sm mb-8 font-medium">সীমিত সময়ের জন্য বিশেষ অফার</p>
             
             {/* Timer Blocks */}
-            <div className="flex items-center gap-3 mb-8">
-              <div className="bg-white text-brand-dark rounded-lg p-2 min-w-[60px] text-center">
-                <div className="text-xl font-bold">০২</div>
-                <div className="text-[10px] uppercase font-medium text-gray-500">ঘণ্টা</div>
+            <div className="flex items-center gap-2 mb-8">
+              <div className="bg-white/15 backdrop-blur-md border border-white/20 text-white rounded-xl p-3 min-w-[65px] text-center shadow-inner">
+                <div className="text-2xl font-bold tracking-tight">০২</div>
+                <div className="text-[10px] uppercase font-bold text-white/70 mt-1 tracking-wider">ঘণ্টা</div>
               </div>
-              <span className="text-brand-gold font-bold text-xl">:</span>
-              <div className="bg-white text-brand-dark rounded-lg p-2 min-w-[60px] text-center">
-                <div className="text-xl font-bold">১৮</div>
-                <div className="text-[10px] uppercase font-medium text-gray-500">মিনিট</div>
+              <span className="text-brand-gold/60 font-bold text-xl">:</span>
+              <div className="bg-white/15 backdrop-blur-md border border-white/20 text-white rounded-xl p-3 min-w-[65px] text-center shadow-inner">
+                <div className="text-2xl font-bold tracking-tight">১৮</div>
+                <div className="text-[10px] uppercase font-bold text-white/70 mt-1 tracking-wider">মিনিট</div>
               </div>
-              <span className="text-brand-gold font-bold text-xl">:</span>
-              <div className="bg-white text-brand-dark rounded-lg p-2 min-w-[60px] text-center">
-                <div className="text-xl font-bold">৪৫</div>
-                <div className="text-[10px] uppercase font-medium text-gray-500">সেকেন্ড</div>
+              <span className="text-brand-gold/60 font-bold text-xl">:</span>
+              <div className="bg-white/15 backdrop-blur-md border border-white/20 text-white rounded-xl p-3 min-w-[65px] text-center shadow-inner">
+                <div className="text-2xl font-bold tracking-tight">৪৫</div>
+                <div className="text-[10px] uppercase font-bold text-white/70 mt-1 tracking-wider">সেকেন্ড</div>
               </div>
             </div>
 
-            <button className="bg-white text-brand-dark px-6 py-2.5 rounded-lg font-medium hover:bg-gray-100 transition-colors inline-block">
-              সব দেখুন
+            <button className="bg-white text-brand-emerald px-8 py-3.5 rounded-full font-bold hover:bg-gray-50 transition-all duration-300 inline-flex items-center gap-2 shadow-lg hover:shadow-xl hover:-translate-y-0.5">
+              সব দেখুন <ArrowRight size={16} />
             </button>
           </div>
         </div>

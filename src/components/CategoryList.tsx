@@ -13,7 +13,7 @@ export function CategoryList() {
 
   return (
     <section className="max-w-[1440px] mx-auto px-4 lg:px-8 xl:px-12 py-4 sm:py-6">
-      <div className="md:bg-white dark:md:bg-[#1E1E1E] md:rounded-2xl md:p-6 md:shadow-sm md:border md:border-gray-100 dark:md:border-gray-800">
+      <div className="md:bg-white dark:md:bg-[#121212] md:rounded-[1.5rem] md:p-6 md:shadow-[0_4px_24px_rgba(0,0,0,0.02)] dark:md:shadow-[0_4px_24px_rgba(255,255,255,0.01)] md:border md:border-gray-100/50 dark:md:border-gray-800/40">
         
         <div className="flex items-center justify-between mb-3 md:hidden">
           <h3 className="text-[14px] font-bold text-gray-800 dark:text-gray-100">ক্যাটাগরি সমূহ</h3>

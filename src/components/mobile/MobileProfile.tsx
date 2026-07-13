@@ -82,7 +82,7 @@ export function MobileProfile({ isLoggedIn = false, user = null, onLoginClick, o
 
           <button
             onClick={onLoginClick}
-            className="w-full bg-brand-emerald hover:bg-brand-dark text-white py-3.5 rounded-2xl text-xs sm:text-sm font-bold shadow-md hover:shadow-[0_4px_20px_rgba(15,138,95,0.3)] transition-all flex items-center justify-center gap-2 cursor-pointer"
+            className="w-full bg-brand-emerald hover:bg-brand-dark text-white py-3.5 rounded-[1.5rem] text-xs sm:text-sm font-bold shadow-md hover:shadow-[0_4px_20px_rgba(15,138,95,0.3)] transition-all flex items-center justify-center gap-2 cursor-pointer"
           >
             <span>লগইন / নতুন অ্যাকাউন্ট তৈরি</span>
             <ChevronRight size={16} />
@@ -97,7 +97,7 @@ export function MobileProfile({ isLoggedIn = false, user = null, onLoginClick, o
       <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 items-start">
         
         {/* Left Side: Profile overview & Menu selectors */}
-        <div className="w-full lg:w-1/3 bg-white dark:bg-[#1E1E1E] rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 p-6 flex flex-col items-center">
+        <div className="w-full lg:w-1/3 bg-white dark:bg-[#1E1E1E] rounded-[1.5rem] shadow-sm border border-gray-100 dark:border-gray-800 p-6 flex flex-col items-center">
           <div className="relative group">
             <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gray-100 dark:bg-gray-800 mb-4 overflow-hidden border-4 border-brand-emerald shadow-md">
               <img 
@@ -153,7 +153,7 @@ export function MobileProfile({ isLoggedIn = false, user = null, onLoginClick, o
         </div>
 
         {/* Right Side: Active Section Details */}
-        <div className="w-full lg:w-2/3 bg-white dark:bg-[#1E1E1E] rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 p-6 sm:p-8 min-h-[400px]">
+        <div className="w-full lg:w-2/3 bg-white dark:bg-[#1E1E1E] rounded-[1.5rem] shadow-sm border border-gray-100 dark:border-gray-800 p-6 sm:p-8 min-h-[400px]">
           <AnimatePresence mode="wait">
             
             {/* PROFILE INFO */}
@@ -348,7 +348,7 @@ export function MobileProfile({ isLoggedIn = false, user = null, onLoginClick, o
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {savedCards.map(card => (
-                    <div key={card.id} className="bg-gradient-to-br from-brand-dark to-[#0f4630] text-white p-5 rounded-2xl relative shadow overflow-hidden flex flex-col justify-between h-36">
+                    <div key={card.id} className="bg-gradient-to-br from-brand-dark to-[#0f4630] text-white p-5 rounded-[1.5rem] relative shadow overflow-hidden flex flex-col justify-between h-36">
                       <div className="absolute top-0 right-0 w-24 h-24 bg-brand-emerald/20 rounded-full blur-2xl"></div>
                       
                       <div className="flex justify-between items-start">

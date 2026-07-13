@@ -14,7 +14,7 @@ export function PromoBanners() {
         
         {/* Banner 1 */}
         {isLoading ? (
-          <div className="relative rounded-2xl overflow-hidden h-44 sm:h-64 xl:h-80 bg-white dark:bg-[#1E1E1E] border border-gray-100 dark:border-gray-800 shadow-sm">
+          <div className="relative rounded-[1.5rem] overflow-hidden h-44 sm:h-64 xl:h-80 bg-white dark:bg-[#1E1E1E] border border-gray-100 dark:border-gray-800 shadow-sm">
             <div className="absolute inset-0 p-4 sm:p-8 xl:p-12 flex flex-col justify-center max-w-[60%] z-10 gap-3">
               <div className="h-3 sm:h-4 shimmer rounded w-1/2"></div>
               <div className="h-6 sm:h-10 shimmer rounded w-3/4"></div>
@@ -23,7 +23,7 @@ export function PromoBanners() {
             </div>
           </div>
         ) : (
-          <div className="relative rounded-2xl overflow-hidden h-44 sm:h-64 xl:h-80 group bg-[#E8F5E9] dark:bg-emerald-950/25 border border-emerald-100/20">
+          <div className="relative rounded-[1.5rem] overflow-hidden h-44 sm:h-64 xl:h-80 group bg-[#E8F5E9] dark:bg-emerald-950/25 border border-emerald-100/20">
             <div className="absolute inset-0 p-4 sm:p-8 xl:p-12 flex flex-col justify-center max-w-[60%] z-10">
               <span className="text-brand-emerald text-[10px] sm:text-sm font-bold mb-1 sm:mb-2 uppercase tracking-wider">নতুন ব্যবহারকারীদের জন্য</span>
               <h3 className="text-xl sm:text-3xl font-heading font-extrabold text-brand-dark dark:text-white mb-1 sm:mb-2">১০% ছাড়!</h3>
@@ -44,7 +44,7 @@ export function PromoBanners() {
 
         {/* Banner 2 */}
         {isLoading ? (
-          <div className="relative rounded-2xl overflow-hidden h-44 sm:h-64 xl:h-80 bg-white dark:bg-[#1E1E1E] border border-gray-100 dark:border-gray-800 shadow-sm">
+          <div className="relative rounded-[1.5rem] overflow-hidden h-44 sm:h-64 xl:h-80 bg-white dark:bg-[#1E1E1E] border border-gray-100 dark:border-gray-800 shadow-sm">
             <div className="absolute inset-0 p-4 sm:p-8 xl:p-12 flex flex-col justify-center max-w-[60%] z-10 gap-3">
               <div className="h-3 sm:h-4 shimmer rounded w-1/2"></div>
               <div className="h-6 sm:h-10 shimmer rounded w-3/4"></div>
@@ -53,7 +53,7 @@ export function PromoBanners() {
             </div>
           </div>
         ) : (
-          <div className="relative rounded-2xl overflow-hidden h-44 sm:h-64 xl:h-80 group bg-[#FFF8E1] dark:bg-amber-950/15 border border-amber-100/20">
+          <div className="relative rounded-[1.5rem] overflow-hidden h-44 sm:h-64 xl:h-80 group bg-[#FFF8E1] dark:bg-amber-950/15 border border-amber-100/20">
             <div className="absolute inset-0 p-4 sm:p-8 xl:p-12 flex flex-col justify-center max-w-[60%] z-10">
               <span className="text-amber-800 dark:text-amber-400 text-[10px] sm:text-sm font-bold mb-1 sm:mb-2 uppercase tracking-wider">ঈদের কেনাকাটায়</span>
               <h3 className="text-xl sm:text-3xl font-heading font-extrabold text-brand-dark dark:text-amber-100 mb-1 sm:mb-2">এক্সক্লুসিভ অফার</h3>

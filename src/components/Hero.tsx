@@ -217,7 +217,7 @@ export function Hero({ currentSeason = 'default' }: HeroProps) {
 
   return (
     <section className="max-w-[1440px] mx-auto md:px-4 lg:px-8 xl:px-12 md:py-4 lg:py-6 xl:py-8">
-      <div className="relative md:rounded-2xl overflow-hidden bg-slate-50 dark:bg-[#1A1A1A] h-[340px] md:h-[450px] w-full shadow-sm border border-gray-100 dark:border-gray-800/40 group">
+      <div className="relative md:rounded-[2rem] overflow-hidden bg-slate-50 dark:bg-[#0A0A0A] h-[360px] md:h-[500px] w-full border border-gray-200/50 dark:border-white/5 group">
         
         {/* Horizontal Slide Track - Only Backgrounds Slide */}
         <div 
@@ -250,29 +250,29 @@ export function Hero({ currentSeason = 'default' }: HeroProps) {
                 }`}
               >
                 <span 
-                  className={`inline-block px-3 py-1 rounded-full text-xs sm:text-sm font-semibold mb-3 sm:mb-4 shadow-sm w-max ${slide.badgeClass}`}
+                  className={`inline-block px-3 py-1 rounded-full text-xs sm:text-sm font-semibold mb-3 sm:mb-5 shadow-sm w-max ${slide.badgeClass}`}
                 >
                   {slide.badge}
                 </span>
                 <h1 
-                  className="font-heading text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.15] text-[#111111] dark:text-white mb-2 sm:mb-3 md:mb-5 drop-shadow-sm line-clamp-2 md:line-clamp-none"
+                  className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[4rem] font-medium tracking-tight leading-[1.1] text-[#111111] dark:text-white mb-3 sm:mb-4 md:mb-6 line-clamp-2 md:line-clamp-none"
                 >
                   {slide.title}
                 </h1>
                 <p 
-                  className="font-sans text-xs sm:text-sm md:text-lg text-slate-700 dark:text-slate-300 leading-relaxed mb-4 sm:mb-5 md:mb-8 max-w-sm md:max-w-md font-medium line-clamp-2 md:line-clamp-none"
+                  className="font-sans text-sm sm:text-base md:text-lg text-slate-700 dark:text-slate-300 leading-relaxed mb-5 sm:mb-6 md:mb-10 max-w-sm md:max-w-md font-normal line-clamp-2 md:line-clamp-none opacity-90"
                 >
                   {slide.tagline}
                 </p>
                 
-                <div className="flex flex-wrap items-center gap-3">
+                <div className="flex flex-wrap items-center gap-4">
                   <button 
-                    className={`group px-6 py-2.5 sm:px-8 sm:py-3.5 rounded-xl text-xs sm:text-base font-bold text-white transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl flex items-center justify-center gap-2 ${slide.buttonClass}`}
+                    className={`group px-6 py-3 sm:px-8 sm:py-4 rounded-full text-xs sm:text-sm font-semibold text-white transition-all duration-300 transform hover:-translate-y-0.5 shadow-md flex items-center justify-center gap-2 ${slide.buttonClass}`}
                   >
                     {slide.buttonText}
                     <ChevronRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </button>
-                  <button className="bg-white/95 backdrop-blur-sm dark:bg-[#1E1E1E] text-slate-800 dark:text-slate-200 px-6 py-2.5 sm:px-8 sm:py-3.5 rounded-xl text-xs sm:text-base font-bold hover:bg-gray-50 dark:hover:bg-[#2A2A2A] transition-all duration-300 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md flex items-center justify-center gap-2">
+                  <button className="bg-transparent text-slate-800 dark:text-slate-200 px-6 py-3 sm:px-8 sm:py-4 rounded-full text-xs sm:text-sm font-semibold hover:bg-black/5 dark:hover:bg-white/5 transition-all duration-300 border border-black/10 dark:border-white/10 flex items-center justify-center gap-2">
                     সব কালেকশন দেখুন
                   </button>
                 </div>

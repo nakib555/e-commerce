@@ -157,7 +157,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-brand-light font-sans flex flex-col dark:bg-[#121212] dark:text-gray-100">
+    <div className="min-h-screen bg-brand-light font-sans flex flex-col dark:bg-[#0A0A0A] dark:text-gray-100">
       {/* MOBILE LAYOUT */}
       <MobileLayout 
         activeTab={activeTab} 

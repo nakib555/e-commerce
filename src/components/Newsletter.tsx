@@ -17,18 +17,18 @@ export function Newsletter() {
         </div>
 
         <div className="w-full md:w-auto md:min-w-[400px]">
-          <form className="flex w-full bg-white dark:bg-[#222] rounded-lg overflow-hidden shadow-sm border border-gray-200 dark:border-gray-800 focus-within:border-brand-emerald focus-within:ring-1 focus-within:ring-brand-emerald transition-shadow">
+          <form className="flex w-full bg-white dark:bg-[#1A1A1A] rounded-full overflow-hidden shadow-sm border border-gray-200 dark:border-gray-800 focus-within:border-brand-emerald focus-within:ring-1 focus-within:ring-brand-emerald transition-shadow p-1">
             <input 
               type="email" 
               placeholder="আপনার ই-মেইল লিখুন" 
-              className="flex-1 px-4 py-3 focus:outline-none text-gray-700 dark:text-white dark:bg-transparent"
+              className="flex-1 px-4 py-2 sm:py-3 focus:outline-none text-gray-700 dark:text-white dark:bg-transparent rounded-l-full"
               required
             />
             <button 
               type="submit" 
-              className="bg-brand-dark dark:bg-brand-emerald text-white px-6 font-medium hover:bg-brand-emerald transition-colors cursor-pointer"
+              className="bg-brand-emerald text-white px-6 font-semibold hover:bg-[#08422C] rounded-full transition-colors cursor-pointer text-sm sm:text-base"
             >
-              সাবস্ক্রাইব করুন
+              সাবস্ক্রাইব
             </button>
           </form>
         </div>

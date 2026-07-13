@@ -88,7 +88,7 @@ export function TrustAndFaq() {
             {trustItems.map((item) => (
               <div 
                 key={item.id}
-                className="p-4 sm:p-5 rounded-2xl bg-gray-50/50 dark:bg-[#1C1C1C]/40 border border-gray-100/80 dark:border-gray-800/80 hover:border-brand-emerald/20 hover:bg-white dark:hover:bg-[#1E1E1E] transition-all duration-300"
+                className="p-4 sm:p-5 rounded-[1.5rem] bg-gray-50/50 dark:bg-[#1C1C1C]/40 border border-gray-100/80 dark:border-gray-800/80 hover:border-brand-emerald/20 hover:bg-white dark:hover:bg-[#1E1E1E] transition-all duration-300"
               >
                 <div className="w-10 h-10 rounded-xl bg-white dark:bg-[#222] shadow-sm flex items-center justify-center mb-3">
                   {item.icon}
@@ -134,7 +134,7 @@ export function TrustAndFaq() {
               return (
                 <div 
                   key={idx}
-                  className="rounded-2xl border border-gray-100 dark:border-gray-800 bg-gray-50/30 dark:bg-[#1A1A1A]/30 overflow-hidden transition-all duration-300"
+                  className="rounded-[1.5rem] border border-gray-100 dark:border-gray-800 bg-gray-50/30 dark:bg-[#1A1A1A]/30 overflow-hidden transition-all duration-300"
                 >
                   <button
                     onClick={() => toggleFaq(idx)}

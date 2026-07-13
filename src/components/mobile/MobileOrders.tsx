@@ -35,7 +35,7 @@ export function MobileOrders({ isLoggedIn = false, onLoginClick }: MobileOrdersP
 
           <button
             onClick={onLoginClick}
-            className="w-full bg-brand-emerald hover:bg-brand-dark text-white py-3.5 rounded-2xl text-xs sm:text-sm font-bold shadow-md hover:shadow-[0_4px_20px_rgba(15,138,95,0.3)] transition-all flex items-center justify-center gap-2 cursor-pointer"
+            className="w-full bg-brand-emerald hover:bg-brand-dark text-white py-3.5 rounded-[1.5rem] text-xs sm:text-sm font-bold shadow-md hover:shadow-[0_4px_20px_rgba(15,138,95,0.3)] transition-all flex items-center justify-center gap-2 cursor-pointer"
           >
             <span>লগইন করুন</span>
             <ChevronRight size={16} />
@@ -194,15 +194,15 @@ export function MobileOrders({ isLoggedIn = false, onLoginClick }: MobileOrdersP
 
       {/* Metrics Grid */}
       <div className="grid grid-cols-3 gap-3 mb-6 sm:mb-8">
-        <div className="bg-white dark:bg-[#1E1E1E] border border-gray-100 dark:border-gray-800 p-3 sm:p-4 rounded-2xl shadow-sm text-center">
+        <div className="bg-white dark:bg-[#1E1E1E] border border-gray-100 dark:border-gray-800 p-3 sm:p-4 rounded-[1.5rem] shadow-sm text-center">
           <div className="text-gray-500 dark:text-gray-400 text-[10px] sm:text-xs font-semibold">মোট অর্ডার</div>
           <div className="text-lg sm:text-2xl font-bold text-gray-800 dark:text-white mt-1">২ টি</div>
         </div>
-        <div className="bg-yellow-50/50 dark:bg-yellow-950/20 border border-yellow-100/50 dark:border-yellow-900/50 p-3 sm:p-4 rounded-2xl shadow-sm text-center">
+        <div className="bg-yellow-50/50 dark:bg-yellow-950/20 border border-yellow-100/50 dark:border-yellow-900/50 p-3 sm:p-4 rounded-[1.5rem] shadow-sm text-center">
           <div className="text-yellow-600 dark:text-yellow-400 text-[10px] sm:text-xs font-semibold">প্রক্রিয়াকরণ হচ্ছে</div>
           <div className="text-lg sm:text-2xl font-bold text-yellow-700 dark:text-yellow-400 mt-1">১ টি</div>
         </div>
-        <div className="bg-[#E8F5E9]/50 dark:bg-emerald-950/20 border border-emerald-100/50 dark:border-emerald-900/50 p-3 sm:p-4 rounded-2xl shadow-sm text-center">
+        <div className="bg-[#E8F5E9]/50 dark:bg-emerald-950/20 border border-emerald-100/50 dark:border-emerald-900/50 p-3 sm:p-4 rounded-[1.5rem] shadow-sm text-center">
           <div className="text-brand-emerald dark:text-emerald-400 text-[10px] sm:text-xs font-semibold">ডেলিভারি সম্পন্ন</div>
           <div className="text-lg sm:text-2xl font-bold text-brand-emerald mt-1">১ টি</div>
         </div>
@@ -210,7 +210,7 @@ export function MobileOrders({ isLoggedIn = false, onLoginClick }: MobileOrdersP
 
       {/* Orders List */}
       {filteredOrders.length === 0 ? (
-        <div className="bg-white dark:bg-[#1E1E1E] border border-gray-100 dark:border-gray-800 rounded-2xl p-12 text-center shadow-sm">
+        <div className="bg-white dark:bg-[#1E1E1E] border border-gray-100 dark:border-gray-800 rounded-[1.5rem] p-12 text-center shadow-sm">
           <ShoppingBag size={48} className="text-gray-300 dark:text-gray-600 mx-auto mb-3" />
           <p className="text-gray-500 dark:text-gray-400 font-medium">কোনো অর্ডার তথ্য পাওয়া যায়নি</p>
         </div>
@@ -224,7 +224,7 @@ export function MobileOrders({ isLoggedIn = false, onLoginClick }: MobileOrdersP
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: index * 0.05 }}
-                className="bg-white dark:bg-[#1E1E1E] border border-gray-100 dark:border-gray-800 rounded-2xl shadow-sm overflow-hidden"
+                className="bg-white dark:bg-[#1E1E1E] border border-gray-100 dark:border-gray-800 rounded-[1.5rem] shadow-sm overflow-hidden"
               >
                 {/* Main Row */}
                 <div 

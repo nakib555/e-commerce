@@ -15,7 +15,7 @@ export function ProductCard({ product, featured = false, onProductClick, onAddTo
   return (
     <div 
       onClick={() => onProductClick?.(product)}
-      className="bg-white rounded-xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group relative flex flex-col h-full cursor-pointer"
+      className="bg-white dark:bg-[#121212] rounded-[1.25rem] overflow-hidden border border-gray-100 dark:border-gray-800/40 shadow-[0_4px_12px_rgba(0,0,0,0.02)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.06)] dark:hover:shadow-[0_8px_24px_rgba(255,255,255,0.02)] transition-all duration-500 group relative flex flex-col h-full cursor-pointer hover:-translate-y-1"
     >
       {/* Badges */}
       <div className="absolute top-2 left-2 sm:top-3 sm:left-3 z-10 flex flex-col gap-1 sm:gap-2">
@@ -37,27 +37,27 @@ export function ProductCard({ product, featured = false, onProductClick, onAddTo
           e.stopPropagation();
           // Visual wishlist toggle or simple feedback could be here
         }}
-        className="absolute top-2 right-2 sm:top-3 sm:right-3 z-10 w-7 h-7 sm:w-8 sm:h-8 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-400 hover:text-red-500 hover:bg-white transition-colors shadow-sm opacity-100 sm:opacity-0 sm:group-hover:opacity-100 border border-gray-100"
+        className="absolute top-2 right-2 sm:top-3 sm:right-3 z-10 w-7 h-7 sm:w-8 sm:h-8 bg-white/80 dark:bg-black/50 backdrop-blur-md rounded-full flex items-center justify-center text-gray-500 hover:text-red-500 hover:bg-white dark:hover:bg-[#1A1A1A] transition-all duration-300 shadow-sm opacity-100 sm:opacity-0 sm:group-hover:opacity-100 border border-gray-100/50 dark:border-gray-800/50 hover:scale-110"
       >
         <Heart size={14} className="sm:w-4 sm:h-4" />
       </button>
 
       {/* Image */}
-      <div className="relative aspect-[4/5] overflow-hidden bg-gray-50">
+      <div className="relative aspect-[4/5] overflow-hidden bg-gray-50/50 dark:bg-[#1A1A1A]">
         <img 
           src={product.image} 
           alt={product.name} 
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 mix-blend-multiply"
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 mix-blend-multiply dark:mix-blend-normal"
         />
         
         {/* Quick Add Overlay on Hover */}
-        <div className="absolute inset-x-0 bottom-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity translate-y-4 group-hover:translate-y-0 duration-300 hidden md:block">
+        <div className="absolute inset-x-0 bottom-0 p-3 opacity-0 group-hover:opacity-100 transition-all translate-y-4 group-hover:translate-y-0 duration-300 hidden md:block">
           <button 
             onClick={(e) => {
               e.stopPropagation();
               if (onAddToCart) onAddToCart(product, 1);
             }}
-            className="w-full bg-white/95 backdrop-blur-md text-brand-dark font-semibold py-2.5 rounded-lg shadow-lg hover:bg-brand-dark hover:text-white transition-colors flex items-center justify-center gap-2 border border-gray-100"
+            className="w-full bg-white/95 dark:bg-[#1A1A1A]/95 backdrop-blur-md text-brand-dark dark:text-brand-emerald font-semibold py-2.5 rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.1)] hover:bg-brand-emerald hover:text-white dark:hover:bg-brand-emerald dark:hover:text-white transition-all duration-300 flex items-center justify-center gap-2 border border-gray-100/50 dark:border-gray-800/50 transform hover:-translate-y-0.5"
           >
             <ShoppingCart size={18} />
             <span>কার্টে যোগ করুন</span>

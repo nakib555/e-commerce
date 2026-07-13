@@ -55,28 +55,28 @@ export function CustomerReviews() {
         {reviews.map((review) => (
           <div 
             key={review.id}
-            className="bg-white dark:bg-[#1E1E1E] p-4 sm:p-6 rounded-[20px] border border-gray-100 dark:border-gray-800 shadow-[0_4px_12px_rgba(0,0,0,0.03)] hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+            className="bg-white dark:bg-[#121212] p-5 sm:p-6 rounded-[1.5rem] border border-gray-100/50 dark:border-gray-800/40 shadow-[0_4px_16px_rgba(0,0,0,0.02)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.06)] dark:hover:shadow-[0_8px_24px_rgba(255,255,255,0.02)] transition-all duration-300 flex flex-col justify-between"
           >
             <div>
-              <div className="flex items-center gap-1 mb-3">
+              <div className="flex items-center gap-1 mb-4">
                 {Array(5).fill(0).map((_, i) => (
                   <Star 
                     key={i} 
                     size={14} 
-                    className={`${i < review.rating ? 'text-brand-gold fill-brand-gold' : 'text-gray-200 dark:text-gray-700'}`} 
+                    className={`${i < review.rating ? 'text-brand-gold fill-brand-gold drop-shadow-sm' : 'text-gray-200 dark:text-gray-700'}`} 
                   />
                 ))}
               </div>
-              <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed font-medium mb-4 italic">
+              <p className="text-sm sm:text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed font-normal mb-5 italic">
                 "{review.comment}"
               </p>
             </div>
 
-            <div className="flex items-center gap-3 pt-3 border-t border-gray-50 dark:border-gray-800">
+            <div className="flex items-center gap-3.5 pt-4 border-t border-gray-100/50 dark:border-gray-800/50">
               <img 
                 src={review.avatar} 
                 alt={review.name} 
-                className="w-10 h-10 rounded-full object-cover border-2 border-brand-light"
+                className="w-12 h-12 rounded-full object-cover border-2 border-white dark:border-[#1A1A1A] shadow-sm"
               />
               <div className="flex-1 min-w-0">
                 <h4 className="text-xs sm:text-sm font-bold text-gray-800 dark:text-gray-200 truncate">

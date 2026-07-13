@@ -5,7 +5,7 @@ import * as Icons from 'lucide-react';
 export function Features() {
   return (
     <section className="max-w-[1440px] mx-auto px-4 lg:px-8 xl:px-12 py-4 sm:py-8 xl:py-12">
-      <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-4 sm:p-6 lg:p-8 xl:p-12">
+      <div className="bg-white dark:bg-[#121212] rounded-[1.5rem] border border-gray-100/50 dark:border-gray-800/40 shadow-[0_4px_24px_rgba(0,0,0,0.02)] dark:shadow-[0_4px_24px_rgba(255,255,255,0.01)] p-4 sm:p-6 lg:p-8 xl:p-12">
         
         {/* Mobile View */}
         <div className="grid grid-cols-4 gap-2 md:hidden">
@@ -17,8 +17,8 @@ export function Features() {
                   {Icon && <Icon size={20} strokeWidth={1.5} />}
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800 text-[9px] leading-tight">{feature.title}</h4>
-                  <p className="text-gray-500 text-[8px] leading-tight mt-0.5 hidden sm:block">{feature.subtitle}</p>
+                  <h4 className="font-semibold text-gray-800 dark:text-gray-100 text-[9px] leading-tight">{feature.title}</h4>
+                  <p className="text-gray-500 dark:text-gray-400 text-[8px] leading-tight mt-0.5 hidden sm:block">{feature.subtitle}</p>
                 </div>
               </div>
             );
@@ -35,8 +35,8 @@ export function Features() {
                   {Icon && <Icon size={32} strokeWidth={1.5} />}
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800 text-sm sm:text-base">{feature.title}</h4>
-                  <p className="text-gray-500 text-xs sm:text-sm">{feature.subtitle}</p>
+                  <h4 className="font-semibold text-gray-800 dark:text-gray-100 text-sm sm:text-base">{feature.title}</h4>
+                  <p className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm">{feature.subtitle}</p>
                 </div>
               </div>
             );

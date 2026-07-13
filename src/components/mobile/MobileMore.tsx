@@ -47,7 +47,7 @@ export function MobileMore() {
               {/* Support Cards */}
               <button 
                 onClick={() => setActiveSection('help')}
-                className="flex items-center justify-between p-5 bg-white dark:bg-[#1E1E1E] rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-all text-left"
+                className="flex items-center justify-between p-5 bg-white dark:bg-[#1E1E1E] rounded-[1.5rem] border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-all text-left"
               >
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-xl bg-brand-emerald/10 text-brand-emerald flex items-center justify-center shrink-0">
@@ -63,7 +63,7 @@ export function MobileMore() {
 
               <button 
                 onClick={() => setActiveSection('contact')}
-                className="flex items-center justify-between p-5 bg-white dark:bg-[#1E1E1E] rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-all text-left"
+                className="flex items-center justify-between p-5 bg-white dark:bg-[#1E1E1E] rounded-[1.5rem] border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-all text-left"
               >
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-xl bg-brand-emerald/10 text-brand-emerald flex items-center justify-center shrink-0">
@@ -79,7 +79,7 @@ export function MobileMore() {
 
               <button 
                 onClick={() => setActiveSection('about')}
-                className="flex items-center justify-between p-5 bg-white dark:bg-[#1E1E1E] rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-all text-left md:col-span-2"
+                className="flex items-center justify-between p-5 bg-white dark:bg-[#1E1E1E] rounded-[1.5rem] border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-all text-left md:col-span-2"
               >
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-xl bg-brand-emerald/10 text-brand-emerald flex items-center justify-center shrink-0">
@@ -96,7 +96,7 @@ export function MobileMore() {
               {/* Install PWA Prompt Card */}
               <button 
                 onClick={() => window.dispatchEvent(new CustomEvent('show-pwa-install'))}
-                className="flex items-center justify-between p-5 bg-gradient-to-r from-brand-emerald to-emerald-600 text-white rounded-2xl shadow-sm hover:shadow-md transition-all text-left md:col-span-2 relative overflow-hidden group"
+                className="flex items-center justify-between p-5 bg-gradient-to-r from-brand-emerald to-emerald-600 text-white rounded-[1.5rem] shadow-sm hover:shadow-md transition-all text-left md:col-span-2 relative overflow-hidden group"
               >
                 <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:scale-110 transition-transform duration-300">
                   <Smartphone size={120} />
@@ -117,7 +117,7 @@ export function MobileMore() {
             </div>
 
             {/* Privacy and Terms Links */}
-            <div className="mt-8 bg-gray-50 dark:bg-[#1A1A1A] rounded-2xl p-4 border border-gray-100 dark:border-gray-800/60 max-w-lg mx-auto flex items-center justify-around text-xs font-semibold text-gray-500 dark:text-gray-400">
+            <div className="mt-8 bg-gray-50 dark:bg-[#1A1A1A] rounded-[1.5rem] p-4 border border-gray-100 dark:border-gray-800/60 max-w-lg mx-auto flex items-center justify-around text-xs font-semibold text-gray-500 dark:text-gray-400">
               <a href="#" onClick={(e) => e.preventDefault()} className="hover:text-brand-emerald flex items-center gap-1">
                 <FileText size={14} /> শর্তাবলী
               </a>
@@ -333,7 +333,7 @@ export function MobileMore() {
             </div>
 
             <div className="bg-white dark:bg-[#1E1E1E] rounded-xl border border-gray-100 dark:border-gray-800 p-6 space-y-4 max-w-2xl mx-auto leading-relaxed">
-              <div className="w-16 h-16 bg-brand-emerald/10 text-brand-emerald rounded-2xl flex items-center justify-center mb-2">
+              <div className="w-16 h-16 bg-brand-emerald/10 text-brand-emerald rounded-[1.5rem] flex items-center justify-center mb-2">
                 <Info size={32} />
               </div>
               <h4 className="text-base font-bold text-gray-800 dark:text-white">দেশিমার্ট কেন আলাদা?</h4>
