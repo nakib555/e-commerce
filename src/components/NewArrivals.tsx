@@ -4,6 +4,7 @@ import { ProductCard } from './ProductCard';
 import { flashSaleProducts } from '../data';
 import { ProductSkeleton } from './ProductSkeleton';
 import { Product } from '../types';
+import { TYPOGRAPHY_TOKENS } from '../theme';
 
 interface NewArrivalsProps {
   onProductClick?: (product: Product) => void;
@@ -25,7 +26,7 @@ export function NewArrivals({ onProductClick, onAddToCart }: NewArrivalsProps) {
       <div className="flex items-center justify-between mb-4 md:mb-6">
         <div className="flex items-center gap-2">
           <div className="w-1.5 h-6 bg-brand-emerald rounded-full"></div>
-          <h2 className="text-base sm:text-lg md:text-2xl font-bold text-gray-800 dark:text-gray-100 flex items-center gap-1.5">
+          <h2 className={`${TYPOGRAPHY_TOKENS.sectionTitle} text-base sm:text-lg md:text-2xl flex items-center gap-1.5 text-gray-800 dark:text-gray-100`}>
             নতুন এসেছে <Sparkles className="text-brand-orange animate-pulse" size={16} />
           </h2>
         </div>

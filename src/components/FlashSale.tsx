@@ -4,6 +4,7 @@ import { ProductCard } from './ProductCard';
 import { flashSaleProducts } from '../data';
 import { ProductSkeleton } from './ProductSkeleton';
 import { Product } from '../types';
+import { TYPOGRAPHY_TOKENS } from '../theme';
 
 interface FlashSaleProps {
   onProductClick?: (product: Product) => void;
@@ -23,7 +24,7 @@ export function FlashSale({ onProductClick, onAddToCart }: FlashSaleProps) {
       {/* Mobile Header */}
       <div className="md:hidden flex flex-col gap-2 mb-3">
         <div className="flex items-center justify-between">
-          <h2 className="text-[14px] font-bold flex items-center gap-1.5 text-gray-800">
+          <h2 className={`${TYPOGRAPHY_TOKENS.sectionTitle} text-[14px] flex items-center gap-1.5 text-gray-800`}>
             ফ্ল্যাশ সেল <Zap className="text-brand-gold fill-brand-gold" size={14} />
           </h2>
           <a href="#" className="text-brand-emerald font-medium flex items-center gap-0.5 text-[12px]">
@@ -56,7 +57,7 @@ export function FlashSale({ onProductClick, onAddToCart }: FlashSaleProps) {
           
           <div className="relative z-10">
             <div className="flex items-center gap-2 mb-4">
-              <h2 className="text-2xl font-heading font-bold">ফ্ল্যাশ সেল</h2>
+              <h2 className={`${TYPOGRAPHY_TOKENS.sectionTitle} text-white text-2xl`}>ফ্ল্যাশ সেল</h2>
               <Zap className="text-brand-gold fill-brand-gold" size={24} />
             </div>
             <p className="text-gray-300 text-sm mb-6">সীমিত সময়ের জন্য বিশেষ অফার</p>

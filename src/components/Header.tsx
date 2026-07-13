@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ShoppingBag, Search, User, Heart, ShoppingCart, Menu, ChevronDown, Phone, MapPin, X, Moon, Sun } from 'lucide-react';
 import { motion } from 'motion/react';
+import { SEASONAL_THEMES } from '../theme';
 
 interface HeaderProps {
   activeTab?: string;
@@ -10,6 +11,8 @@ interface HeaderProps {
   isLoggedIn?: boolean;
   user?: { name: string; email: string; phone: string; address: string } | null;
   onLoginClick?: () => void;
+  currentSeason?: string;
+  onSeasonChange?: (season: string) => void;
 }
 
 export function Header({ 
@@ -19,7 +22,9 @@ export function Header({
   onCartClick,
   isLoggedIn = false,
   user = null,
-  onLoginClick
+  onLoginClick,
+  currentSeason = 'default',
+  onSeasonChange
 }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLocationModalOpen, setIsLocationModalOpen] = useState(false);
@@ -99,6 +104,23 @@ export function Header({
 
         {/* Actions */}
         <div className="flex items-center gap-2 sm:gap-4 lg:gap-6">
+          {/* Seasonal Theme Selector */}
+          <div className="relative flex items-center">
+            <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-xs pointer-events-none">✨</span>
+            <select 
+              value={currentSeason}
+              onChange={(e) => onSeasonChange?.(e.target.value)}
+              className="appearance-none bg-slate-50 dark:bg-[#1E1E1E] text-slate-700 dark:text-slate-300 border border-gray-200/60 dark:border-gray-800/80 rounded-full pl-7 pr-6 py-1 text-[11px] font-semibold cursor-pointer focus:outline-none focus:border-brand-emerald focus:ring-1 focus:ring-brand-emerald transition-all duration-300 hover:bg-slate-100 dark:hover:bg-[#252525] uppercase tracking-wider"
+            >
+              {SEASONAL_THEMES.map((theme) => (
+                <option key={theme.key} value={theme.key}>
+                  {theme.name}
+                </option>
+              ))}
+            </select>
+            <ChevronDown size={10} className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
+          </div>
+
           <button 
             onClick={toggleDarkMode}
             className="text-gray-700 dark:text-gray-300 hover:text-brand-emerald dark:hover:text-brand-emerald transition-colors p-1 flex items-center justify-center"

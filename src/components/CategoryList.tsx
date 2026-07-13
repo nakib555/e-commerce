@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { categories } from '../data';
 import { Grid, ArrowRight } from 'lucide-react';
+import { getCategoryTheme } from '../theme';
 
 export function CategoryList() {
   const [isLoading, setIsLoading] = useState(true);
@@ -32,22 +33,25 @@ export function CategoryList() {
             ))
           ) : (
             <>
-              {categories.slice(0, 7).map((category) => (
-                <a key={category.id} href="#" className="flex flex-col items-center gap-2 group">
-                  <div className="w-[72px] h-[72px] rounded-[18px] overflow-hidden border border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-[#121212] flex items-center justify-center shadow-[0_4px_10px_rgba(0,0,0,0.06)] dark:shadow-none">
-                    <img 
-                      src={category.image} 
-                      alt={category.name} 
-                      className="w-full h-full object-cover rounded-[18px] group-hover:scale-110 transition-transform duration-300"
-                    />
-                  </div>
-                  <span className="text-[10px] text-center font-medium text-gray-700 dark:text-gray-300 leading-tight">
-                    {category.name}
-                  </span>
-                </a>
-              ))}
+              {categories.slice(0, 7).map((category) => {
+                const theme = getCategoryTheme(category.id);
+                return (
+                  <a key={category.id} href="#" className="flex flex-col items-center gap-2 group">
+                    <div className={`w-[72px] h-[72px] rounded-[18px] overflow-hidden border border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-[#121212] flex items-center justify-center shadow-[0_4px_10px_rgba(0,0,0,0.06)] dark:shadow-none transition-all duration-300 ${theme.hoverBorderLight} ${theme.hoverBorderDark} ${theme.hoverBgLight} ${theme.hoverBgDark}`}>
+                      <img 
+                        src={category.image} 
+                        alt={category.name} 
+                        className="w-full h-full object-cover rounded-[18px] group-hover:scale-110 transition-transform duration-300"
+                      />
+                    </div>
+                    <span className={`text-[10px] text-center font-medium text-gray-700 dark:text-gray-300 leading-tight transition-colors ${theme.hoverTextLight} ${theme.hoverTextDark}`}>
+                      {category.name}
+                    </span>
+                  </a>
+                );
+              })}
               <a href="#" className="flex flex-col items-center gap-2 group">
-                <div className="w-[72px] h-[72px] rounded-[18px] bg-gray-50 dark:bg-[#121212] border border-gray-100 dark:border-gray-800 flex items-center justify-center text-gray-500 dark:text-gray-400 shadow-[0_4px_10px_rgba(0,0,0,0.06)] dark:shadow-none">
+                <div className="w-[72px] h-[72px] rounded-[18px] bg-gray-50 dark:bg-[#121212] border border-gray-100 dark:border-gray-800 flex items-center justify-center text-gray-500 dark:text-gray-400 shadow-[0_4px_10px_rgba(0,0,0,0.06)] dark:shadow-none group-hover:border-brand-emerald group-hover:text-brand-emerald transition-colors duration-300">
                   <Grid size={24} strokeWidth={1.5} />
                 </div>
                 <span className="text-[11px] text-center font-medium text-gray-700 dark:text-gray-300 leading-tight">
@@ -69,24 +73,27 @@ export function CategoryList() {
             ))
           ) : (
             <>
-              {categories.map((category) => (
-                <a key={category.id} href="#" className="flex flex-col items-center gap-3 min-w-[80px] sm:min-w-[100px] xl:min-w-[120px] group">
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 xl:w-28 xl:h-28 rounded-full overflow-hidden border-2 border-transparent group-hover:border-brand-emerald transition-colors p-0.5 bg-gray-50 dark:bg-[#121212] shadow-inner">
-                    <img 
-                      src={category.image} 
-                      alt={category.name} 
-                      className="w-full h-full object-cover rounded-full group-hover:scale-110 transition-transform duration-300"
-                    />
-                  </div>
-                  <span className="text-xs sm:text-sm text-center font-medium text-gray-700 dark:text-gray-300 group-hover:text-brand-emerald transition-colors line-clamp-2">
-                    {category.name}
-                  </span>
-                </a>
-              ))}
+              {categories.map((category) => {
+                const theme = getCategoryTheme(category.id);
+                return (
+                  <a key={category.id} href="#" className="flex flex-col items-center gap-3 min-w-[80px] sm:min-w-[100px] xl:min-w-[120px] group">
+                    <div className={`w-16 h-16 sm:w-20 sm:h-20 xl:w-28 xl:h-28 rounded-full overflow-hidden border-2 border-transparent transition-all duration-300 p-0.5 bg-gray-50 dark:bg-[#121212] shadow-inner ${theme.hoverBorderLight} ${theme.hoverBorderDark}`}>
+                      <img 
+                        src={category.image} 
+                        alt={category.name} 
+                        className="w-full h-full object-cover rounded-full group-hover:scale-110 transition-transform duration-300"
+                      />
+                    </div>
+                    <span className={`text-xs sm:text-sm text-center font-medium text-gray-700 dark:text-gray-300 transition-colors line-clamp-2 ${theme.hoverTextLight} ${theme.hoverTextDark}`}>
+                      {category.name}
+                    </span>
+                  </a>
+                );
+              })}
               
               {/* See All Button */}
               <a href="#" className="flex flex-col items-center gap-3 min-w-[80px] sm:min-w-[100px] xl:min-w-[120px] group ml-auto md:ml-4 xl:ml-auto">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 xl:w-28 xl:h-28 rounded-full bg-gray-50 dark:bg-[#121212] flex items-center justify-center border-2 border-transparent group-hover:border-brand-emerald transition-colors text-gray-500 dark:text-gray-400 group-hover:text-brand-emerald shadow-inner">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 xl:w-28 xl:h-28 rounded-full bg-gray-50 dark:bg-[#121212] flex items-center justify-center border-2 border-transparent group-hover:border-brand-emerald transition-colors text-gray-500 dark:text-gray-400 group-hover:text-brand-emerald shadow-inner duration-300">
                   <Grid size={24} />
                 </div>
                 <span className="text-xs sm:text-sm text-center font-medium text-gray-700 dark:text-gray-300 group-hover:text-brand-emerald transition-colors">

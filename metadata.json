@@ -1,6 +1,6 @@
 {
   "name": "DeshiMart",
   "description": "An e-commerce application with a mobile-first design, flash sales, best sellers, and shopping cart features.",
-  "requestFramePermissions": [],
+  "requestFramePermissions": ["geolocation"],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

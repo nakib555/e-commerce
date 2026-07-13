@@ -1,6 +1,7 @@
 import React from 'react';
 import { Product } from '../types';
 import { Heart, ShoppingCart, Star } from 'lucide-react';
+import { TYPOGRAPHY_TOKENS } from '../theme';
 
 interface ProductCardProps {
   product: Product;
@@ -66,21 +67,21 @@ export function ProductCard({ product, featured = false, onProductClick, onAddTo
 
       {/* Content */}
       <div className="p-1.5 sm:p-4 flex flex-col flex-1">
-        <h3 className="text-[10px] sm:text-sm font-medium text-gray-800 line-clamp-2 mb-1 hover:text-brand-emerald transition-colors leading-snug">
+        <h3 className={`${TYPOGRAPHY_TOKENS.cardTitle} text-[10px] sm:text-sm font-medium text-gray-800 line-clamp-2 mb-1 hover:text-brand-emerald transition-colors leading-snug`}>
           {product.name}
         </h3>
         
         <div className="mt-auto pt-1 flex items-end justify-between">
           <div className="flex flex-col">
             <div className="flex items-center gap-1.5 mb-1 flex-wrap">
-              <span className="text-[11px] sm:text-lg font-bold text-brand-emerald">৳{product.price.toLocaleString('en-IN')}</span>
+              <span className={`${TYPOGRAPHY_TOKENS.price} text-[11px] sm:text-lg text-brand-emerald`}>৳{product.price.toLocaleString('en-IN')}</span>
               {product.oldPrice && (
                 <span className="text-[8px] sm:text-xs text-gray-400 line-through">৳{product.oldPrice.toLocaleString('en-IN')}</span>
               )}
             </div>
             <div className="flex items-center gap-1">
               <Star size={8} className="fill-brand-gold text-brand-gold sm:w-3 sm:h-3" />
-              <span className="text-[8px] sm:text-[11px] font-medium text-gray-600">{product.rating} <span className="text-gray-400 font-normal">({product.reviews})</span></span>
+              <span className={`${TYPOGRAPHY_TOKENS.meta} text-[8px] sm:text-[11px] font-medium text-gray-600`}>{product.rating} <span className="text-gray-400 font-normal">({product.reviews})</span></span>
             </div>
           </div>
           

@@ -1,4 +1,4 @@
-import { Category, Feature, Product } from './types';
+import { Category, Feature, Product, Brand } from './types';
 
 export const categories: Category[] = [
   { id: '1', name: 'পাঞ্জাবি', image: 'https://images.unsplash.com/photo-1605518216938-7c31b7b14ad0?auto=format&fit=crop&q=80&w=200&h=200' },
@@ -158,4 +158,66 @@ export const features: Feature[] = [
     subtitle: 'সবসময় আমরা আপনার সাথে',
     icon: 'HeadphonesIcon',
   },
+];
+
+export const groceryCategories: Category[] = [
+  { id: 'gc1', name: 'Groceries', image: 'https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?ixlib=rb-1.2.1&auto=format&fit=crop&q=80&w=150' },
+  { id: 'gc2', name: 'Beverages', image: 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?ixlib=rb-1.2.1&auto=format&fit=crop&q=80&w=150' },
+  { id: 'gc3', name: 'Personal Care', image: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?ixlib=rb-1.2.1&auto=format&fit=crop&q=80&w=150' },
+  { id: 'gc4', name: 'Household', image: 'https://images.unsplash.com/photo-1584824486509-112e4181ff6b?ixlib=rb-1.2.1&auto=format&fit=crop&q=80&w=150' },
+  { id: 'gc5', name: 'Baby Care', image: 'https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?ixlib=rb-1.2.1&auto=format&fit=crop&q=80&w=150' },
+];
+
+export const groceryProducts: Product[] = [
+  {
+    id: 'g1',
+    name: 'Aashirvaad Atta',
+    quantityText: '5kg',
+    price: 460,
+    oldPrice: 599,
+    discount: 23,
+    image: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?ixlib=rb-1.2.1&auto=format&fit=crop&q=80&w=200',
+    rating: 4.8,
+    reviews: 142,
+  },
+  {
+    id: 'g2',
+    name: 'Fresh Soyabean Oil',
+    quantityText: '2L',
+    price: 280,
+    oldPrice: 340,
+    discount: 18,
+    image: 'https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?ixlib=rb-1.2.1&auto=format&fit=crop&q=80&w=200',
+    rating: 4.7,
+    reviews: 95,
+  },
+  {
+    id: 'g3',
+    name: 'Tang Orange',
+    quantityText: '750g',
+    price: 320,
+    oldPrice: 375,
+    discount: 15,
+    image: 'https://images.unsplash.com/photo-1622543925917-763c34d1a86e?ixlib=rb-1.2.1&auto=format&fit=crop&q=80&w=200',
+    rating: 4.9,
+    reviews: 64,
+  },
+  {
+    id: 'g4',
+    name: 'ACI Pure Salt',
+    quantityText: '1kg',
+    price: 20,
+    oldPrice: 25,
+    discount: 20,
+    image: 'https://images.unsplash.com/photo-1626844131082-256783844137?ixlib=rb-1.2.1&auto=format&fit=crop&q=80&w=200',
+    rating: 4.6,
+    reviews: 110,
+  },
+];
+
+export const groceryBrands: Brand[] = [
+  { id: 'gb1', name: 'Unilever', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/8/82/Unilever_Logo.svg/1200px-Unilever_Logo.svg.png' },
+  { id: 'gb2', name: 'P&G', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Procter_%26_Gamble_logo.svg/1200px-Procter_%26_Gamble_logo.svg.png' },
+  { id: 'gb3', name: 'Nestle', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Nestl%C3%A9_logo.svg/1200px-Nestl%C3%A9_logo.svg.png' },
+  { id: 'gb4', name: 'Walton', logo: 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo_Walton.png' },
 ];

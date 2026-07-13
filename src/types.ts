@@ -8,6 +8,7 @@ export interface Product {
   rating: number;
   reviews: number;
   isNew?: boolean;
+  quantityText?: string;
 }
 
 export interface Category {
@@ -21,4 +22,10 @@ export interface Feature {
   title: string;
   subtitle: string;
   icon: string;
+}
+
+export interface Brand {
+  id: string;
+  name: string;
+  logo: string;
 }

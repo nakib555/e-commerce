@@ -20,7 +20,6 @@ import { PromoBanners } from './components/PromoBanners';
 import { TrustAndFaq } from './components/TrustAndFaq';
 import { Newsletter } from './components/Newsletter';
 import { Footer } from './components/Footer';
-import { MobileNav } from './components/MobileNav';
 
 // Import new mobile pages
 import { MobileCategories } from './components/mobile/MobileCategories';
@@ -34,11 +33,23 @@ import { Product } from './types';
 import { CartDrawer } from './components/CartDrawer';
 import { AuthModal } from './components/AuthModal';
 import { flashSaleProducts } from './data';
+import { MobileLayout } from './components/MobileLayout';
+import { SEASONAL_THEMES } from './theme';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('home');
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  
+  // Seasonal state matching design system specification
+  const [currentSeason, setCurrentSeason] = useState<string>(() => {
+    return localStorage.getItem('dm_current_season') || 'default';
+  });
+
+  const handleSeasonChange = (seasonKey: string) => {
+    setCurrentSeason(seasonKey);
+    localStorage.setItem('dm_current_season', seasonKey);
+  };
   
   // Auth state
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -116,48 +127,64 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-brand-light font-sans flex flex-col dark:bg-[#121212] dark:text-gray-100">
-      <Header 
+      {/* MOBILE LAYOUT */}
+      <MobileLayout 
         activeTab={activeTab} 
-        onTabChange={setActiveTab} 
-        cartCount={cartCount} 
-        onCartClick={() => setIsCartOpen(true)} 
-        isLoggedIn={isLoggedIn}
-        user={user}
-        onLoginClick={() => handleRequireLogin('প্রোফাইল দেখতে অনুগ্রহ করে লগইন করুন')}
-      />
-      
-      <main className="flex-1 pb-[70px] md:pb-0">
-        {activeTab === 'home' ? (
-          <div>
-            <Hero />
-            <CategoryList />
-            <FlashSale onProductClick={handleProductClick} onAddToCart={handleAddToCart} />
-            <BestSellers onProductClick={handleProductClick} onAddToCart={handleAddToCart} />
-            <Features />
-            <ComboOffers onProductClick={handleProductClick} onAddToCart={handleAddToCart} />
-            <NewArrivals onProductClick={handleProductClick} onAddToCart={handleAddToCart} />
-            <PromoBanners />
-            <Brands />
-            <CustomerReviews />
-            <TrustAndFaq />
-          </div>
-        ) : (
-          <div className="max-w-[1440px] mx-auto w-full px-4 lg:px-8 xl:px-12 py-6 sm:py-10">
-            {activeTab === 'categories' && <MobileCategories onProductClick={handleProductClick} onAddToCart={handleAddToCart} />}
-            {activeTab === 'orders' && <MobileOrders isLoggedIn={isLoggedIn} onLoginClick={() => handleRequireLogin('অর্ডার দেখতে অনুগ্রহ করে লগইন করুন')} />}
-            {activeTab === 'profile' && <MobileProfile isLoggedIn={isLoggedIn} user={user} onLoginClick={() => handleRequireLogin('প্রোফাইল দেখতে অনুগ্রহ করে লগইন করুন')} onLogout={handleLogout} />}
-            {activeTab === 'more' && <MobileMore />}
-          </div>
-        )}
-      </main>
+        onTabChange={setActiveTab}
+        cartCount={cartCount}
+        onCartClick={() => setIsCartOpen(true)}
+        currentSeason={currentSeason}
+        onProductClick={handleProductClick}
+        onAddToCart={handleAddToCart}
+      >
+        {activeTab === 'categories' && <MobileCategories onProductClick={handleProductClick} onAddToCart={handleAddToCart} />}
+        {activeTab === 'orders' && <MobileOrders isLoggedIn={isLoggedIn} onLoginClick={() => handleRequireLogin('অর্ডার দেখতে অনুগ্রহ করে লগইন করুন')} />}
+        {activeTab === 'profile' && <MobileProfile isLoggedIn={isLoggedIn} user={user} onLoginClick={() => handleRequireLogin('প্রোফাইল দেখতে অনুগ্রহ করে লগইন করুন')} onLogout={handleLogout} />}
+        {activeTab === 'more' && <MobileMore />}
+      </MobileLayout>
 
-      {/* Footer and newsletter are only shown on home tab or desktop */}
-      <div className={activeTab === 'home' ? 'block' : 'hidden md:block'}>
+      {/* DESKTOP LAYOUT */}
+      <div className="hidden md:flex flex-col flex-1">
+        <Header 
+          activeTab={activeTab} 
+          onTabChange={setActiveTab} 
+          cartCount={cartCount} 
+          onCartClick={() => setIsCartOpen(true)} 
+          isLoggedIn={isLoggedIn}
+          user={user}
+          onLoginClick={() => handleRequireLogin('প্রোফাইল দেখতে অনুগ্রহ করে লগইন করুন')}
+          currentSeason={currentSeason}
+          onSeasonChange={handleSeasonChange}
+        />
+        
+        <main className="flex-1 pb-[70px] md:pb-0">
+          {activeTab === 'home' ? (
+            <div>
+              <Hero currentSeason={currentSeason} />
+              <CategoryList />
+              <FlashSale onProductClick={handleProductClick} onAddToCart={handleAddToCart} />
+              <BestSellers onProductClick={handleProductClick} onAddToCart={handleAddToCart} />
+              <Features />
+              <ComboOffers onProductClick={handleProductClick} onAddToCart={handleAddToCart} />
+              <NewArrivals onProductClick={handleProductClick} onAddToCart={handleAddToCart} />
+              <PromoBanners />
+              <Brands />
+              <CustomerReviews />
+              <TrustAndFaq />
+            </div>
+          ) : (
+            <div className="max-w-[1440px] mx-auto w-full px-4 lg:px-8 xl:px-12 py-6 sm:py-10">
+              {activeTab === 'categories' && <MobileCategories onProductClick={handleProductClick} onAddToCart={handleAddToCart} />}
+              {activeTab === 'orders' && <MobileOrders isLoggedIn={isLoggedIn} onLoginClick={() => handleRequireLogin('অর্ডার দেখতে অনুগ্রহ করে লগইন করুন')} />}
+              {activeTab === 'profile' && <MobileProfile isLoggedIn={isLoggedIn} user={user} onLoginClick={() => handleRequireLogin('প্রোফাইল দেখতে অনুগ্রহ করে লগইন করুন')} onLogout={handleLogout} />}
+              {activeTab === 'more' && <MobileMore />}
+            </div>
+          )}
+        </main>
+
         <Newsletter />
         <Footer />
       </div>
-      
-      <MobileNav activeTab={activeTab} onTabChange={setActiveTab} />
 
       {/* Dynamic Product Detail Modal */}
       <ProductDetailModal
@@ -166,26 +193,6 @@ export default function App() {
         onClose={() => setIsModalOpen(false)}
         onAddToCart={handleAddToCart}
       />
-
-      {/* Floating Mobile Cart Button */}
-      <motion.button
-        onClick={() => setIsCartOpen(true)}
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        className="md:hidden fixed bottom-20 right-4 z-40 bg-gradient-to-r from-brand-emerald to-[#6DB33F] text-white p-3.5 rounded-full shadow-[0_4px_20px_rgba(15,138,95,0.4)] flex items-center justify-center border border-white/20"
-        aria-label="Open cart drawer"
-      >
-        <div className="relative">
-          <ShoppingCart size={22} className="drop-shadow-sm" />
-          {cartCount > 0 && (
-            <span className="absolute -top-2.5 -right-2.5 bg-brand-gold text-brand-dark text-[9px] font-extrabold h-5.5 w-5.5 rounded-full flex items-center justify-center border-2 border-white animate-pulse">
-              {cartCount}
-            </span>
-          )}
-        </div>
-      </motion.button>
 
       {/* Slide-over Cart Drawer */}
       <CartDrawer

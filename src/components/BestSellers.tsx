@@ -4,6 +4,7 @@ import { bestSellerProducts } from '../data';
 import { ProductSkeleton } from './ProductSkeleton';
 import { ArrowRight, ChevronLeft, ChevronRight, ShoppingCart, Star } from 'lucide-react';
 import { Product } from '../types';
+import { TYPOGRAPHY_TOKENS } from '../theme';
 
 const ProductListCard: React.FC<{ 
   product: Product; 
@@ -33,7 +34,7 @@ const ProductListCard: React.FC<{
 
       {/* Content */}
       <div className="flex-1 flex flex-col justify-center py-0.5 pr-2">
-        <h3 className="text-[11px] sm:text-sm font-medium text-gray-800 line-clamp-2 mb-0.5 leading-snug">
+        <h3 className={`${TYPOGRAPHY_TOKENS.cardTitle} text-[11px] sm:text-sm font-medium text-gray-800 line-clamp-2 mb-0.5 leading-snug`}>
           {product.name}
         </h3>
         
@@ -83,7 +84,7 @@ export function BestSellers({ onProductClick, onAddToCart }: BestSellersProps) {
       <div className="flex items-center justify-between mb-2 sm:mb-6">
         <div className="flex items-center gap-2">
           <div className="w-1.5 h-6 bg-brand-emerald rounded-full"></div>
-          <h2 className="text-[14px] sm:text-2xl font-bold text-gray-800 flex items-center gap-3">
+          <h2 className={`${TYPOGRAPHY_TOKENS.sectionTitle} text-[14px] sm:text-2xl flex items-center gap-3 text-gray-800`}>
             ফিচার্ড প্রোডাক্টস
           </h2>
         </div>

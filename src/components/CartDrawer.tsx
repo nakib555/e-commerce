@@ -148,7 +148,7 @@ export function CartDrawer({
                       </p>
                       <button
                         onClick={onClose}
-                        className="bg-brand-emerald hover:bg-[#0C724E] text-white px-5 py-2 rounded-xl text-xs font-semibold shadow transition-colors"
+                        className="bg-brand-emerald hover:bg-brand-dark text-white px-5 py-2 rounded-xl text-xs font-semibold shadow transition-colors"
                       >
                         কেনাকাটা শুরু করুন
                       </button>
@@ -237,7 +237,7 @@ export function CartDrawer({
                             />
                             <button
                               onClick={handleApplyPromo}
-                              className="bg-brand-emerald text-white px-3 py-1.5 rounded-lg text-xs font-semibold hover:bg-[#0C724E]"
+                              className="bg-brand-emerald text-white px-3 py-1.5 rounded-lg text-xs font-semibold hover:bg-brand-dark"
                             >
                               প্রয়োগ করুন
                             </button>
@@ -373,7 +373,7 @@ export function CartDrawer({
                   
                   <button
                     onClick={handleReset}
-                    className="bg-brand-emerald hover:bg-[#0C724E] text-white px-6 py-2.5 rounded-xl text-xs font-semibold shadow transition-colors w-full max-w-[320px]"
+                    className="bg-brand-emerald hover:bg-brand-dark text-white px-6 py-2.5 rounded-xl text-xs font-semibold shadow transition-colors w-full max-w-[320px]"
                   >
                     শপিং চালিয়ে যান
                   </button>
@@ -415,7 +415,7 @@ export function CartDrawer({
                         onRequireLogin?.('পণ্য কিনতে অনুগ্রহ করে লগইন করুন');
                       }
                     }}
-                    className="w-full bg-brand-emerald hover:bg-[#0C724E] text-white py-3 sm:py-3.5 rounded-xl font-bold flex items-center justify-center gap-2 shadow-md transition-colors cursor-pointer"
+                    className="w-full bg-brand-emerald hover:bg-brand-dark text-white py-3 sm:py-3.5 rounded-xl font-bold flex items-center justify-center gap-2 shadow-md transition-colors cursor-pointer"
                   >
                     <span>চেকআউট করুন</span>
                     <ArrowRight size={16} />
