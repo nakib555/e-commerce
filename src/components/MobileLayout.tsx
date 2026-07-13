@@ -73,6 +73,58 @@ export function MobileLayout({
   const [isCategoriesSubmenuOpen, setIsCategoriesSubmenuOpen] = useState(false);
   const [activeView, setActiveView] = useState<'fashion' | 'grocery'>('fashion');
   const [isLoading, setIsLoading] = useState(true);
+  const [groceryActiveSlide, setGroceryActiveSlide] = useState(0);
+
+  const GROCERY_SLIDES = [
+    {
+      badge: "New Collection",
+      title: "Premium Quality Everyday Essentials",
+      tagline: "Discover the best products for you and your family",
+      image: "https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80",
+      bgClass: "bg-amber-50/60 border-amber-100/30 text-slate-900",
+      badgeTextClass: "text-primary",
+      btnClass: "bg-primary hover:bg-brand-dark",
+      badgeIconClass: "ph-fill ph-leaf text-brand-emerald animate-pulse",
+    },
+    {
+      badge: "Farm Fresh",
+      title: "Fresh Organic Fruits & Veggies",
+      tagline: "Direct from farms to your dining table within 24 hours",
+      image: "https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80",
+      bgClass: "bg-emerald-50/60 border-emerald-100/30 text-emerald-950",
+      badgeTextClass: "text-emerald-700",
+      btnClass: "bg-emerald-600 hover:bg-emerald-700",
+      badgeIconClass: "ph-fill ph-carrot text-emerald-600 animate-bounce",
+    },
+    {
+      badge: "Pure Quality",
+      title: "Pure & Premium Grocery Items",
+      tagline: "Assured quality and 100% authenticity on daily needs",
+      image: "https://images.unsplash.com/photo-1543083503-0c40dac3eb30?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80",
+      bgClass: "bg-cyan-50/60 border-cyan-100/30 text-cyan-950",
+      badgeTextClass: "text-cyan-700",
+      btnClass: "bg-cyan-600 hover:bg-cyan-700",
+      badgeIconClass: "ph-fill ph-shield-check text-cyan-600 animate-pulse",
+    },
+    {
+      badge: "Mega Discount",
+      title: "Super Saving Family Combos",
+      tagline: "Huge discounts and special family grocery bundles",
+      image: "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80",
+      bgClass: "bg-rose-50/60 border-rose-100/30 text-rose-950",
+      badgeTextClass: "text-rose-700",
+      btnClass: "bg-rose-600 hover:bg-rose-700",
+      badgeIconClass: "ph-fill ph-gift text-rose-600 animate-bounce",
+    }
+  ];
+
+  // Auto-slide grocery banner every 2s
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setGroceryActiveSlide(prev => (prev + 1) % GROCERY_SLIDES.length);
+    }, 2000);
+    return () => clearInterval(timer);
+  }, [GROCERY_SLIDES.length]);
   
   const [openAccordion, setOpenAccordion] = useState<string | null>(null);
 
@@ -253,35 +305,41 @@ export function MobileLayout({
         className={`fixed top-0 left-0 h-full w-[85%] max-w-[340px] bg-white z-[70] transform transition-transform duration-300 ease-in-out flex flex-col font-sans rounded-r-2xl overflow-hidden shadow-2xl ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}
       >
         {/* Top Deep Green Profile Section */}
-        <div className="bg-primary pt-12 pb-16 px-6 relative shrink-0 rounded-br-3xl">
+        <div className="bg-primary pt-12 pb-[72px] px-6 relative shrink-0 rounded-b-[28px] shadow-md">
           {/* Close Button */}
-          <button onClick={closeSidebar} className="absolute top-6 right-5 text-white/80 hover:text-white transition p-1">
-            <i className="ph ph-x text-[22px] font-bold"></i>
+          <button onClick={closeSidebar} className="absolute top-5 right-5 text-white/90 hover:text-white transition p-1.5 rounded-full hover:bg-white/10 flex items-center justify-center">
+            <i className="ph ph-x text-[22px] font-semibold"></i>
           </button>
           
           {/* Profile Info */}
           <div className="flex items-center gap-3.5">
-            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=80" alt="Profile" className="w-[52px] h-[52px] rounded-full border-2 border-white/20 object-cover shadow-sm" />
+            <div className="relative shrink-0 w-14 h-14 rounded-full flex items-center justify-center bg-white/10 border border-white/20 p-[2px] shadow-sm">
+              <img 
+                src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=80" 
+                alt="Profile" 
+                className="w-full h-full rounded-full object-cover border border-white/30 shadow-inner" 
+              />
+            </div>
             <div className="flex flex-col">
-              <h3 className="text-white font-semibold text-[17px] leading-tight tracking-wide">Tahmina Islam</h3>
-              <p className="text-emerald-100 text-[11px] mt-0.5 tracking-wide">tahmina.islam@email.com</p>
+              <h3 className="text-white font-bold text-[18px] leading-tight tracking-wide">Tahmina Islam</h3>
+              <p className="text-emerald-100/90 text-[11px] mt-0.5 tracking-wide font-medium">tahmina.islam@email.com</p>
             </div>
           </div>
 
           {/* Overlapping Store Selector Card */}
-          <div className="absolute -bottom-8 left-5 right-5 bg-white rounded-[14px] p-3 flex items-center justify-between shadow-[0_8px_25px_rgba(0,0,0,0.06)] z-10 cursor-pointer border border-slate-100 group">
+          <div className="absolute -bottom-8 left-5 right-5 bg-white rounded-2xl p-3 flex items-center justify-between shadow-[0_12px_28px_rgba(0,0,0,0.06)] z-10 cursor-pointer border border-slate-100/70 group">
             <div className="flex items-center gap-3">
-              <div className="w-11 h-11 rounded-lg bg-emerald-50 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition duration-300">
+              <div className="w-11 h-11 rounded-xl bg-[#E6F7F0] border border-[#CCEFE0] flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white group-hover:border-primary transition duration-300">
                 <i className="ph ph-shopping-bag-open text-[22px]"></i>
               </div>
               <div className="flex flex-col gap-0.5">
                 <h4 className="text-[13px] font-bold text-slate-800 leading-tight">Rahmaniya Mart</h4>
-                <span className="text-[9px] font-bold text-primary bg-emerald-50 px-1.5 py-0.5 rounded flex items-center gap-1 w-fit tracking-wide">
-                  <i className="ph-fill ph-crown text-amber-500"></i> Premium Member
+                <span className="text-[9px] font-bold text-primary bg-[#E6F7F0] border border-[#CCEFE0] px-1.5 py-0.5 rounded flex items-center gap-1 w-fit tracking-wide mt-0.5">
+                  <i className="ph-fill ph-crown text-amber-500 text-[10px]"></i> Premium Member
                 </span>
               </div>
             </div>
-            <i className="ph ph-caret-right text-slate-400 group-hover:translate-x-1 transition-transform mr-1"></i>
+            <i className="ph ph-caret-right text-slate-400 group-hover:translate-x-1 transition-transform mr-1 text-base"></i>
           </div>
         </div>
 
@@ -289,15 +347,15 @@ export function MobileLayout({
         <div className="flex-1 overflow-y-auto no-scrollbar bg-white pt-12 pb-8 px-4 relative z-0">
           
           {/* Become Premium Promo Banner */}
-          <div className="bg-[#f3f4f6] rounded-[14px] p-4 flex items-center justify-between mb-4 border border-slate-100">
+          <div className="bg-slate-50 rounded-[18px] p-5 flex items-center justify-between mb-5 border border-slate-100/80 shadow-[0_4px_18px_rgba(0,0,0,0.02)]">
             <div className="w-[65%]">
-              <h4 className="text-sm font-bold text-slate-800 mb-1">Become Premium</h4>
-              <p className="text-[10px] text-slate-500 font-medium leading-relaxed mb-3">Free delivery, extra discounts and more benefits</p>
-              <button className="bg-primary hover:bg-brand-dark transition-colors duration-300 text-white text-[10px] font-semibold px-3 py-1.5 rounded-md flex items-center gap-1.5 w-fit shadow-sm">
-                Upgrade Now <i className="ph ph-arrow-right"></i>
+              <h4 className="text-sm font-bold text-slate-900 mb-1">Become Premium</h4>
+              <p className="text-[10px] text-slate-500 font-medium leading-relaxed mb-3.5">Free delivery, extra discounts and more benefits</p>
+              <button className="bg-primary hover:bg-brand-dark transition-all duration-300 text-white text-[11px] font-bold px-4 py-2.5 rounded-xl flex items-center gap-2 w-fit shadow-md shadow-emerald-500/10">
+                Upgrade Now <i className="ph ph-arrow-right text-sm"></i>
               </button>
             </div>
-            <img src="https://cdn-icons-png.flaticon.com/512/4213/4213958.png" className="w-16 h-16 object-contain drop-shadow-md" alt="Gift" />
+            <img src="https://cdn-icons-png.flaticon.com/512/4213/4213958.png" className="w-18 h-18 object-contain drop-shadow-md hover:scale-105 transition-transform duration-300" alt="Gift" />
           </div>
 
           {/* Menu List */}
@@ -801,26 +859,29 @@ export function MobileLayout({
           </header>
 
           <section className="px-5 mt-2">
-            <div className="w-full bg-amber-50/60 border border-amber-100/30 rounded-2xl p-5 relative overflow-hidden h-[180px] shadow-sm flex items-center animate-fade-in">
+            <div className={`w-full border rounded-2xl p-5 relative overflow-hidden h-[180px] shadow-sm flex items-center transition-all duration-500 ${GROCERY_SLIDES[groceryActiveSlide].bgClass}`}>
               <div className="relative z-10 w-[60%]">
-                <span className="text-primary text-[10px] font-bold flex items-center gap-1 uppercase tracking-wider mb-2">
-                  <i className="ph-fill ph-leaf text-xs text-brand-emerald animate-pulse"></i> New Collection
+                <span className={`text-[10px] font-bold flex items-center gap-1 uppercase tracking-wider mb-2 ${GROCERY_SLIDES[groceryActiveSlide].badgeTextClass}`}>
+                  <i className={GROCERY_SLIDES[groceryActiveSlide].badgeIconClass}></i> {GROCERY_SLIDES[groceryActiveSlide].badge}
                 </span>
-                <h2 className="text-[22px] font-extrabold text-slate-900 leading-[1.2] mb-2 font-serif">Premium Quality Everyday Essentials</h2>
-                <p className="text-[11px] text-slate-600 mb-4 font-medium leading-snug w-[90%]">Discover the best products for you and your family</p>
-                <button className="bg-primary hover:bg-brand-dark transition-colors text-white text-[11px] font-bold px-4 py-2.5 rounded-full shadow flex items-center gap-1.5 w-fit">
+                <h2 className="text-[20px] font-extrabold leading-[1.2] mb-1.5 font-serif line-clamp-2">{GROCERY_SLIDES[groceryActiveSlide].title}</h2>
+                <p className="text-[10px] opacity-80 mb-3 font-medium leading-snug w-[95%] line-clamp-2">{GROCERY_SLIDES[groceryActiveSlide].tagline}</p>
+                <button className={`transition-colors text-white text-[11px] font-bold px-4 py-2.5 rounded-full shadow flex items-center gap-1.5 w-fit ${GROCERY_SLIDES[groceryActiveSlide].btnClass}`}>
                   Shop Now <i className="ph ph-arrow-right text-sm"></i>
                 </button>
               </div>
-              <div className="absolute right-[-20px] bottom-0 h-[105%] w-[45%] flex items-end justify-end">
-                <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" className="h-full object-cover mix-blend-multiply opacity-90 drop-shadow-xl rounded-bl-3xl" alt="Grocery Bag" />
+              <div className="absolute right-[-15px] bottom-0 h-[105%] w-[42%] flex items-end justify-end">
+                <img src={GROCERY_SLIDES[groceryActiveSlide].image} className="h-full w-full object-cover rounded-bl-3xl drop-shadow-lg transition-all duration-700" alt="Grocery Slide Image" />
               </div>
               
-              <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex space-x-1.5">
-                <div className="w-5 h-1.5 rounded-full bg-primary"></div>
-                <div className="w-1.5 h-1.5 rounded-full bg-slate-300"></div>
-                <div className="w-1.5 h-1.5 rounded-full bg-slate-300"></div>
-                <div className="w-1.5 h-1.5 rounded-full bg-slate-300"></div>
+              <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex space-x-1.5 z-20">
+                {GROCERY_SLIDES.map((_, idx) => (
+                  <button 
+                    key={idx}
+                    onClick={() => setGroceryActiveSlide(idx)}
+                    className={`h-1.5 rounded-full transition-all duration-300 ${groceryActiveSlide === idx ? 'w-5 bg-primary' : 'w-1.5 bg-slate-300/85'}`}
+                  />
+                ))}
               </div>
             </div>
           </section>
@@ -833,32 +894,32 @@ export function MobileLayout({
             
             <div className="flex overflow-x-auto no-scrollbar gap-3 pb-2 -mx-5 px-5">
               <a href="#" className="flex flex-col items-center min-w-[72px] group">
-                <div className="w-[72px] h-[72px] rounded-2xl bg-brand-emerald/5 border border-brand-emerald/5 flex items-center justify-center mb-2 overflow-hidden relative group-hover:bg-brand-emerald/10 transition-colors">
-                  <img src="https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=80" className="w-12 h-12 object-contain mix-blend-multiply drop-shadow-sm group-hover:scale-110 transition duration-300" />
+                <div className="w-[72px] h-[72px] rounded-2xl overflow-hidden relative border border-slate-100 flex items-center justify-center mb-2 shadow-[0_4px_10px_rgba(0,0,0,0.04)] bg-slate-50">
+                  <img src="https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=80" className="w-full h-full object-cover group-hover:scale-110 transition duration-300" alt="Groceries Category" />
                 </div>
                 <span className="text-[11px] font-bold text-slate-700">Groceries</span>
               </a>
               <a href="#" className="flex flex-col items-center min-w-[72px] group">
-                <div className="w-[72px] h-[72px] rounded-2xl bg-brand-emerald/5 border border-brand-emerald/5 flex items-center justify-center mb-2 overflow-hidden relative group-hover:bg-brand-emerald/10 transition-colors">
-                  <img src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=80" className="w-10 h-10 object-contain mix-blend-multiply drop-shadow-sm group-hover:scale-110 transition duration-300" />
+                <div className="w-[72px] h-[72px] rounded-2xl overflow-hidden relative border border-slate-100 flex items-center justify-center mb-2 shadow-[0_4px_10px_rgba(0,0,0,0.04)] bg-slate-50">
+                  <img src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=80" className="w-full h-full object-cover group-hover:scale-110 transition duration-300" alt="Beverages Category" />
                 </div>
                 <span className="text-[11px] font-bold text-slate-700">Beverages</span>
               </a>
               <a href="#" className="flex flex-col items-center min-w-[72px] group">
-                <div className="w-[72px] h-[72px] rounded-2xl bg-brand-emerald/5 border border-brand-emerald/5 flex items-center justify-center mb-2 overflow-hidden relative group-hover:bg-brand-emerald/10 transition-colors">
-                  <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=80" className="w-10 h-10 object-contain mix-blend-multiply drop-shadow-sm group-hover:scale-110 transition duration-300" />
+                <div className="w-[72px] h-[72px] rounded-2xl overflow-hidden relative border border-slate-100 flex items-center justify-center mb-2 shadow-[0_4px_10px_rgba(0,0,0,0.04)] bg-slate-50">
+                  <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=80" className="w-full h-full object-cover group-hover:scale-110 transition duration-300" alt="Personal Care Category" />
                 </div>
                 <span className="text-[11px] font-bold text-slate-700">Personal Care</span>
               </a>
               <a href="#" className="flex flex-col items-center min-w-[72px] group">
-                <div className="w-[72px] h-[72px] rounded-2xl bg-brand-emerald/5 border border-brand-emerald/5 flex items-center justify-center mb-2 overflow-hidden relative group-hover:bg-brand-emerald/10 transition-colors">
-                  <img src="https://images.unsplash.com/photo-1584824486509-112e4181ff6b?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=80" className="w-10 h-10 object-contain mix-blend-multiply drop-shadow-sm group-hover:scale-110 transition duration-300" />
+                <div className="w-[72px] h-[72px] rounded-2xl overflow-hidden relative border border-slate-100 flex items-center justify-center mb-2 shadow-[0_4px_10px_rgba(0,0,0,0.04)] bg-slate-50">
+                  <img src="https://images.unsplash.com/photo-1584824486509-112e4181ff6b?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=80" className="w-full h-full object-cover group-hover:scale-110 transition duration-300" alt="Household Category" />
                 </div>
                 <span className="text-[11px] font-bold text-slate-700 text-center leading-tight">Household</span>
               </a>
               <a href="#" className="flex flex-col items-center min-w-[72px] group">
-                <div className="w-[72px] h-[72px] rounded-2xl bg-brand-emerald/5 border border-brand-emerald/5 flex items-center justify-center mb-2 overflow-hidden relative group-hover:bg-brand-emerald/10 transition-colors">
-                  <img src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=80" className="w-10 h-10 object-contain mix-blend-multiply drop-shadow-sm group-hover:scale-110 transition duration-300" />
+                <div className="w-[72px] h-[72px] rounded-2xl overflow-hidden relative border border-slate-100 flex items-center justify-center mb-2 shadow-[0_4px_10px_rgba(0,0,0,0.04)] bg-slate-50">
+                  <img src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=80" className="w-full h-full object-cover group-hover:scale-110 transition duration-300" alt="Baby Care Category" />
                 </div>
                 <span className="text-[11px] font-bold text-slate-700">Baby Care</span>
               </a>
